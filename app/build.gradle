@@ -1,0 +1,124 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "app.com.milico"
+        minSdkVersion 17
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+
+        multiDexEnabled true
+
+        vectorDrawables.useSupportLibrary = true
+
+
+    }
+    buildTypes {
+
+
+        debug {
+            minifyEnabled false
+            useProguard false
+            buildConfigField("String", "BASE_URL", "\"http://ent.draftserver.com/bellr/public/api/v1/\"")
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            minifyEnabled true
+            useProguard false
+            shrinkResources true
+            buildConfigField("String", "BASE_URL", "\"https://app.bellr.com.au/api/v1/\"")
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+    }
+
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+
+    def anko_version = '0.10.4'
+    def calligraphy_version = '2.3.0'
+    def koin_version = "1.0.0-beta-7"
+    def retrofit_version = "2.3.0"
+    def okhttp_version = "3.8.1"
+    def gson_version = "2.8.1"
+    def gson_converter_version = "2.3.0"
+    def multidex_version = "1.0.3"
+    def timber_version = '4.6.1'
+    def rx_java_version = "2.1.10"
+    def rx_android_version = "2.0.2"
+    def retrofit_rx_adapter_version = "1.0.0"
+    def room_version = '1.1.1'
+    def architecture_component_version = "1.1.1"
+
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+
+    // Koin for Android
+    implementation "org.koin:koin-android:$koin_version"
+    // or Koin for Lifecycle scoping
+    implementation "org.koin:koin-android-scope:$koin_version"
+    // or Koin for Android Architecture ViewModel
+    implementation "org.koin:koin-android-viewmodel:$koin_version"
+
+
+    // Network dependencies
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+    implementation "com.google.code.gson:gson:$gson_version"
+    implementation "com.squareup.retrofit2:converter-gson:$gson_converter_version"
+
+    // font
+    implementation "uk.co.chrisjenx:calligraphy:$calligraphy_version"
+
+    // developer dependencies
+    implementation "com.jakewharton.timber:timber:$timber_version"
+
+    // Anko Commons
+    implementation "org.jetbrains.anko:anko-commons:$anko_version"
+
+    // multidex dependency
+    implementation "com.android.support:multidex:$multidex_version"
+
+    // reactive
+    implementation "io.reactivex.rxjava2:rxjava:$rx_java_version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rx_android_version"
+    implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$retrofit_rx_adapter_version"
+    implementation "com.jakewharton.rxbinding:rxbinding:$retrofit_rx_adapter_version"
+
+
+    //room database
+    implementation "android.arch.persistence.room:runtime:$room_version"
+    kapt "android.arch.persistence.room:compiler:$room_version"
+
+
+    // architecture components
+    implementation "android.arch.lifecycle:extensions:$architecture_component_version"
+    kapt "android.arch.lifecycle:compiler:$architecture_component_version"
+
+
+}

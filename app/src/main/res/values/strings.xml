@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">milico</string>
+    <string name="tv_ok">ok</string>
+    <string name="err_no_data_available">No data available</string>
+    <string name="err_no_internet">No Internet</string>
+    <string name="err_connection_time_out">Time Out</string>
+    <string name="err_something_went_wrong">Something went wrong</string>
+    <string name="err_invalid_bsb">Invalid</string>
+    <string name="todo">TODO</string>
+
+
+    <!--keypad number-->
+    <string name="number_one">1</string>
+    <string name="number_two">2</string>
+    <string name="number_three">3</string>
+    <string name="number_four">4</string>
+    <string name="number_five">5</string>
+    <string name="number_six">6</string>
+    <string name="number_seven">7</string>
+    <string name="number_eight">8</string>
+    <string name="number_nine">9</string>
+    <string name="number_zero">0</string>
+</resources>

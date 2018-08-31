@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="color_gray">#504f4f</color>
+
+
+    <color name="border">#585A5E</color>
+    <color name="background">#393D46</color>
+    <color name="keypad_not_selected">#CDCDCD</color>
+    <color name="keypad_selected">#D0D0D0</color>
+    <color name="ok_keypad">#709B18</color>
+    <color name="not_ok_keypad">#C40000</color>
+    <color name="forgotten_password">#5A5B60</color>
+    <color name="pop_up_background">#282828</color>
+</resources>
