@@ -3,8 +3,6 @@ package app.com.milico.di
 
 import android.app.Application
 import android.content.res.Resources
-import app.com.milico.di.viewModelModule
-
 import np.com.amir.apptest.util.ApplicationSchedulerProvider
 import np.com.amir.apptest.util.SchedulerProvider
 import org.koin.dsl.module.module

@@ -1,7 +1,7 @@
 package app.com.milico.base
 
 import android.support.multidex.MultiDexApplication
-import com.milico.base.MiliconApp.initKoin
+import app.com.milico.util.extensions.initKoin
 
 class MiliconApp: MultiDexApplication() {
     override fun onCreate() {

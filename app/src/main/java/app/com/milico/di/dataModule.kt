@@ -14,15 +14,16 @@ import np.com.amir.apptest.data.local.dbHelper.IDbHelper
 import np.com.amir.apptest.data.local.handlers.DbThread
 import np.com.amir.apptest.data.repository.AppDataManager
 import np.com.amir.apptest.data.repository.IAppDataManager
+import org.koin.dsl.module.Module
 import org.koin.dsl.module.module
 
-val dataModule = module {
+val dataModule :Module = module {
 
     single { provideRoomDatabase(get())}
     single{ provideDbThread()}
-    single{ provideDataManager(get(),get(),get(),get(),get())}
+    single(override = true){ provideDataManager(get(),get(),get(),get(),get())}
     single{ provideDbHelper(get())}
-    single{ provideApiServiceHolder()}
+    single (override = true){ provideApiServiceHolder()}
     single{ provideSharedPreference(get())}
 
 }

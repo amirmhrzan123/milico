@@ -1,4 +1,4 @@
-package com.milico.base.MiliconApp
+package app.com.milico.util.extensions
 
 
 import app.com.milico.base.MiliconApp

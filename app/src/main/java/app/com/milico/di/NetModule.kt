@@ -16,16 +16,16 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-val netModules = module {
+val netModules  = module {
     single{ provideGson() }
 
     single { provideOkHttpBuilder(get(),get())}
 
     single{provideLoggingInterceptor()}
 
-    single{provideApiService(get(),get())}
+    single (override=true){provideApiService(get(),get())}
 
-    single{ createWebService<IApiService>(get())}
+    single(override = true){ createWebService<IApiService>(get())}
 
     single{ provideTokenService(get(),get(),get())}
 

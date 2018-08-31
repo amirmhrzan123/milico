@@ -1,4 +1,4 @@
-package com.app.eulogy.utils.extensions
+package app.com.milico.util.extensions
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager

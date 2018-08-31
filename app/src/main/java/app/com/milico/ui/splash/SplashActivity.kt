@@ -4,6 +4,7 @@ import android.arch.lifecycle.Observer
 import app.com.milico.R
 import app.com.milico.base.BaseActivity
 import app.com.milico.databinding.ActivitySplashBinding
+import app.com.milico.ui.main.MainActivity
 import org.koin.android.ext.android.inject
 
 class SplashActivity: BaseActivity<ActivitySplashBinding>() {
@@ -16,6 +17,8 @@ class SplashActivity: BaseActivity<ActivitySplashBinding>() {
         dataBinding.viewModel = splashViewModel.apply {
             isLogIn.observe(this@SplashActivity, Observer {
 
+                MainActivity.start(this@SplashActivity)
+                finish()
                /* if(it!!){
 
                 }else{

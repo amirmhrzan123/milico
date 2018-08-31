@@ -20,4 +20,15 @@
     <string name="number_eight">8</string>
     <string name="number_nine">9</string>
     <string name="number_zero">0</string>
+
+
+    <!--fonts-->
+    <string name="font_regulat">fonts/Metropolis-Regular.otf</string>
+    <string name="font_bold">fonts/Metropolis-Bold.otf</string>
+    <string name="font_extrabold">fonts/Metropolis-ExtraBold.otf</string>
+    <string name="font_extralight">fonts/Metropolis-ExtraLight.otf</string>
+    <string name="font_medium">fonts/Metropolis-Medium.otf</string>
+    <string name="font_light">fonts/Metropolis-Light.otf</string>
+    <string name="font_thin">fonts/Metropolis-Thin.otf</string>
+    <string name="welcome_to_home_screen">WELCOME TO HOME SCREEN</string>
 </resources>
