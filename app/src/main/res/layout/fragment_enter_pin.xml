@@ -7,9 +7,6 @@
 
     <data>
 
-        <variable
-            name="viewModel"
-            type="app.com.milico.ui.pin.EnterPinViewModel"/>
 
     </data>
 
@@ -21,60 +18,20 @@
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="@dimen/dimen_0dp"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:background="@color/keypad_not_selected"
             app:layout_constraintEnd_toStartOf="@id/guideline_keypad_end"
             app:layout_constraintStart_toStartOf="@id/guideline_keypad">
-            <LinearLayout
-                android:id="@+id/ll_keys"
+
+
+            <TextView
+                android:id="@+id/textView3"
                 android:layout_width="@dimen/dimen_0dp"
                 android:layout_height="@dimen/dimen_0dp"
-                android:weightSum="4"
-                android:padding="30dp"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_first_row"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:orientation="horizontal">
-                <ImageView
-                    android:id="@+id/iv_first"
-                    android:layout_width="40dp"
-                    android:layout_weight="1"
-                    android:layout_height="40dp"
-                    android:src="@drawable/keypad_circle_one"
-                    android:layout_gravity="center"
-                    />
-
-                <ImageView
-                    android:id="@+id/iv_second"
-                    android:layout_width="40dp"
-                    android:layout_weight="1"
-                    android:layout_height="40dp"
-                    android:src="@drawable/keypad_circle_one"
-                    android:layout_gravity="center"
-                    />
-
-                <ImageView
-                    android:id="@+id/iv_third"
-                    android:layout_width="40dp"
-                    android:layout_weight="1"
-                    android:layout_height="40dp"
-                    android:src="@drawable/keypad_circle_one"
-                    android:layout_gravity="center"
-                    />
-
-                <ImageView
-                    android:id="@+id/iv_fourth"
-                    android:layout_width="40dp"
-                    android:layout_weight="1"
-                    android:layout_height="40dp"
-                    android:src="@drawable/keypad_circle_one"
-                    android:layout_gravity="center"
-                    />
-
-
-
-            </LinearLayout>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <android.support.constraint.Guideline
                 android:id="@+id/guideline_first_column"
@@ -118,7 +75,7 @@
                 android:orientation="horizontal"
                 app:layout_constraintGuide_percent="0.8" />
 
-            <Button
+            <TextView
                 android:id="@+id/tv_one"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -131,7 +88,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/guildeline_first_row" />
 
-            <Button
+            <TextView
                 android:id="@+id/tv_two"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -143,7 +100,7 @@
                 app:layout_constraintStart_toEndOf="@+id/tv_one"
                 app:layout_constraintTop_toTopOf="@+id/guildeline_first_row" />
 
-            <Button
+            <TextView
                 android:id="@+id/tv_three"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -155,7 +112,7 @@
                 app:layout_constraintStart_toStartOf="@+id/guideline_second_column"
                 app:layout_constraintTop_toTopOf="@+id/guildeline_first_row" />
 
-            <Button
+            <TextView
                 android:id="@+id/tv_four"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -167,7 +124,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/guildeline_second_row" />
 
-            <Button
+            <TextView
                 android:id="@+id/tv_five"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -179,7 +136,7 @@
                 app:layout_constraintStart_toEndOf="@+id/guideline_first_column"
                 app:layout_constraintTop_toTopOf="@+id/guildeline_second_row" />
 
-            <Button
+            <TextView
                 android:id="@+id/tv_six"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -191,7 +148,7 @@
                 app:layout_constraintStart_toStartOf="@+id/guideline_second_column"
                 app:layout_constraintTop_toTopOf="@+id/guildeline_second_row" />
 
-            <Button
+            <TextView
                 android:id="@+id/tv_seven"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -203,7 +160,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/guildeline_third_row" />
 
-            <Button
+            <TextView
                 android:id="@+id/tv_eight"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -215,7 +172,7 @@
                 app:layout_constraintStart_toEndOf="@+id/guideline_first_column"
                 app:layout_constraintTop_toTopOf="@+id/guildeline_third_row" />
 
-            <Button
+            <TextView
                 android:id="@+id/tv_nine"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -228,24 +185,12 @@
                 app:layout_constraintTop_toTopOf="@+id/guildeline_third_row" />
 
             <Button
-                android:id="@+id/tv_zero"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:gravity="center"
-                android:text="@string/number_zero"
-                android:textSize="@dimen/textsize_60"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@id/guideline_second_column"
-                app:layout_constraintStart_toStartOf="@+id/guideline_first_column"
-                app:layout_constraintTop_toTopOf="@+id/guildeline_fourth_row" />
-
-            <Button
-                android:id="@+id/btn_ok"
+                android:id="@+id/button"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:text="@android:string/VideoView_error_button"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/guideline_first_column"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_second_column"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/guildeline_fourth_row"
                 tools:textSize="@dimen/textsize_40" />
@@ -254,12 +199,18 @@
                 android:id="@+id/iv_back"
                 android:layout_width="@dimen/dimen_40"
                 android:layout_height="@dimen/dimen_40"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/guildeline_first_row"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/guideline_second_column"
-                app:layout_constraintTop_toBottomOf="@id/guildeline_fourth_row"
+                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_backspace" />
+
+
         </android.support.constraint.ConstraintLayout>
+
+
+
+
 
         <android.support.constraint.Guideline
             android:id="@+id/guideline_keypad"

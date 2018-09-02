@@ -1,4 +1,4 @@
-package np.com.amir.apptest.data.local.handlers
+package app.com.milico.data.local.handlers
 
 import android.os.Handler
 import android.os.HandlerThread

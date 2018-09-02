@@ -6,5 +6,4 @@ interface IPreferenceHelper {
 
     fun setLogin(login: Boolean)
 
-
 }

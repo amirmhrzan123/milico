@@ -1,16 +1,18 @@
-package np.com.amir.apptest.data.repository
+package app.com.milico.data.repository
 
+
+import app.com.milico.data.local.dbHelper.IDbHelper
 import app.com.milico.data.preference.IPreferenceHelper
 import app.com.milico.data.remote.IApiService
+import app.com.milico.data.repository.IAppDataManager
 import com.google.gson.Gson
 import io.reactivex.disposables.CompositeDisposable
-import np.com.amir.apptest.data.local.dbHelper.IDbHelper
 
 class AppDataManager(private val apiService: IApiService,
                      private val iPreferenceHelper: IPreferenceHelper,
                      private val iDbHelper: IDbHelper,
                      private val compositeDisposable: CompositeDisposable,
-                     private val gson: Gson):IAppDataManager {
+                     private val gson: Gson): IAppDataManager {
 
 
 

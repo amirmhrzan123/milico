@@ -1,6 +1,7 @@
 package app.com.milico.ui.homeScreen
 
 import android.arch.lifecycle.Observer
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import app.com.milico.R
@@ -23,6 +24,13 @@ class HomeScreenFragment: BaseFragment<FragmentHomeScreenBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initBinder()
+    }
+
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        if(context is IFragmentListener){
+            iFragmentListener = context
+        }
     }
 
     override fun getLayout(): Int = R.layout.fragment_home_screen

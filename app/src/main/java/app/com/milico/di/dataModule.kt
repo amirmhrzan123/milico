@@ -2,29 +2,30 @@ package app.com.milico.di
 
 import android.arch.persistence.room.Room
 import android.content.Context
+import app.com.milico.data.local.dbHelper.DbHelper
+import app.com.milico.data.local.dbHelper.IDbHelper
+import app.com.milico.data.local.handlers.DbThread
 import app.com.milico.data.preference.IPreferenceHelper
 import app.com.milico.data.preference.PreferenceHelper
 import app.com.milico.data.remote.ApiServiceHolder
 import app.com.milico.data.remote.IApiService
+import app.com.milico.data.repository.AppDataManager
+import app.com.milico.data.repository.IAppDataManager
 import com.google.gson.Gson
 import io.reactivex.disposables.CompositeDisposable
 import np.com.amir.apptest.data.local.InAppDatabase
-import np.com.amir.apptest.data.local.dbHelper.DbHelper
-import np.com.amir.apptest.data.local.dbHelper.IDbHelper
-import np.com.amir.apptest.data.local.handlers.DbThread
-import np.com.amir.apptest.data.repository.AppDataManager
-import np.com.amir.apptest.data.repository.IAppDataManager
-import org.koin.dsl.module.Module
 import org.koin.dsl.module.module
 
-val dataModule :Module = module {
+val dataModule = module {
 
     single { provideRoomDatabase(get())}
     single{ provideDbThread()}
-    single(override = true){ provideDataManager(get(),get(),get(),get(),get())}
+
     single{ provideDbHelper(get())}
     single (override = true){ provideApiServiceHolder()}
     single{ provideSharedPreference(get())}
+
+    single(override = true){provideDataManager(get(),get(),get(),get(),get())}
 
 }
 
@@ -39,11 +40,12 @@ fun provideDbThread(): DbThread {
     return mDbWorkerThread
 }
 
-fun provideDataManager(iApiService: IApiService, appDbHelper: IDbHelper, preferenceHelper: IPreferenceHelper,
-                       compositeDisposable: CompositeDisposable,gsons:Gson): IAppDataManager = AppDataManager(iApiService, preferenceHelper, appDbHelper, compositeDisposable,gsons)
+fun provideDataManager(iApiService: IApiService,compositeDisposable: CompositeDisposable,
+                       gson: Gson,iDbHelper: IDbHelper,iPreferenceHelper: IPreferenceHelper): AppDataManager = AppDataManager(iApiService,
+        iPreferenceHelper,iDbHelper,compositeDisposable,gson)
 
 
-fun provideDbHelper(appDatabase: InAppDatabase): DbHelper = DbHelper(appDatabase)
+fun provideDbHelper(appDatabase: InAppDatabase): IDbHelper = DbHelper(appDatabase)
 
 fun provideApiServiceHolder(): ApiServiceHolder = ApiServiceHolder()
 

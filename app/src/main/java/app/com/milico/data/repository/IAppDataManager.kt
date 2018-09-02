@@ -1,8 +1,9 @@
-package np.com.amir.apptest.data.repository
+package app.com.milico.data.repository
 
+
+import app.com.milico.data.local.dbHelper.IDbHelper
 import app.com.milico.data.preference.IPreferenceHelper
 import app.com.milico.data.remote.IApiService
-import np.com.amir.apptest.data.local.dbHelper.IDbHelper
 
-interface IAppDataManager: IApiService, IPreferenceHelper,IDbHelper {
+interface IAppDataManager: IApiService, IPreferenceHelper, IDbHelper {
 }

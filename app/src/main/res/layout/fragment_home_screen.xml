@@ -26,7 +26,6 @@
             android:text="@string/welcome_to_home_screen"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/textsize_100"
-            android:onClick="@{() -> viewModel.openEnterPin()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

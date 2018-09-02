@@ -2,6 +2,7 @@ package app.com.milico.di
 
 
 import android.app.Application
+import android.content.Context
 import android.content.res.Resources
 import np.com.amir.apptest.util.ApplicationSchedulerProvider
 import np.com.amir.apptest.util.SchedulerProvider
@@ -37,7 +38,7 @@ fun provideDeviceId(application: Application): String = Settings.Secure.getStrin
 
 
 
-fun provideResources(application: Application): Resources = application.resources
+fun provideResources(context: Context): Resources = context.resources
 
 
 

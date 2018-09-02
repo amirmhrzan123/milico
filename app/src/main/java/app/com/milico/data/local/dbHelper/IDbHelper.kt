@@ -1,4 +1,4 @@
-package np.com.amir.apptest.data.local.dbHelper
+package app.com.milico.data.local.dbHelper
 
 interface IDbHelper {
 

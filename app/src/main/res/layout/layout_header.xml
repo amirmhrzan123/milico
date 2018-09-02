@@ -70,7 +70,6 @@
             android:layout_height="@dimen/toolbar_height"
             android:contentDescription="@string/todo"
             android:src="@color/colorPrimary"
-            app:layout_constraintBottom_toTopOf="@+id/guideline_toolbar_height"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/guideline_right_logo"
             app:layout_constraintTop_toTopOf="parent" />
@@ -79,7 +78,6 @@
             android:layout_width="1dp"
             android:layout_height="@dimen/toolbar_height"
             android:background="@color/colorWhite"
-            app:layout_constraintBottom_toTopOf="@id/guideline_toolbar_height"
             app:layout_constraintStart_toStartOf="@id/guideline_left_logo"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -87,7 +85,6 @@
             android:layout_width="1dp"
             android:layout_height="@dimen/toolbar_height"
             android:background="@color/colorWhite"
-            app:layout_constraintBottom_toTopOf="@id/guideline_toolbar_height"
             app:layout_constraintStart_toStartOf="@id/guideline_home"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -95,7 +92,6 @@
             android:layout_width="1dp"
             android:layout_height="@dimen/toolbar_height"
             android:background="@color/colorWhite"
-            app:layout_constraintBottom_toTopOf="@id/guideline_toolbar_height"
             app:layout_constraintStart_toStartOf="@id/guideline_info"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -103,7 +99,6 @@
             android:layout_width="1dp"
             android:layout_height="@dimen/toolbar_height"
             android:background="@color/colorWhite"
-            app:layout_constraintBottom_toTopOf="@id/guideline_toolbar_height"
             app:layout_constraintStart_toStartOf="@id/guideline_info"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -111,7 +106,6 @@
             android:layout_width="1dp"
             android:layout_height="@dimen/toolbar_height"
             android:background="@color/colorWhite"
-            app:layout_constraintBottom_toTopOf="@id/guideline_toolbar_height"
             app:layout_constraintStart_toStartOf="@id/guideline_logout"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -120,12 +114,6 @@
             android:layout_height="@dimen/toolbar_height"
             android:background="@color/colorWhite"
             app:layout_constraintLeft_toLeftOf="@id/iv_app_logo" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/colorWhite"
-            app:layout_constraintTop_toTopOf="@+id/guideline_toolbar_height" />
 
 
         <android.support.constraint.Guideline
