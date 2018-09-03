@@ -10,9 +10,15 @@
 
     <!--textsize-->
     <dimen name="textsize_60">60sp</dimen>
-    <dimen name="textsize_40">60sp</dimen>
+    <dimen name="textsize_40">40sp</dimen>
     <dimen name="dimen_40">40dp</dimen>
     <dimen name="dimen_45">45dp</dimen>
     <dimen name="textsize_100">100sp</dimen>
     <dimen name="dimen_20dp">20dp</dimen>
+    <dimen name="textsize_45">45sp</dimen>
+    <dimen name="textsize_80">80sp</dimen>
+    <dimen name="textsize_50">50sp</dimen>
+    <dimen name="textsize_30">30sp</dimen>
+    <dimen name="textsize_35">35sp</dimen>
+    <dimen name="dimen_100">100dp</dimen>
 </resources>

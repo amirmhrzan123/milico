@@ -31,4 +31,7 @@
     <string name="font_light">fonts/Metropolis-Light.otf</string>
     <string name="font_thin">fonts/Metropolis-Thin.otf</string>
     <string name="welcome_to_home_screen">WELCOME TO HOME SCREEN</string>
+    <string name="points_to_retail">Convert your cards into retail cards</string>
+    <string name="enter_pin">Enter PIN</string>
+    <string name="forgotten_pin">Forgotten PIN?</string>
 </resources>

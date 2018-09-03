@@ -4,7 +4,6 @@ import android.content.res.Resources
 import app.com.milico.base.BaseViewModel
 import app.com.milico.data.repository.AppDataManager
 import app.com.milico.util.bindings.SingleLiveEvent
-import rx.Single
 
 class EnterPinViewModel constructor(
         resources: Resources,
@@ -22,6 +21,8 @@ class EnterPinViewModel constructor(
     val zeroPressedEvent = SingleLiveEvent<Void>()
     val okPressedEvent = SingleLiveEvent<Void>()
     val backPressedEvent = SingleLiveEvent<Void>()
+    val forgottenPasswordEvent = SingleLiveEvent<Void>()
+    var keyLength:Int = 0
 
 
     fun on1Pressed(){
@@ -69,6 +70,14 @@ class EnterPinViewModel constructor(
     }
 
     fun onBackPressed(){
-        onePressedEvent.call()
+        backPressedEvent.call()
+    }
+
+    fun setKeyLengths(length:Int){
+        keyLength = length
+    }
+
+    fun onForgotPasswordPressed(){
+
     }
 }

@@ -16,7 +16,8 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/background">
+        android:background="@color/background"
+        >
 
 
         <android.support.constraint.ConstraintLayout
@@ -25,53 +26,51 @@
             android:background="@color/keypad_not_selected"
             app:layout_constraintEnd_toStartOf="@id/guideline_keypad_end"
             app:layout_constraintStart_toStartOf="@id/guideline_keypad">
+
             <LinearLayout
                 android:id="@+id/ll_keys"
                 android:layout_width="@dimen/dimen_0dp"
                 android:layout_height="@dimen/dimen_0dp"
-                android:weightSum="4"
+                android:background="@color/colorWhite"
+                android:orientation="horizontal"
                 android:padding="30dp"
+                android:weightSum="4"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_first_row"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:orientation="horizontal">
+                app:layout_constraintTop_toTopOf="parent">
+
                 <ImageView
                     android:id="@+id/iv_first"
                     android:layout_width="40dp"
-                    android:layout_weight="1"
                     android:layout_height="40dp"
-                    android:src="@drawable/keypad_circle_one"
                     android:layout_gravity="center"
-                    />
+                    android:layout_weight="1"
+                    android:src="@drawable/keypad_circle_one" />
 
                 <ImageView
                     android:id="@+id/iv_second"
                     android:layout_width="40dp"
-                    android:layout_weight="1"
                     android:layout_height="40dp"
-                    android:src="@drawable/keypad_circle_one"
                     android:layout_gravity="center"
-                    />
+                    android:layout_weight="1"
+                    android:src="@drawable/keypad_circle_one" />
 
                 <ImageView
                     android:id="@+id/iv_third"
                     android:layout_width="40dp"
-                    android:layout_weight="1"
                     android:layout_height="40dp"
-                    android:src="@drawable/keypad_circle_one"
                     android:layout_gravity="center"
-                    />
+                    android:layout_weight="1"
+                    android:src="@drawable/keypad_circle_one" />
 
                 <ImageView
                     android:id="@+id/iv_fourth"
                     android:layout_width="40dp"
-                    android:layout_weight="1"
                     android:layout_height="40dp"
-                    android:src="@drawable/keypad_circle_one"
                     android:layout_gravity="center"
-                    />
-
+                    android:layout_weight="1"
+                    android:src="@drawable/keypad_circle_one" />
 
 
             </LinearLayout>
@@ -122,8 +121,11 @@
                 android:id="@+id/tv_one"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginEnd="2dp"
                 android:background="@drawable/keypad_button"
                 android:gravity="center"
+                android:onClick="@{() -> viewModel.on1Pressed()}"
                 android:text="@string/number_one"
                 android:textSize="@dimen/textsize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_second_row"
@@ -135,7 +137,12 @@
                 android:id="@+id/tv_two"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginStart="2dp"
+                android:background="@drawable/keypad_button"
                 android:gravity="center"
+                android:onClick="@{() -> viewModel.on2Pressed()}"
                 android:text="@string/number_two"
                 android:textSize="@dimen/textsize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_second_row"
@@ -147,7 +154,10 @@
                 android:id="@+id/tv_three"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/keypad_button"
                 android:gravity="center"
+                android:onClick="@{() -> viewModel.on3Pressed()}"
                 android:text="@string/number_three"
                 android:textSize="@dimen/textsize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_second_row"
@@ -159,7 +169,11 @@
                 android:id="@+id/tv_four"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginEnd="2dp"
+                android:background="@drawable/keypad_button"
                 android:gravity="center"
+                android:onClick="@{() -> viewModel.on4Pressed()}"
                 android:text="@string/number_four"
                 android:textSize="@dimen/textsize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_third_row"
@@ -171,7 +185,11 @@
                 android:id="@+id/tv_five"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginEnd="2dp"
+                android:background="@drawable/keypad_button"
                 android:gravity="center"
+                android:onClick="@{() -> viewModel.on5Pressed()}"
                 android:text="@string/number_five"
                 android:textSize="@dimen/textsize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_third_row"
@@ -183,7 +201,10 @@
                 android:id="@+id/tv_six"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/keypad_button"
                 android:gravity="center"
+                android:onClick="@{() -> viewModel.on6Pressed()}"
                 android:text="@string/number_six"
                 android:textSize="@dimen/textsize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_third_row"
@@ -195,7 +216,11 @@
                 android:id="@+id/tv_seven"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginEnd="2dp"
+                android:background="@drawable/keypad_button"
                 android:gravity="center"
+                android:onClick="@{() -> viewModel.on7Pressed()}"
                 android:text="@string/number_seven"
                 android:textSize="@dimen/textsize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_fourth_row"
@@ -207,7 +232,11 @@
                 android:id="@+id/tv_eight"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginEnd="2dp"
+                android:background="@drawable/keypad_button"
                 android:gravity="center"
+                android:onClick="@{() -> viewModel.on8Pressed()}"
                 android:text="@string/number_eight"
                 android:textSize="@dimen/textsize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_fourth_row"
@@ -219,7 +248,10 @@
                 android:id="@+id/tv_nine"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/keypad_button"
                 android:gravity="center"
+                android:onClick="@{() -> viewModel.on9Pressed()}"
                 android:text="@string/number_nine"
                 android:textSize="@dimen/textsize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_fourth_row"
@@ -231,7 +263,10 @@
                 android:id="@+id/tv_zero"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_marginEnd="2dp"
+                android:background="@drawable/keypad_button"
                 android:gravity="center"
+                android:onClick="@{() -> viewModel.on0Pressed()}"
                 android:text="@string/number_zero"
                 android:textSize="@dimen/textsize_60"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -243,17 +278,26 @@
                 android:id="@+id/btn_ok"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_marginEnd="2dp"
+                android:background="@color/ok_keypad"
+                android:onClick="@{() -> viewModel.onOkPressed()}"
                 android:text="@android:string/VideoView_error_button"
+                android:textSize="@dimen/textsize_40"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/guideline_first_column"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/guildeline_fourth_row"
                 tools:textSize="@dimen/textsize_40" />
 
+
+
             <ImageView
                 android:id="@+id/iv_back"
-                android:layout_width="@dimen/dimen_40"
-                android:layout_height="@dimen/dimen_40"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="@dimen/dimen_0dp"
+                android:background="@drawable/keypad_button"
+                android:padding="@dimen/dimen_40"
+                android:onClick="@{() -> viewModel.onBackPressed()}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/guideline_second_column"
@@ -275,9 +319,53 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.77" />
 
+        <TextView
+            android:id="@+id/tv_convert"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            fontPath="@string/font_medium"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="80dp"
+            android:textSize="@dimen/textsize_30"
+            android:text="@string/points_to_retail"
+            android:textColor="@color/keypad_selected"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_keypad"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+             />
 
+        <TextView
+            android:id="@+id/tv_enter_pin"
+            android:layout_width="0dp"
+            fontPath="@string/font_bold"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/enter_pin"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/textsize_60"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_keypad"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_convert" />
 
-
+        <Button
+            android:id="@+id/btn_forgotten_pin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_100"
+            android:background="@color/forgotten_password"
+            android:paddingBottom="10dp"
+            android:paddingEnd="@dimen/dimen_40"
+            android:paddingStart="@dimen/dimen_40"
+            android:paddingTop="10dp"
+            android:text="@string/forgotten_pin"
+            android:textAllCaps="false"
+            android:textColor="@color/forgotten_password_text"
+            android:textSize="@dimen/textsize_30"
+            app:layout_constraintStart_toStartOf="@+id/tv_enter_pin"
+            app:layout_constraintTop_toBottomOf="@+id/tv_enter_pin" />
 
 
     </android.support.constraint.ConstraintLayout>

@@ -32,12 +32,12 @@
             android:layout_width="@dimen/dimen_0dp"
             android:layout_height="@dimen/toolbar_height"
             android:contentDescription="@string/todo"
-            android:padding="@dimen/dimen_5dp"
+            android:padding="5dp"
             app:layout_constraintBottom_toTopOf="@+id/guideline_toolbar_height"
             app:layout_constraintEnd_toStartOf="@+id/guideline_home"
             app:layout_constraintStart_toStartOf="@+id/guideline_left_logo"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_home" />
+            app:srcCompat="@drawable/ic_vector_home" />
 
 
         <ImageView
@@ -62,7 +62,7 @@
             app:layout_constraintEnd_toStartOf="@+id/guideline_logout"
             app:layout_constraintStart_toStartOf="@+id/guideline_info"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_logout" />
+            app:srcCompat="@drawable/ic_cross" />
 
         <ImageView
             android:id="@+id/iv_app_logo"

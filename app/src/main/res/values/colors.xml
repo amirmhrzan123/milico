@@ -12,10 +12,13 @@
 
     <color name="border">#585A5E</color>
     <color name="background">#393D46</color>
-    <color name="keypad_not_selected">#CDCDCD</color>
+    <color name="keypad_not_selected">#eaeaea</color>
     <color name="keypad_selected">#D0D0D0</color>
     <color name="ok_keypad">#709B18</color>
     <color name="not_ok_keypad">#C40000</color>
     <color name="forgotten_password">#5A5B60</color>
+    <color name="forgotten_password_text">#CFD0D3</color>
     <color name="pop_up_background">#282828</color>
+    <color name="pop_up_red_background">#C40000</color>
+    <color name="transparent">#00000000</color>
 </resources>
