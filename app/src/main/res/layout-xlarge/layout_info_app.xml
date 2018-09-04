@@ -12,59 +12,65 @@
 
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/mainLayout"
+        android:id="@+id/mainLayout_info"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="30dp"
         android:background="@color/transparent">
 
         <android.support.constraint.ConstraintLayout
-            android:id="@+id/dialog_layout"
+            android:id="@+id/info_layout"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@color/pop_up_red_background"
+            android:background="@color/pop_up_background"
             app:layout_constraintBottom_toTopOf="@+id/guideline_ending_bottomo"
             app:layout_constraintEnd_toStartOf="@+id/guideline_ending_right"
             app:layout_constraintStart_toStartOf="@+id/guideline_starting_left"
             app:layout_constraintTop_toTopOf="@+id/guideline_starting_top">
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/iv_cross_info"
                 android:layout_width="@dimen/dimen_100"
                 android:layout_height="@dimen/dimen_100"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="48dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_error_outline" />
-
-            <ImageView
-                android:id="@+id/iv_cross"
-                android:layout_width="@dimen/dimen_60"
-                android:layout_height="@dimen/dimen_60"
-                android:layout_marginEnd="10dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginTop="20dp"
-                android:padding="10dp"
+                android:padding="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_cancel" />
 
             <TextView
-                android:id="@+id/tv_select_staff"
+                android:id="@+id/tv_info_about"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
                 android:gravity="center"
                 android:padding="10dp"
-                android:layout_marginTop="@dimen/dimen_60"
-                android:text="@string/tv_select_staff"
+                android:text="@string/some_info_about_the_app_here"
                 android:textColor="@color/colorWhite"
-                android:textSize="@dimen/textsize_45"
+                android:textSize="@dimen/textsize_35"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+                app:layout_constraintTop_toBottomOf="@+id/iv_cross_info" />
+
+            <TextView
+                android:id="@+id/tv_text"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="No Text Yet"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/textsize_30"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_info_about" />
 
 
         </android.support.constraint.ConstraintLayout>
@@ -75,8 +81,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent=".30" />
-
+            app:layout_constraintGuide_percent=".15" />
 
 
         <android.support.constraint.Guideline
@@ -84,15 +89,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent=".70" />
+            app:layout_constraintGuide_percent=".85" />
 
         <android.support.constraint.Guideline
             android:id="@+id/guideline_starting_top"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent=".30" />
-
+            app:layout_constraintGuide_percent=".10" />
 
 
         <android.support.constraint.Guideline
@@ -100,8 +104,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent=".70" />
-
+            app:layout_constraintGuide_percent=".90" />
 
 
     </android.support.constraint.ConstraintLayout>

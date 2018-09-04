@@ -45,6 +45,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
+                    app:setReset="@{viewModel.image1}"
                     android:layout_weight="1"
                     android:src="@drawable/keypad_circle_one" />
 
@@ -52,6 +53,7 @@
                     android:id="@+id/iv_second"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
+                    app:setReset="@{viewModel.image2}"
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:src="@drawable/keypad_circle_one" />
@@ -60,6 +62,7 @@
                     android:id="@+id/iv_third"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
+                    app:setReset="@{viewModel.image3}"
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:src="@drawable/keypad_circle_one" />
@@ -68,6 +71,7 @@
                     android:id="@+id/iv_fourth"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
+                    app:setReset="@{viewModel.image4}"
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:src="@drawable/keypad_circle_one" />
@@ -361,6 +365,7 @@
             android:paddingStart="@dimen/dimen_40"
             android:paddingTop="10dp"
             android:text="@string/forgotten_pin"
+            android:onClick="@{() -> viewModel.onForgotPasswordPressed()}"
             android:textAllCaps="false"
             android:textColor="@color/forgotten_password_text"
             android:textSize="@dimen/textsize_30"

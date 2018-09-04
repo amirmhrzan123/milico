@@ -6,6 +6,9 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="app.com.milico.ui.main.MainViewModel"/>
 
     </data>
 
@@ -18,7 +21,9 @@
 
         <include
             android:id="@+id/toolbar"
-            layout="@layout/layout_header" />
+            layout="@layout/layout_header"
+            app:viewModel="@{viewModel}"
+            />
 
 
 

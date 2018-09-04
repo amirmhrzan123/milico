@@ -1,6 +1,8 @@
 package app.com.milico.ui.pin
 
 import android.content.res.Resources
+import android.databinding.ObservableBoolean
+import android.util.Log
 import app.com.milico.base.BaseViewModel
 import app.com.milico.data.repository.AppDataManager
 import app.com.milico.util.bindings.SingleLiveEvent
@@ -9,75 +11,132 @@ class EnterPinViewModel constructor(
         resources: Resources,
         private val dataManager: AppDataManager): BaseViewModel(resources) {
 
-    val onePressedEvent = SingleLiveEvent<Void>()
-    val twoPressedEvent = SingleLiveEvent<Void>()
-    val threePressedEvent = SingleLiveEvent<Void>()
-    val fourPressedEvent = SingleLiveEvent<Void>()
-    val fivePressedEvent = SingleLiveEvent<Void>()
-    val sixPressedEvent = SingleLiveEvent<Void>()
-    val sevenPressedEvent = SingleLiveEvent<Void>()
-    val eightPressedEvent = SingleLiveEvent<Void>()
-    val ninePressedEvent = SingleLiveEvent<Void>()
-    val zeroPressedEvent = SingleLiveEvent<Void>()
+
     val okPressedEvent = SingleLiveEvent<Void>()
-    val backPressedEvent = SingleLiveEvent<Void>()
     val forgottenPasswordEvent = SingleLiveEvent<Void>()
-    var keyLength:Int = 0
+
+    private var keys : String =""
+
+    val image1 =  ObservableBoolean(false)
+    val image2 = ObservableBoolean(false)
+    val image3 = ObservableBoolean(false)
+    val image4 = ObservableBoolean(false)
+
+
 
 
     fun on1Pressed(){
-        onePressedEvent.call()
+        checkLength("1")
     }
 
     fun on2Pressed(){
-        twoPressedEvent.call()
+        checkLength("2")
+
     }
 
     fun on3Pressed(){
-        threePressedEvent.call()
+        checkLength("3")
+
     }
 
     fun on4Pressed(){
-        fourPressedEvent.call()
+        checkLength("4")
+
     }
 
     fun on5Pressed(){
-        fivePressedEvent.call()
+        checkLength("5")
+
     }
 
     fun on6Pressed(){
-        sixPressedEvent.call()
+        checkLength("6")
+
     }
 
     fun on7Pressed(){
-        sevenPressedEvent.call()
+        checkLength("7")
+
     }
 
     fun on8Pressed(){
-        eightPressedEvent.call()
+        checkLength("8")
+
     }
 
     fun on9Pressed() {
-        ninePressedEvent.call()
+        checkLength("9")
+
     }
 
     fun on0Pressed(){
-        zeroPressedEvent.call()
+        checkLength("0")
     }
 
     fun onOkPressed(){
         okPressedEvent.call()
     }
 
+
+
     fun onBackPressed(){
-        backPressedEvent.call()
+
+        if(keys.length>0){
+            keys = keys.substring(0,keys.length-1)
+            Log.d("string",keys)
+
+        }
+        setResetImages()
+
     }
 
-    fun setKeyLengths(length:Int){
-        keyLength = length
-    }
 
     fun onForgotPasswordPressed(){
+        forgottenPasswordEvent.call()
+    }
+
+    fun checkLength(number: String){
+        if(keys.length <4){
+            keys += number
+            Log.d("string",keys)
+        }
+        setResetImages()
+
+    }
+
+    fun setResetImages(){
+        when(keys.length){
+            0->{
+                image1.set(false)
+                image2.set(false)
+                image3.set(false)
+                image4.set(false)
+            }
+            1->{
+                image1.set(true)
+                image2.set(false)
+                image3.set(false)
+                image4.set(false)
+            }
+            2->{
+                image1.set(true)
+                image2.set(true)
+                image3.set(false)
+                image4.set(false)
+            }
+            3->{
+                image1.set(true)
+                image2.set(true)
+                image3.set(true)
+                image4.set(false)
+            }
+            4->{
+                image1.set(true)
+                image2.set(true)
+                image3.set(true)
+                image4.set(true)
+            }
+        }
 
     }
 }

@@ -6,6 +6,11 @@
 
     <data>
 
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="app.com.milico.ui.main.MainViewModel" />
 
     </data>
 
@@ -45,6 +50,7 @@
             android:layout_height="@dimen/toolbar_height"
             android:contentDescription="@string/todo"
             android:padding="40dp"
+            android:onClick="@{() -> viewModel.onInfoClicked()}"
             app:layout_constraintBottom_toTopOf="@+id/guideline_toolbar_height"
             app:layout_constraintEnd_toStartOf="@+id/guideline_info"
             app:layout_constraintStart_toStartOf="@+id/guideline_home"

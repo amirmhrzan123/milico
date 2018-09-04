@@ -34,4 +34,6 @@
     <string name="points_to_retail">Convert your cards into retail cards</string>
     <string name="enter_pin">Enter PIN</string>
     <string name="forgotten_pin">Forgotten PIN?</string>
+    <string name="tv_select_staff">Please see staff to \n reset your PIN</string>
+    <string name="some_info_about_the_app_here">Some info about the app here</string>
 </resources>
