@@ -41,7 +41,7 @@
             app:layout_constraintEnd_toStartOf="@+id/guideline_home"
             app:layout_constraintStart_toStartOf="@+id/guideline_left_logo"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_home" />
+            app:srcCompat="@drawable/ic_vector_home" />
 
 
         <ImageView
@@ -55,7 +55,7 @@
             app:layout_constraintEnd_toStartOf="@+id/guideline_info"
             app:layout_constraintStart_toStartOf="@+id/guideline_home"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_info" />
+            app:srcCompat="@drawable/ic_vector_info" />
 
         <ImageView
             android:id="@+id/iv_logout"

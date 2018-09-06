@@ -36,4 +36,19 @@
     <string name="forgotten_pin">Forgotten PIN?</string>
     <string name="tv_select_staff">Please see staff to \n reset your PIN</string>
     <string name="some_info_about_the_app_here">Some info about the app here</string>
+    <string name="welcome_back">Welcome back</string>
+    <string name="tv_membership_status">MEMBERSHIP STATUS: GOLD</string>
+    <string name="tv_expiry_date">MEMBERSHIP EXPIRY: 12 MAY 2018</string>
+    <string name="tv_email">EMAIL: B@GMAIL.COM</string>
+    <string name="loyalty_value_available">Loyalty value available</string>
+    <string name="loyalty_value">$171.24</string>
+    <string name="points_available">171.24 points available</string>
+    <string name="redeem">Reedeem Now</string>
+    <string name="edit_email_address">EDIT EMAIL ADDRESS</string>
+    <string name="incorrect_pin">Please enter correct pin number.</string>
+    <string name="touch_card">Touch card to select</string>
+    <string name="best_sellers">BEST SELLERS</string>
+    <string name="price">$100</string>
+    <string name="edit">EDIT</string>
+    <string name="remove">REMOVE</string>
 </resources>

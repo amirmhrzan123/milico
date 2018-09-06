@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="horizontal_margin">15dp</dimen>
-    <dimen name="toolbar_height">130dp</dimen>
+    <dimen name="toolbar_height">150dp</dimen>
     <dimen name="dimen_0dp">0dp</dimen>
     <dimen name="dimen_5dp">5dp</dimen>
     <dimen name="dimen_80dp">80dp</dimen>
@@ -23,4 +23,12 @@
     <dimen name="dimen_100">100dp</dimen>
     <dimen name="dimen_60">60dp</dimen>
     <dimen name="dimen_20sp">20sp</dimen>
+    <dimen name="dimen_30">30dp</dimen>
+    <dimen name="textsize_200">200sp</dimen>
+    <dimen name="textsize_170">170sp</dimen>
+    <dimen name="dimen_50">50dp</dimen>
+    <dimen name="textsize_25sp">25sp</dimen>
+    <dimen name="dimen_10">10dp</dimen>
+    <dimen name="textsize_120s" />
+    <dimen name="textsize_120">120sp</dimen>
 </resources>

@@ -23,8 +23,9 @@ class SplashActivity: BaseActivity<ActivitySplashBinding>() {
         dataBinding.viewModel = splashViewModel.apply {
 
             isUserLoggedIn()
-            isLogIn.observe(this@SplashActivity, Observer {
 
+            isLogIn.observe(this@SplashActivity, Observer {
+                setPinKey("1234")
                 MainActivity.start(this@SplashActivity)
                 finish()
                 val ft = fragmentManager?.beginTransaction()

@@ -21,4 +21,11 @@
     <color name="pop_up_background">#282828</color>
     <color name="pop_up_red_background">#C40000</color>
     <color name="transparent">#00000000</color>
+    <color name="black">#000000</color>
+    <color name="loyalty_value_background">#0E0F11</color>
+    <color name="textView_background">#49525B</color>
+    <color name="textView_color">#C2C9CB</color>
+    <color name="redeem_button">#709b18</color>
+    <color name="item_background">#7C7E7D</color>
+
 </resources>

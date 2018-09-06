@@ -6,4 +6,8 @@ interface IPreferenceHelper {
 
     fun setLogin(login: Boolean)
 
+    fun setPinKey(key: String)
+
+    fun pinKey():String
+
 }

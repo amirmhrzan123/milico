@@ -1,18 +1,23 @@
 package app.com.milico.ui.pin
 
 import android.arch.lifecycle.Observer
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import app.com.milico.R
 import app.com.milico.base.BaseFragment
 import app.com.milico.databinding.FragmentEnterPinBinding
+import app.com.milico.ui.dashboard.DashBoardModel
+import app.com.milico.ui.main.IFragmentListener
 import app.com.milico.ui.popUpView.ForgetPopUpFragment
+import app.com.milico.util.extensions.showAlert
 import org.koin.android.ext.android.inject
 
 class EnterPinFragment : BaseFragment<FragmentEnterPinBinding>() {
 
     private val enterPinViewModel : EnterPinViewModel by inject()
     private var forgetPopUpFragment: ForgetPopUpFragment?=null
+    private var iFragmentListener: IFragmentListener?= null
 
 
 
@@ -26,6 +31,13 @@ class EnterPinFragment : BaseFragment<FragmentEnterPinBinding>() {
         initBinder()
     }
 
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        if(context is IFragmentListener){
+            iFragmentListener = context
+        }
+    }
+
     override fun getLayout(): Int = R.layout.fragment_enter_pin
 
 
@@ -35,13 +47,20 @@ class EnterPinFragment : BaseFragment<FragmentEnterPinBinding>() {
 
 
             okPressedEvent.observe(this@EnterPinFragment, Observer {
-
+                val dashBoardModel = DashBoardModel()
+                iFragmentListener?.openDashBoard(dashBoardModel)
             })
 
 
             forgottenPasswordEvent.observe(baseActivity, Observer {
 
                 openPopUpFragment()
+            })
+
+            alertMessageEvent.observe(this@EnterPinFragment, Observer {
+                it?.let {
+                    activity?.showAlert(it)
+                }
             })
 
         }

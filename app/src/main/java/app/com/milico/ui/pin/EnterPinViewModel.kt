@@ -3,6 +3,7 @@ package app.com.milico.ui.pin
 import android.content.res.Resources
 import android.databinding.ObservableBoolean
 import android.util.Log
+import app.com.milico.R
 import app.com.milico.base.BaseViewModel
 import app.com.milico.data.repository.AppDataManager
 import app.com.milico.util.bindings.SingleLiveEvent
@@ -14,6 +15,7 @@ class EnterPinViewModel constructor(
 
     val okPressedEvent = SingleLiveEvent<Void>()
     val forgottenPasswordEvent = SingleLiveEvent<Void>()
+    var okenabled = ObservableBoolean(false)
 
     private var keys : String =""
 
@@ -27,6 +29,10 @@ class EnterPinViewModel constructor(
 
     fun on1Pressed(){
         checkLength("1")
+    }
+
+    fun enableDisableButton(enable:Boolean){
+        okenabled.set(enable)
     }
 
     fun on2Pressed(){
@@ -74,7 +80,12 @@ class EnterPinViewModel constructor(
     }
 
     fun onOkPressed(){
-        okPressedEvent.call()
+        if(keys.equals("1234")){
+            okPressedEvent.call()
+        }else{
+            showAlertDialog(R.string.incorrect_pin)
+        }
+
     }
 
 
@@ -86,6 +97,8 @@ class EnterPinViewModel constructor(
             Log.d("string",keys)
 
         }
+        enableDisableButton(false)
+
         setResetImages()
 
     }
@@ -99,6 +112,12 @@ class EnterPinViewModel constructor(
         if(keys.length <4){
             keys += number
             Log.d("string",keys)
+        }
+        if(keys.length>=4){
+            enableDisableButton(true)
+
+        }else{
+            enableDisableButton(false)
         }
         setResetImages()
 

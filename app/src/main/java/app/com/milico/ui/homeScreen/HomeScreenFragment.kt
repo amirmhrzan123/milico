@@ -14,8 +14,6 @@ class HomeScreenFragment: BaseFragment<FragmentHomeScreenBinding>() {
 
     private val homeScreenViewModel: HomeScreenViewModel by inject()
 
-
-
     lateinit var iFragmentListener: IFragmentListener
 
     companion object {

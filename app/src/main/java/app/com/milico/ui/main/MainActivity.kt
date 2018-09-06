@@ -6,6 +6,8 @@ import android.os.Bundle
 import app.com.milico.R
 import app.com.milico.base.BaseActivity
 import app.com.milico.databinding.ActivityMainBinding
+import app.com.milico.ui.dashboard.DashBoardFragment
+import app.com.milico.ui.dashboard.DashBoardModel
 import app.com.milico.ui.homeScreen.HomeScreenFragment
 import app.com.milico.ui.pin.EnterPinFragment
 import app.com.milico.ui.popUpView.InfoPopUpFragment
@@ -13,7 +15,9 @@ import app.com.milico.util.extensions.replaceFragmentInActivity
 import org.jetbrains.anko.startActivity
 import org.koin.android.ext.android.inject
 
+
 class MainActivity: BaseActivity<ActivityMainBinding>(),IFragmentListener {
+
 
     val mainViewModel: MainViewModel by inject()
 
@@ -35,9 +39,11 @@ class MainActivity: BaseActivity<ActivityMainBinding>(),IFragmentListener {
         replaceFragmentInActivity(EnterPinFragment.newInstance(),R.id.fl_container,EnterPinFragment.TAG)
     }
 
-    override fun openForgotPin() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun openDashBoard(dashboardModel: DashBoardModel) {
+        replaceFragmentInActivity(DashBoardFragment.newInstance(dashboardModel),R.id.fl_container,DashBoardFragment.TAG)
     }
+
+
 
     override fun getLayout(): Int = R.layout.activity_main
 
@@ -63,6 +69,7 @@ class MainActivity: BaseActivity<ActivityMainBinding>(),IFragmentListener {
         infoPopUpFragment= InfoPopUpFragment.newInstance(texts)
         infoPopUpFragment!!.show(supportFragmentManager,InfoPopUpFragment.TAG)
     }
+
 
 
 }

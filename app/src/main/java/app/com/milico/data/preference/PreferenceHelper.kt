@@ -2,12 +2,10 @@ package app.com.milico.data.preference
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.icu.lang.UCharacter
 import android.preference.PreferenceManager
 
 class PreferenceHelper constructor(
         context: Context): IPreferenceHelper{
-
 
 
 
@@ -20,10 +18,16 @@ class PreferenceHelper constructor(
 
         private const val API_KEY = "Api_Key"
         private const val PREF_KEY_IS_USER_LOGGED_IN = "login"
+        private const val PREF_KEY_PIN = "pinKey"
 
 
     }
 
+    override fun setPinKey(key: String) {
+        prefs.pinKey = key
+    }
+
+    override fun pinKey(): String = prefs.pinKey
 
 
     override fun isLogIn(): Boolean? = prefs.isLoggedIn
@@ -52,5 +56,11 @@ class PreferenceHelper constructor(
         get() = getBoolean(PREF_KEY_IS_USER_LOGGED_IN, false)
         set(value) {
             putValue(PREF_KEY_IS_USER_LOGGED_IN, value)
+        }
+
+    private var SharedPreferences.pinKey
+        get() = getString(PREF_KEY_PIN, "")
+        set(value) {
+            putValue(PREF_KEY_PIN, value)
         }
 }

@@ -1,52 +1,69 @@
 package app.com.milico.util.extensions
 
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.provider.Settings
+import android.support.v7.app.AlertDialog
+import android.support.v7.app.AppCompatActivity
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import app.com.milico.R
-import org.jetbrains.anko.alert
-import org.jetbrains.anko.yesButton
 import uk.co.chrisjenx.calligraphy.CalligraphyUtils
 import java.math.BigDecimal
 
 fun Context.showAlert(message: String) {
-  alert(message){}.show()
+    val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+    builder.setTitle(R.string.app_name)
+            .setMessage(message)
+            .setPositiveButton(R.string.tv_ok) { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
 }
 
-fun Context.showNotCancellableAlert(message: String) {
-alert(message){}.show().setCancelable(false)
+fun AppCompatActivity.showNotCancellableAlert(message: String) {
+    val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+    builder.setTitle(R.string.app_name)
+            .setMessage(message)
+            .setPositiveButton(R.string.tv_ok) { _, _ ->
+                finish()
+                transitionActivityFinish()
+            }
+    val alertDialog = builder.create()
+    alertDialog.setCancelable(false)
+    alertDialog.show()
 }
 
-fun Context.showNotCancellableAlert(message: Int, callback: AlertDialogCallback) {
-    lateinit var dialog: DialogInterface
-    alert {
-        titleResource = R.string.app_name
-        messageResource = message
-        yesButton {dialog ->
-            dialog.dismiss()
-            callback.onPositiveButtonClicked()
-        }
-        }.show()
-
+fun Context.showNotCancellableAlert(message: String, callback: AlertDialogCallback) {
+    val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+    builder.setTitle(R.string.app_name)
+            .setMessage(message)
+            .setPositiveButton(R.string.tv_ok) { dialog, _ ->
+                dialog.dismiss()
+                callback.onPositiveButtonClicked()
+            }
+    val alertDialog = builder.create()
+    alertDialog.setCancelable(false)
+    alertDialog.show()
 }
+
+
 
 fun Context.showConfirmationDialog(callback: AlertDialogCallback, message: String, positiveButton: String = "OK", negativeButton: String = "Cancel") {
-    lateinit var dialog: DialogInterface
-    alert {
-        title = getString(R.string.app_name)
-        positiveButton(positiveButton){
-            dialog.dismiss()
-            callback.onPositiveButtonClicked()
-        }
-        negativeButton(negativeButton){
-             dialog.dismiss()
-        }
-    }.show()
+    val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+    builder.setTitle(R.string.app_name)
+            .setMessage(message)
+            .setPositiveButton(positiveButton) { dialog, _ ->
+                dialog.dismiss()
+                callback.onPositiveButtonClicked()
+            }
+            .setNegativeButton(negativeButton) { dialog, _ ->
+                dialog.dismiss()
+                callback.onNegativeButtonClicked()
+            }
+            .show()
 }
 
 fun Context.showPermissionRequestDialog(message: Int) {

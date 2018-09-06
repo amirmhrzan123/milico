@@ -15,9 +15,10 @@
 
 
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/pop_up_background">
+        android:background="@color/background">
 
         <include
             android:id="@+id/toolbar"
@@ -48,12 +49,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="@+id/toolbar"/>
 
-        <View
-            android:id="@+id/view2"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/colorWhite"
-            app:layout_constraintTop_toTopOf="@+id/guideline_lower_baseline" />
+
 
 
 
@@ -76,10 +72,11 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/pop_up_background"
-            app:layout_constraintBottom_toTopOf="@+id/guideline_lower_baseline"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+            app:layout_constraintTop_toTopOf="@+id/view">
 
         </FrameLayout>
 

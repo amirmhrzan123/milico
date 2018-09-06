@@ -15,5 +15,10 @@ class SplashViewModel constructor(
         isLogIn.value = dataManager.isLogIn()
     }
 
+    fun setPinKey(key: String){
+        dataManager.setPinKey(key)
+    }
+
+
 
 }
