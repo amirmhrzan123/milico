@@ -11,12 +11,14 @@ import app.com.milico.ui.dashboard.DashBoardModel
 import app.com.milico.ui.homeScreen.HomeScreenFragment
 import app.com.milico.ui.pin.EnterPinFragment
 import app.com.milico.ui.popUpView.InfoPopUpFragment
+import app.com.milico.ui.redeem.RedeemFragment
 import app.com.milico.util.extensions.replaceFragmentInActivity
 import org.jetbrains.anko.startActivity
 import org.koin.android.ext.android.inject
 
 
 class MainActivity: BaseActivity<ActivityMainBinding>(),IFragmentListener {
+
 
 
     val mainViewModel: MainViewModel by inject()
@@ -41,6 +43,10 @@ class MainActivity: BaseActivity<ActivityMainBinding>(),IFragmentListener {
 
     override fun openDashBoard(dashboardModel: DashBoardModel) {
         replaceFragmentInActivity(DashBoardFragment.newInstance(dashboardModel),R.id.fl_container,DashBoardFragment.TAG)
+    }
+
+    override fun openRedeemPage() {
+        replaceFragmentInActivity(RedeemFragment.newInstance(),R.id.fl_container,RedeemFragment.TAG,addToBackStack = true)
     }
 
 
