@@ -4,11 +4,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
 
-        <variable
-            name="model"
-            type="app.com.milico.data.local.json.JsonModel"/>
-
-
 
     </data>
 
@@ -83,7 +78,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginBottom="80dp"
-            android:layout_margigit statusnEnd="50dp"
+            android:layout_marginEnd="50dp"
             android:layout_marginStart="50dp"
             android:layout_marginTop="30dp"
             app:layout_constraintBottom_toBottomOf="parent"

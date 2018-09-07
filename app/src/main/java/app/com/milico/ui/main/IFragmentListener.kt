@@ -11,6 +11,4 @@ interface IFragmentListener {
 
     fun openDashBoard(dashboardModel: DashBoardModel)
 
-    fun openRedeemPage()
-
 }

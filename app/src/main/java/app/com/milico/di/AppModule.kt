@@ -4,8 +4,6 @@ package app.com.milico.di
 import android.content.Context
 import android.content.res.Resources
 import app.com.milico.R
-import app.com.milico.data.local.json.AndroidJsonReader
-import app.com.milico.data.local.json.JsonReader
 import np.com.amir.apptest.util.ApplicationSchedulerProvider
 import np.com.amir.apptest.util.SchedulerProvider
 import org.koin.dsl.module.module
@@ -20,8 +18,6 @@ val otherModules = module {
     single { provideResources(get())}
 
     single{ provideCalligraphy(get())}
-
-    single { AndroidJsonReader(get()) as JsonReader }
 
 }
 

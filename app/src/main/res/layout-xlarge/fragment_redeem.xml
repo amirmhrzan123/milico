@@ -6,11 +6,6 @@
 
     <data>
 
-        <variable
-            name="viewModel"
-            type="app.com.milico.ui.redeem.RedeemViewModel"/>
-
-
 
     </data>
 
@@ -36,7 +31,7 @@
 
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/rvGiftsCards"
+            android:id="@+id/rv_gifts_card"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginBottom="8dp"
