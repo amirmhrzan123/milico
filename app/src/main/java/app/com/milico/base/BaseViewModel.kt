@@ -14,7 +14,7 @@ import java.net.HttpURLConnection
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 
-open class BaseViewModel constructor(val resources: Resources) : ViewModel() {
+open class BaseViewModel constructor(val resources: Resources ) : ViewModel() {
     protected var compositeDisposable: CompositeDisposable = CompositeDisposable()
     internal val progressDialogEvent = SingleLiveEvent<Int>()
     internal val alertMessageEvent = SingleLiveEvent<String>()

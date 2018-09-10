@@ -8,6 +8,9 @@
     <data>
 
 
+        <variable
+            name="viewModel"
+            type="app.com.milico.ui.dashboard.DashBoardViewModel"/>
 
     </data>
 
@@ -199,6 +202,7 @@
             android:text="@string/redeem"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/textsize_40"
+            android:onClick="@{()->viewModel.onRedeemClicked()}"
             app:layout_constraintBottom_toBottomOf="@+id/textView6"
             app:layout_constraintEnd_toEndOf="@+id/tv_available_loyalty"
             app:layout_constraintStart_toStartOf="@+id/tv_available_loyalty"

@@ -6,6 +6,11 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="app.com.milico.ui.redeem.RedeemViewModel"/>
+
+
 
     </data>
 
@@ -13,7 +18,7 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/background">
+        android:background="@color/colorWhite">
 
         <android.support.constraint.Guideline
             android:id="@+id/guideline_lower_baseline"
@@ -31,12 +36,15 @@
 
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_gifts_card"
+            android:id="@+id/rvGiftsCards"
+            style="@style/scrollbar_shape_style"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
             android:paddingBottom="8dp"
+            app:layout_goneMarginBottom="@dimen/dimen_10"
+            app:giftsCardList="@{viewModel.listGiftsCards}"
             app:layout_constraintBottom_toTopOf="@+id/guideline_lower_baseline"
             app:layout_constraintTop_toTopOf="@+id/recylerView_beginning" />
 
