@@ -16,6 +16,8 @@ class HomeScreenFragment: BaseFragment<FragmentHomeScreenBinding>() {
 
     lateinit var iFragmentListener: IFragmentListener
 
+
+
     companion object {
         const val TAG: String = "HomeScreenFragment"
         fun newInstance(): HomeScreenFragment = HomeScreenFragment()
@@ -39,6 +41,10 @@ class HomeScreenFragment: BaseFragment<FragmentHomeScreenBinding>() {
         dataBinding.viewModel = homeScreenViewModel.apply {
             openEnterPin.observe(this@HomeScreenFragment, Observer {
                 iFragmentListener.openPinKeyScreen()
+            })
+
+            appDetailsEvents.observe(this@HomeScreenFragment, Observer {
+                iFragmentListener.hideShowToolbar()
             })
         }
 

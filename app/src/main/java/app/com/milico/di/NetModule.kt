@@ -1,6 +1,7 @@
 package app.com.milico.di
 
 import android.content.Context
+import app.com.milico.BuildConfig
 import app.com.milico.data.preference.IPreferenceHelper
 import app.com.milico.data.remote.ApiServiceHolder
 import app.com.milico.data.remote.IApiService
@@ -55,7 +56,7 @@ fun provideLoggingInterceptor(): HttpLoggingInterceptor = HttpLoggingInterceptor
 
 inline fun <reified T> createWebService(okHttpClient: OkHttpClient): T {
     val retrofit = Retrofit.Builder()
-            .baseUrl(SERVER_URL)
+            .baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create()).build()

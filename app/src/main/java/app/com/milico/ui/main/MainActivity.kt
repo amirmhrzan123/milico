@@ -20,7 +20,6 @@ import org.koin.android.ext.android.inject
 class MainActivity: BaseActivity<ActivityMainBinding>(),IFragmentListener {
 
 
-
     val mainViewModel: MainViewModel by inject()
 
     private var infoPopUpFragment: InfoPopUpFragment?=null
@@ -49,11 +48,18 @@ class MainActivity: BaseActivity<ActivityMainBinding>(),IFragmentListener {
         replaceFragmentInActivity(RedeemFragment.newInstance(),R.id.fl_container,RedeemFragment.TAG,addToBackStack = true)
     }
 
+    override fun hideShowToolbar() {
+        mainViewModel.setFirstTime()
+    }
+
+
 
 
     override fun getLayout(): Int = R.layout.activity_main
 
     override fun initBinder() {
+
+
         dataBinding.viewModel = mainViewModel.apply {
             infoClicked.observe(this@MainActivity, Observer {
                 it?.let {

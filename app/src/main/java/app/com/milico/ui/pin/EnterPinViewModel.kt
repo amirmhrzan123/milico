@@ -27,57 +27,13 @@ class EnterPinViewModel constructor(
 
 
 
-    fun on1Pressed(){
-        checkLength("1")
-    }
+
 
     fun enableDisableButton(enable:Boolean){
         okenabled.set(enable)
     }
 
-    fun on2Pressed(){
-        checkLength("2")
 
-    }
-
-    fun on3Pressed(){
-        checkLength("3")
-
-    }
-
-    fun on4Pressed(){
-        checkLength("4")
-
-    }
-
-    fun on5Pressed(){
-        checkLength("5")
-
-    }
-
-    fun on6Pressed(){
-        checkLength("6")
-
-    }
-
-    fun on7Pressed(){
-        checkLength("7")
-
-    }
-
-    fun on8Pressed(){
-        checkLength("8")
-
-    }
-
-    fun on9Pressed() {
-        checkLength("9")
-
-    }
-
-    fun on0Pressed(){
-        checkLength("0")
-    }
 
     fun onOkPressed(){
         if(keys.equals("1234")){

@@ -1,9 +1,9 @@
 package app.com.milico.di
 
 
-import android.app.Application
 import android.content.Context
 import android.content.res.Resources
+import android.provider.Settings
 import app.com.milico.R
 import app.com.milico.data.local.json.AndroidJsonReader
 import app.com.milico.data.local.json.JsonReader
@@ -24,11 +24,12 @@ val otherModules = module {
 
     single { provideAndroidJsonReader(get())}
 
+
 }
 
 
 
-val appModule = listOf(viewModelModule, otherModules,dataModule,netModules)
+val appModule = listOf(viewModelModule, otherModules, dataModule, netModules)
 
 
 
@@ -52,6 +53,13 @@ fun provideCalligraphy(context: Context): CalligraphyConfig =
                 .build()
 
 fun provideAndroidJsonReader(context: Context): JsonReader = AndroidJsonReader(context)
+
+fun provideDeviceId(context: Context): String = Settings.Secure.getString(context.contentResolver, Settings.Secure.ANDROID_ID)
+
+fun provideScheduleProvider(scheduleProvider: ApplicationSchedulerProvider): SchedulerProvider = scheduleProvider
+
+
+
 
 
 

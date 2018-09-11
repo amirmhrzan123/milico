@@ -10,6 +10,10 @@
             name="viewModel"
             type="app.com.milico.ui.main.MainViewModel"/>
 
+        <import type="android.view.View" />
+
+
+
     </data>
 
 
@@ -21,6 +25,7 @@
         android:background="@color/background">
 
         <include
+            android:visibility="@{viewModel.isFirstTime ? View.VISIBLE : View.GONE}"
             android:id="@+id/toolbar"
             layout="@layout/layout_header"
             app:viewModel="@{viewModel}"

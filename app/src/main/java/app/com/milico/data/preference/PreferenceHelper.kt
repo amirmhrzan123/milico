@@ -8,7 +8,6 @@ class PreferenceHelper constructor(
         context: Context): IPreferenceHelper{
 
 
-
     fun defaultPrefs(context: Context): SharedPreferences
             = PreferenceManager.getDefaultSharedPreferences(context)
     val prefs = defaultPrefs(context)
@@ -19,9 +18,21 @@ class PreferenceHelper constructor(
         private const val API_KEY = "Api_Key"
         private const val PREF_KEY_IS_USER_LOGGED_IN = "login"
         private const val PREF_KEY_PIN = "pinKey"
+        private const val PREF_COVER_IMAGE = "coverImage"
+        private const val PREF_APP_LOGO = "appLogo"
+        private const val PREF_CLUB_LOGO =  "clubLogo"
+        private const val PREF_IS_FIRST_TIME = "isFirstTime"
+        private const val PREF_APP_INFO = "appInfo"
 
 
     }
+
+    override fun getAppInfo(): String = prefs.appInfo
+
+    override fun setAppInfo(info: String) {
+        prefs.appInfo = info
+    }
+
 
     override fun setPinKey(key: String) {
         prefs.pinKey = key
@@ -35,6 +46,31 @@ class PreferenceHelper constructor(
     override fun setLogin(login: Boolean) {
         prefs.isLoggedIn = login
     }
+
+    override fun isFirstTime(): Boolean? = prefs.isFirstTime
+
+    override fun setFirstTime(fistTime: Boolean) {
+        prefs.isFirstTime = fistTime
+    }
+
+    override fun getCoverImage(): String = prefs.coverImage
+
+    override fun setCoverImage(url: String) {
+        prefs.coverImage = url
+    }
+
+    override fun getAppLog(): String = prefs.appImage
+
+    override fun setAppLog(url: String) {
+        prefs.appImage = url
+    }
+
+    override fun getClubLogo(): String = prefs.clubLogo
+
+    override fun setClubLog(url: String) {
+        prefs.clubLogo = url
+    }
+
 
 
 
@@ -63,4 +99,36 @@ class PreferenceHelper constructor(
         set(value) {
             putValue(PREF_KEY_PIN, value)
         }
+
+
+    private var SharedPreferences.isFirstTime
+        get() = getBoolean(PREF_IS_FIRST_TIME, false)
+        set(value) {
+            putValue(PREF_IS_FIRST_TIME, value)
+        }
+
+    private var SharedPreferences.coverImage
+        get() = getString(PREF_COVER_IMAGE, "")
+        set(value) {
+            putValue(PREF_COVER_IMAGE, value)
+        }
+
+    private var SharedPreferences.appImage
+        get() = getString(PREF_APP_LOGO, "")
+        set(value) {
+            putValue(PREF_APP_LOGO, value)
+        }
+
+    private var SharedPreferences.clubLogo
+        get() = getString(PREF_CLUB_LOGO, "")
+        set(value) {
+            putValue(PREF_CLUB_LOGO, value)
+        }
+
+    private var SharedPreferences.appInfo
+        get() = getString(PREF_APP_INFO, "")
+        set(value) {
+            putValue(PREF_APP_INFO, value)
+        }
+
 }

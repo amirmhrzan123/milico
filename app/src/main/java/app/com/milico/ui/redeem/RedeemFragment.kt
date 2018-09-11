@@ -9,7 +9,6 @@ import app.com.milico.R
 import app.com.milico.base.BaseFragment
 import app.com.milico.databinding.FragmentRedeemBinding
 import org.koin.android.ext.android.inject
-import android.opengl.ETC1.getWidth
 
 
 
@@ -42,9 +41,9 @@ class RedeemFragment:BaseFragment<FragmentRedeemBinding>() {
             itemClickEvent.observe(this@RedeemFragment, Observer {
                 Log.d("id",it.toString())
                 dataBinding.rvGiftsCards.apply {
-                    if (it != null) {
+                   /* if (it != null) {
                         smoothScrollToPosition(it)
-                    }
+                    }*/
 
                 }
             })
