@@ -51,4 +51,7 @@
     <string name="price">$100</string>
     <string name="edit">EDIT</string>
     <string name="remove">REMOVE</string>
+    <string name="review">Review</string>
+    <string name="checkout">Checkout</string>
+    <string name="redeem_more">Reedem More</string>
 </resources>

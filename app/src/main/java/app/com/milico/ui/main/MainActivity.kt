@@ -11,39 +11,41 @@ import app.com.milico.ui.dashboard.DashBoardModel
 import app.com.milico.ui.homeScreen.HomeScreenFragment
 import app.com.milico.ui.pin.EnterPinFragment
 import app.com.milico.ui.popUpView.InfoPopUpFragment
+import app.com.milico.ui.review.ReviewFragment
 import app.com.milico.util.extensions.replaceFragmentInActivity
 import org.jetbrains.anko.startActivity
 import org.koin.android.ext.android.inject
 
 
-class MainActivity: BaseActivity<ActivityMainBinding>(),IFragmentListener {
+class MainActivity : BaseActivity<ActivityMainBinding>(), IFragmentListener {
 
 
     val mainViewModel: MainViewModel by inject()
 
-    private var infoPopUpFragment: InfoPopUpFragment?=null
-
+    private var infoPopUpFragment: InfoPopUpFragment? = null
 
 
     companion object {
-        fun start(context: Context){
+        fun start(context: Context) {
             context.startActivity<MainActivity>()
         }
     }
 
     override fun openHomeScreen() {
-        replaceFragmentInActivity(HomeScreenFragment.newInstance(),R.id.fl_container,HomeScreenFragment.TAG)
+        replaceFragmentInActivity(HomeScreenFragment.newInstance(), R.id.fl_container, HomeScreenFragment.TAG)
     }
 
     override fun openPinKeyScreen() {
-        replaceFragmentInActivity(EnterPinFragment.newInstance(),R.id.fl_container,EnterPinFragment.TAG)
+        replaceFragmentInActivity(EnterPinFragment.newInstance(), R.id.fl_container, EnterPinFragment.TAG)
     }
+
+//    override fun openDashBoard(dashboardModel: DashBoardModel) {
+//        replaceFragmentInActivity(DashBoardFragment.newInstance(dashboardModel), R.id.fl_container, DashBoardFragment.TAG)
+//    }
 
     override fun openDashBoard(dashboardModel: DashBoardModel) {
-        replaceFragmentInActivity(DashBoardFragment.newInstance(dashboardModel),R.id.fl_container,DashBoardFragment.TAG)
+        replaceFragmentInActivity(ReviewFragment.getInstance(), R.id.fl_container, DashBoardFragment.TAG)
     }
-
-
 
     override fun getLayout(): Int = R.layout.activity_main
 
@@ -62,14 +64,12 @@ class MainActivity: BaseActivity<ActivityMainBinding>(),IFragmentListener {
         openHomeScreen()
 
 
-
     }
 
-    fun openPopUpInfo(texts:String){
-        infoPopUpFragment= InfoPopUpFragment.newInstance(texts)
-        infoPopUpFragment!!.show(supportFragmentManager,InfoPopUpFragment.TAG)
+    fun openPopUpInfo(texts: String) {
+        infoPopUpFragment = InfoPopUpFragment.newInstance(texts)
+        infoPopUpFragment!!.show(supportFragmentManager, InfoPopUpFragment.TAG)
     }
-
 
 
 }
