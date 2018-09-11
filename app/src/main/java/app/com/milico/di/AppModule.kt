@@ -1,7 +1,6 @@
 package app.com.milico.di
 
 
-import android.app.Application
 import android.content.Context
 import android.content.res.Resources
 import app.com.milico.R
