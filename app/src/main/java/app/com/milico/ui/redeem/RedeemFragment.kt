@@ -9,6 +9,9 @@ import app.com.milico.R
 import app.com.milico.base.BaseFragment
 import app.com.milico.databinding.FragmentRedeemBinding
 import org.koin.android.ext.android.inject
+import android.opengl.ETC1.getWidth
+
+
 
 class RedeemFragment:BaseFragment<FragmentRedeemBinding>() {
 
@@ -53,10 +56,21 @@ class RedeemFragment:BaseFragment<FragmentRedeemBinding>() {
 
                 this.layoutManager = layoutManager
 
-
+                val adapters = RedeemAdapter()
                 dataBinding.viewModel?.let {
-                    adapter = RedeemAdapter(it)
+
+                    adapter = adapters
                 }
+                adapters.setOnItemClickListener(object: RedeemAdapter.OnItemClickListener{
+                    override fun onClick(view: View, data: RedeemModel.AdapterModel) {
+                        val itemToScroll = getChildPosition(view)
+                        val centerOfScreen = getWidth() / 2 - view.getWidth() / 2
+                        layoutManager.scrollToPositionWithOffset(itemToScroll, centerOfScreen)
+                        //Log.d("startingposition",view.)
+                    }
+
+                })
+
 
             }
         }
