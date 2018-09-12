@@ -44,7 +44,7 @@ class HomeScreenFragment: BaseFragment<FragmentHomeScreenBinding>() {
 
 
         dataBinding.viewModel = homeScreenViewModel.apply {
-            getAppDetails(Settings.Secure.getString(activity?.application?.contentResolver, Settings.Secure.ANDROID_ID))
+//            getAppDetails(Settings.Secure.getString(activity?.application?.contentResolver, Settings.Secure.ANDROID_ID))
 
             openEnterPin.observe(this@HomeScreenFragment, Observer {
                 iFragmentListener.openPinKeyScreen()

@@ -1,8 +1,10 @@
 package app.com.milico.ui.main
 
+import android.app.ActivityManager
 import android.arch.lifecycle.Observer
 import android.content.Context
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import app.com.milico.R
 import app.com.milico.base.BaseActivity
@@ -16,6 +18,7 @@ import app.com.milico.ui.review.ReviewFragment
 import app.com.milico.ui.redeem.RedeemFragment
 import app.com.milico.util.extensions.replaceFragmentInActivity
 import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.toast
 import org.koin.android.ext.android.inject
 
 
@@ -46,7 +49,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IFragmentListener {
     }
 
     override fun openRedeemPage() {
-        replaceFragmentInActivity(RedeemFragment.newInstance(),R.id.fl_container,RedeemFragment.TAG,addToBackStack = true)
+        replaceFragmentInActivity(RedeemFragment.newInstance(), R.id.fl_container, RedeemFragment.TAG, addToBackStack = true)
     }
 
     override fun hideShowToolbar() {
@@ -54,17 +57,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IFragmentListener {
     }
 
 
-
-
     override fun getLayout(): Int = R.layout.activity_main
 
     override fun initBinder() {
-
-
         dataBinding.viewModel = mainViewModel.apply {
             infoClicked.observe(this@MainActivity, Observer {
                 it?.let {
-                    Log.d("string",it)
+                    Log.d("string", it)
                     openPopUpInfo(it)
                 }
             })
@@ -73,8 +72,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IFragmentListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        initBinder()
         openHomeScreen()
-
 
 
     }
@@ -84,5 +83,52 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IFragmentListener {
         infoPopUpFragment!!.show(supportFragmentManager, InfoPopUpFragment.TAG)
     }
 
+
+    override fun onBackPressed() {
+        //do nothing
+    }
+
+    // To check user inactivity
+    override fun onPause() {
+        super.onPause()
+
+        val activityManager = applicationContext
+                .getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+
+        activityManager.moveTaskToFront(taskId, 0)
+    }
+
+    private val disconnectHandler = Handler(Handler.Callback {
+        // todo
+        true
+    })
+
+    private val disconnectCallback = Runnable {
+        toast("User inactive")
+        openPinKeyScreen()
+    }
+
+    private fun resetDisconnectTimer() {
+        disconnectHandler.removeCallbacks(disconnectCallback)
+        disconnectHandler.postDelayed(disconnectCallback, DISCONNECT_TIMEOUT)
+    }
+
+    override fun onUserInteraction() {
+        resetDisconnectTimer()
+    }
+
+    public override fun onResume() {
+        super.onResume()
+        resetDisconnectTimer()
+    }
+
+    public override fun onStop() {
+        super.onStop()
+        stopDisconnectTimer()
+    }
+
+    private fun stopDisconnectTimer() {
+        disconnectHandler.removeCallbacks(disconnectCallback)
+    }
 
 }

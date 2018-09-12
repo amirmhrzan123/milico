@@ -11,14 +11,14 @@ import app.com.milico.ui.dashboard.DashBoardModel
 import app.com.milico.ui.main.IFragmentListener
 import app.com.milico.ui.popUpView.ForgetPopUpFragment
 import app.com.milico.util.extensions.showAlert
+import app.com.milico.util.extensions.showConfirmationDialog
 import org.koin.android.ext.android.inject
 
 class EnterPinFragment : BaseFragment<FragmentEnterPinBinding>() {
 
-    private val enterPinViewModel : EnterPinViewModel by inject()
-    private var forgetPopUpFragment: ForgetPopUpFragment?=null
-    private var iFragmentListener: IFragmentListener?= null
-
+    private val enterPinViewModel: EnterPinViewModel by inject()
+    private var forgetPopUpFragment: ForgetPopUpFragment? = null
+    private var iFragmentListener: IFragmentListener? = null
 
 
     companion object {
@@ -33,17 +33,15 @@ class EnterPinFragment : BaseFragment<FragmentEnterPinBinding>() {
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
-        if(context is IFragmentListener){
+        if (context is IFragmentListener) {
             iFragmentListener = context
         }
     }
 
     override fun getLayout(): Int = R.layout.fragment_enter_pin
 
-
     override fun initBinder() {
         dataBinding.viewModel = enterPinViewModel.apply {
-
 
 
             okPressedEvent.observe(this@EnterPinFragment, Observer {
@@ -66,13 +64,10 @@ class EnterPinFragment : BaseFragment<FragmentEnterPinBinding>() {
         }
     }
 
-    fun openPopUpFragment(){
-        forgetPopUpFragment= ForgetPopUpFragment.newInstance()
-        forgetPopUpFragment!!.show(baseActivity.fragmentManager,ForgetPopUpFragment.TAG)
+    fun openPopUpFragment() {
+        forgetPopUpFragment = ForgetPopUpFragment.newInstance()
+        forgetPopUpFragment!!.show(baseActivity.fragmentManager, ForgetPopUpFragment.TAG)
     }
-
-
-
 }
 
 

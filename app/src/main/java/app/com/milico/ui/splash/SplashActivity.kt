@@ -13,24 +13,20 @@ import app.com.milico.util.getTimeZone
 import org.koin.android.ext.android.inject
 import java.util.*
 
-class SplashActivity: BaseActivity<ActivitySplashBinding>() {
+class SplashActivity : BaseActivity<ActivitySplashBinding>() {
 
     private val splashViewModel: SplashViewModel by inject()
 
     override fun getLayout(): Int = R.layout.activity_splash
 
     override fun initBinder() {
-
-
         dataBinding.viewModel = splashViewModel.apply {
-
             setPinKey("1234")
             registerDevice(RegisterModel.DeviceRegisterRequestModel(Settings.Secure.getString(application.contentResolver, Settings.Secure.ANDROID_ID),
-                                                        getDeviceName()!!, getOSVersion(), getTimeZone(), Locale.getDefault().getLanguage()))
+                    getDeviceName()!!, getOSVersion(), getTimeZone(), Locale.getDefault().getLanguage()))
 
             registerEvent.observe(this@SplashActivity, Observer {
-                MainActivity.start(this@SplashActivity)
-                finish()
+//                MainActivity.start(this@SplashActivity)
             })
 
         }
@@ -39,8 +35,6 @@ class SplashActivity: BaseActivity<ActivitySplashBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initBinder()
+//        initBinder()
     }
-
-
 }

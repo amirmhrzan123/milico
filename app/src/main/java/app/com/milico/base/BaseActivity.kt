@@ -11,7 +11,9 @@ import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
-abstract class BaseActivity<V: ViewDataBinding> : AppCompatActivity() {
+
+abstract class BaseActivity<V : ViewDataBinding> : AppCompatActivity() {
+    val DISCONNECT_TIMEOUT: Long = 5000 // 5 second
     private var doubleBackToExitPressedOnce = false
     protected lateinit var dataBinding: V
     private lateinit var progressDialog: ProgressDialog
@@ -22,13 +24,11 @@ abstract class BaseActivity<V: ViewDataBinding> : AppCompatActivity() {
 
     abstract fun initBinder()
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         performDataBinding()
         progressDialog = ProgressDialog(this)
-        initBinder()
+//        initBinder()
     }
 
 
@@ -42,13 +42,13 @@ abstract class BaseActivity<V: ViewDataBinding> : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
-            android.R.id.home -> onBackPressed()
+//            android.R.id.home -> onBackPressed()
         }
         return true
     }
 
     fun showProgressDialog(message: Int = 0) {
-       // var messageText = getString(R.string.msg_loading)
+        // var messageText = getString(R.string.msg_loading)
         var messageText = "Loading"
         if (message != 0) {
             messageText = getString(message)
@@ -80,7 +80,8 @@ abstract class BaseActivity<V: ViewDataBinding> : AppCompatActivity() {
         }
     }
 
-    *//**
+    */
+    /**
      * Called by fragments to customise toolbar
      * @param title toolbar title
      * @param backButtonEnabled true if back button is required else false
@@ -113,4 +114,7 @@ abstract class BaseActivity<V: ViewDataBinding> : AppCompatActivity() {
         progressDialog.cancel()
     }
 
+    override fun onBackPressed() {
+        //do nothing
+    }
 }
