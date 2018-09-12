@@ -39,13 +39,7 @@ class SplashViewModel constructor(
                         .subscribe({
                             t: BaseResponse<Any>?->
                             t?.let{
-                                when{
-                                    it.status== StatusCode.SUCCESS->{
-                                    }else->{
-                                    registerEvent.call()
-
-                                }
-                                }
+                                registerEvent.call()
                             }
                         },{
                             error->

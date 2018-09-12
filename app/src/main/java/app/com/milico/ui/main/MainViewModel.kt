@@ -23,6 +23,8 @@ class MainViewModel constructor(
 
 
 
+
+
     fun onInfoClicked(){
         infoClicked.value = dataManager.getAppInfo()
     }
