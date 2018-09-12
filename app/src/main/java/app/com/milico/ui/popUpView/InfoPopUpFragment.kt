@@ -16,7 +16,7 @@ class InfoPopUpFragment: BaseDialogFragment<LayoutInfoAppBinding>() {
 
 
     private val info: String by lazy {
-        arguments!!.getString("INFOTEXT")
+        arguments!!.getString(INFOTEXT)
     }
 
     override fun getLayout(): Int = R.layout.layout_info_app

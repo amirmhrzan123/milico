@@ -3,6 +3,7 @@ package app.com.milico.ui.main
 import android.arch.lifecycle.Observer
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import app.com.milico.R
 import app.com.milico.base.BaseActivity
 import app.com.milico.databinding.ActivityMainBinding
@@ -63,6 +64,7 @@ class MainActivity: BaseActivity<ActivityMainBinding>(),IFragmentListener {
         dataBinding.viewModel = mainViewModel.apply {
             infoClicked.observe(this@MainActivity, Observer {
                 it?.let {
+                    Log.d("string",it)
                     openPopUpInfo(it)
                 }
             })

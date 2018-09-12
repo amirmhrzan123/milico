@@ -25,11 +25,11 @@
         android:background="@color/background">
 
         <include
-            android:visibility="@{viewModel.isFirstTime ? View.VISIBLE : View.GONE}"
             android:id="@+id/toolbar"
             layout="@layout/layout_header"
-            app:viewModel="@{viewModel}"
-            />
+            android:visibility="@{viewModel.isFirstTime ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toTopOf="@+id/guideline_upper_baseline"
+            app:viewModel="@{viewModel}" />
 
 
 
@@ -79,7 +79,6 @@
             android:background="@color/pop_up_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/view">
 
