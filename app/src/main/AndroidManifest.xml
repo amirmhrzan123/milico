@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".ui.splash.SplashActivity"
+        <activity android:name=".ui.main.MainActivity"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.Splash">
             <intent-filter>
@@ -25,10 +25,10 @@
         </activity>
 
 
-        <activity android:name=".ui.main.MainActivity"
-            android:screenOrientation="landscape">
+        <!--<activity android:name=".ui.main.MainActivity"-->
+            <!--android:screenOrientation="landscape">-->
 
-        </activity>
+        <!--</activity>-->
     </application>
 
 </manifest>
