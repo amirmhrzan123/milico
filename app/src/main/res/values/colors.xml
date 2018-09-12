@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#eaeaea</color>
 
     <color name="colorWhite">#ffffff</color>
     <color name="color_gray">#504f4f</color>
@@ -27,5 +27,10 @@
     <color name="textView_color">#C2C9CB</color>
     <color name="redeem_button">#709b18</color>
     <color name="item_background">#7C7E7D</color>
+
+    <!-- Review -->
+    <color name="review_title_bar">#32373D</color>
+    <color name="review_footer_bar">#28292C</color>
+    <color name="review_background">#27282C</color>
 
 </resources>

@@ -18,8 +18,8 @@
         android:layout_height="match_parent"
         android:background="@color/pop_up_background">
 
-        <TextView
-            android:id="@+id/textView"
+        <ImageView
+            android:id="@+id/iv_cover_image"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:gravity="center"
@@ -27,10 +27,21 @@
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/textsize_100"
             android:onClick="@{() -> viewModel.openEnterPin()}"
+            app:imageUrl="@{viewModel.coverImage}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <include
+            layout="@layout/layout_progress_bar"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:viewModel="@{viewModel}" />
     </android.support.constraint.ConstraintLayout>
 
 

@@ -26,6 +26,7 @@
             android:layout_height="@dimen/toolbar_height"
             android:contentDescription="@string/todo"
             android:src="@color/colorPrimary"
+            app:imageUrl="@{viewModel.clubLogo}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline_left_logo"
             app:layout_constraintStart_toStartOf="parent"

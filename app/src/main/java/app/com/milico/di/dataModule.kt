@@ -7,10 +7,8 @@ import app.com.milico.data.local.dbHelper.IDbHelper
 import app.com.milico.data.local.handlers.DbThread
 import app.com.milico.data.preference.IPreferenceHelper
 import app.com.milico.data.preference.PreferenceHelper
-import app.com.milico.data.remote.ApiServiceHolder
 import app.com.milico.data.remote.IApiService
 import app.com.milico.data.repository.AppDataManager
-import app.com.milico.data.repository.IAppDataManager
 import com.google.gson.Gson
 import io.reactivex.disposables.CompositeDisposable
 import np.com.amir.apptest.data.local.InAppDatabase
@@ -22,10 +20,10 @@ val dataModule = module {
     single{ provideDbThread()}
 
     single{ provideDbHelper(get())}
-    single (override = true){ provideApiServiceHolder()}
+    //single (override = true){ provideApiServiceHolder()}
     single{ provideSharedPreference(get())}
 
-    single(override = true){provideDataManager(get(),get(),get(),get(),get())}
+    single{provideDataManager(get(),get(),get(),get(),get())}
 
 }
 
@@ -47,7 +45,7 @@ fun provideDataManager(iApiService: IApiService,compositeDisposable: CompositeDi
 
 fun provideDbHelper(appDatabase: InAppDatabase): IDbHelper = DbHelper(appDatabase)
 
-fun provideApiServiceHolder(): ApiServiceHolder = ApiServiceHolder()
+//fun provideApiServiceHolder(): ApiServiceHolder = ApiServiceHolder()
 
 fun provideSharedPreference(context:Context): IPreferenceHelper = PreferenceHelper(context)
 

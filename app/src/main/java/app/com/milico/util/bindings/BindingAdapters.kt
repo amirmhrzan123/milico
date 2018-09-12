@@ -1,6 +1,7 @@
 package app.com.milico.util.bindings
 
 import android.databinding.BindingAdapter
+import android.text.TextUtils
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
@@ -12,7 +13,8 @@ object BindingAdapters {
     @JvmStatic
     fun loadImage(imageView: ImageView, url: String) {
         with(imageView) {
-            if (!url.isEmpty()) {
+            if (!TextUtils.isEmpty(url)) {
+
 
             } else {
 

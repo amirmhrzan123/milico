@@ -13,4 +13,6 @@ interface IFragmentListener {
 
     fun openRedeemPage()
 
+    fun hideShowToolbar()
+
 }

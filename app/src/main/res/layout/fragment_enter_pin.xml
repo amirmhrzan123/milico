@@ -125,7 +125,7 @@
                 android:layout_marginEnd="2dp"
                 android:background="@drawable/keypad_button"
                 android:gravity="center"
-                android:onClick="@{() -> viewModel.on1Pressed()}"
+                android:onClick='@{() -> viewModel.checkLength("2")}'
                 android:text="@string/number_one"
                 android:textSize="@dimen/textsize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_second_row"
@@ -142,7 +142,7 @@
                 android:layout_marginStart="2dp"
                 android:background="@drawable/keypad_button"
                 android:gravity="center"
-                android:onClick="@{() -> viewModel.on2Pressed()}"
+                android:onClick='@{() -> viewModel.checkLength("2")}'
                 android:text="@string/number_two"
                 android:textSize="@dimen/textsize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_second_row"
@@ -157,7 +157,7 @@
                 android:layout_marginBottom="2dp"
                 android:background="@drawable/keypad_button"
                 android:gravity="center"
-                android:onClick="@{() -> viewModel.on3Pressed()}"
+                android:onClick='@{() -> viewModel.checkLength("2")}'
                 android:text="@string/number_three"
                 android:textSize="@dimen/textsize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_second_row"
@@ -173,7 +173,7 @@
                 android:layout_marginEnd="2dp"
                 android:background="@drawable/keypad_button"
                 android:gravity="center"
-                android:onClick="@{() -> viewModel.on4Pressed()}"
+                android:onClick='@{() -> viewModel.checkLength("2")}'
                 android:text="@string/number_four"
                 android:textSize="@dimen/textsize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_third_row"
@@ -189,7 +189,7 @@
                 android:layout_marginEnd="2dp"
                 android:background="@drawable/keypad_button"
                 android:gravity="center"
-                android:onClick="@{() -> viewModel.on5Pressed()}"
+                android:onClick='@{() -> viewModel.checkLength("2")}'
                 android:text="@string/number_five"
                 android:textSize="@dimen/textsize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_third_row"
@@ -204,7 +204,7 @@
                 android:layout_marginBottom="2dp"
                 android:background="@drawable/keypad_button"
                 android:gravity="center"
-                android:onClick="@{() -> viewModel.on6Pressed()}"
+                android:onClick='@{() -> viewModel.checkLength("2")}'
                 android:text="@string/number_six"
                 android:textSize="@dimen/textsize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_third_row"
@@ -220,7 +220,7 @@
                 android:layout_marginEnd="2dp"
                 android:background="@drawable/keypad_button"
                 android:gravity="center"
-                android:onClick="@{() -> viewModel.on7Pressed()}"
+                android:onClick='@{() -> viewModel.checkLength("2")}'
                 android:text="@string/number_seven"
                 android:textSize="@dimen/textsize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_fourth_row"
@@ -236,7 +236,7 @@
                 android:layout_marginEnd="2dp"
                 android:background="@drawable/keypad_button"
                 android:gravity="center"
-                android:onClick="@{() -> viewModel.on8Pressed()}"
+                android:onClick='@{() -> viewModel.checkLength("2")}'
                 android:text="@string/number_eight"
                 android:textSize="@dimen/textsize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_fourth_row"
@@ -251,7 +251,7 @@
                 android:layout_marginBottom="2dp"
                 android:background="@drawable/keypad_button"
                 android:gravity="center"
-                android:onClick="@{() -> viewModel.on9Pressed()}"
+                android:onClick='@{() -> viewModel.checkLength("2")}'
                 android:text="@string/number_nine"
                 android:textSize="@dimen/textsize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_fourth_row"
@@ -266,7 +266,7 @@
                 android:layout_marginEnd="2dp"
                 android:background="@drawable/keypad_button"
                 android:gravity="center"
-                android:onClick="@{() -> viewModel.on0Pressed()}"
+                android:onClick='@{() -> viewModel.checkLength("2")}'
                 android:text="@string/number_zero"
                 android:textSize="@dimen/textsize_60"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -280,7 +280,7 @@
                 android:layout_height="0dp"
                 android:layout_marginEnd="2dp"
                 android:background="@color/ok_keypad"
-                android:onClick="@{() -> viewModel.onOkPressed()}"
+                android:onClick='@{() -> viewModel.checkLength("2")}'
                 android:text="@android:string/VideoView_error_button"
                 android:textSize="@dimen/textsize_60"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -293,7 +293,7 @@
                 android:layout_width="@dimen/dimen_0dp"
                 android:layout_height="@dimen/dimen_0dp"
                 android:background="@drawable/keypad_button"
-                android:onClick="@{() -> viewModel.onBackPressed()}"
+                android:onClick='@{() -> viewModel.checkLength("2")}'
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -306,7 +306,7 @@
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:background="@drawable/keypad_button"
-                android:onClick="@{() -> viewModel.onBackPressed()}"
+                android:onClick='@{() -> viewModel.checkLength("2")}'
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/guideline_second_column"

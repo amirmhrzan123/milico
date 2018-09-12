@@ -15,6 +15,9 @@ import kotlinx.android.synthetic.main.layout_info_app.*
 class InfoPopUpFragment: BaseDialogFragment<LayoutInfoAppBinding>() {
 
 
+    private val info: String by lazy {
+        arguments!!.getString(INFOTEXT)
+    }
 
     override fun getLayout(): Int = R.layout.layout_info_app
 
@@ -36,6 +39,7 @@ class InfoPopUpFragment: BaseDialogFragment<LayoutInfoAppBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        tv_text.text = info
         iv_cross_info.setOnClickListener { dialog.dismiss() }
         mainLayout_info.setOnClickListener { dialog.dismiss() }
         info_layout.setOnClickListener {  }
