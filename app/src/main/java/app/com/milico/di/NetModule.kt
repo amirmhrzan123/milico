@@ -22,7 +22,7 @@ val netModules  = module {
 
     single (override=true){provideApiService(get())}
 
-    single(override = true){ createWebService<IApiService>(get())}
+    single(override = true){ provideRetrofit(get(),get())}
 
     //single{ provideTokenService(get(),get(),get())}
 
@@ -49,15 +49,14 @@ fun provideOkHttpBuilder(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttp
 
 fun provideLoggingInterceptor(): HttpLoggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
+fun provideRetrofit(gson: Gson, okHttpClient: OkHttpClient): Retrofit =
+        Retrofit.Builder()
+                .baseUrl(BuildConfig.BASE_URL)
+                .client(okHttpClient)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .build()
 
-inline fun <reified T> createWebService(okHttpClient: OkHttpClient): T {
-    val retrofit = Retrofit.Builder()
-            .baseUrl(BuildConfig.BASE_URL)
-            .client(okHttpClient)
-            .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create()).build()
-    return retrofit.create(T::class.java)
-}
 
 fun provideApiService(retrofit: Retrofit): IApiService {
     val apiService = retrofit.create(IApiService::class.java)

@@ -16,14 +16,14 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/toolbar_height"
+        android:layout_height="match_parent"
         android:background="@color/color_gray">
 
 
         <ImageView
             android:id="@+id/iv_brand_logo"
             android:layout_width="@dimen/dimen_0dp"
-            android:layout_height="@dimen/toolbar_height"
+            android:layout_height="match_parent"
             android:contentDescription="@string/todo"
             android:src="@color/colorPrimary"
             app:imageUrl="@{viewModel.clubLogo}"
@@ -35,10 +35,10 @@
         <ImageView
             android:id="@+id/iv_home"
             android:layout_width="@dimen/dimen_0dp"
-            android:layout_height="@dimen/toolbar_height"
+            android:layout_height="match_parent"
             android:contentDescription="@string/todo"
-            android:padding="40dp"
-            app:layout_constraintBottom_toTopOf="@+id/guideline_toolbar_height"
+            app:layout_constraintBottom_toTopOf="parent"
+            android:padding="@dimen/dimen_40"
             app:layout_constraintEnd_toStartOf="@+id/guideline_home"
             app:layout_constraintStart_toStartOf="@+id/guideline_left_logo"
             app:layout_constraintTop_toTopOf="parent"
@@ -48,11 +48,12 @@
         <ImageView
             android:id="@+id/iv_info"
             android:layout_width="@dimen/dimen_0dp"
-            android:layout_height="@dimen/toolbar_height"
+            android:layout_height="@dimen/dimen_0dp"
+            android:layout_marginBottom="8dp"
+            android:padding="@dimen/dimen_40"
             android:contentDescription="@string/todo"
-            android:padding="40dp"
             android:onClick="@{() -> viewModel.onInfoClicked()}"
-            app:layout_constraintBottom_toTopOf="@+id/guideline_toolbar_height"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline_info"
             app:layout_constraintStart_toStartOf="@+id/guideline_home"
             app:layout_constraintTop_toTopOf="parent"
@@ -61,10 +62,11 @@
         <ImageView
             android:id="@+id/iv_logout"
             android:layout_width="@dimen/dimen_0dp"
-            android:layout_height="@dimen/toolbar_height"
+            android:layout_height="@dimen/dimen_0dp"
+            android:layout_marginBottom="8dp"
+            android:padding="@dimen/dimen_40"
             android:contentDescription="@string/todo"
-            android:padding="40dp"
-            app:layout_constraintBottom_toTopOf="@+id/guideline_toolbar_height"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline_logout"
             app:layout_constraintStart_toStartOf="@+id/guideline_info"
             app:layout_constraintTop_toTopOf="parent"
@@ -72,52 +74,53 @@
 
         <ImageView
             android:id="@+id/iv_app_logo"
-            android:layout_width="@dimen/dimen_0dp"
-            android:layout_height="@dimen/toolbar_height"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:contentDescription="@string/todo"
             android:src="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/guideline_right_logo"
+            app:layout_constraintStart_toEndOf="@+id/guideline_right_logo"
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
             android:layout_width="1dp"
-            android:layout_height="@dimen/toolbar_height"
+            android:layout_height="match_parent"
             android:background="@color/colorWhite"
             app:layout_constraintStart_toStartOf="@id/guideline_left_logo"
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
             android:layout_width="1dp"
-            android:layout_height="@dimen/toolbar_height"
+            android:layout_height="@dimen/dimen_0dp"
             android:background="@color/colorWhite"
             app:layout_constraintStart_toStartOf="@id/guideline_home"
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
             android:layout_width="1dp"
-            android:layout_height="@dimen/toolbar_height"
+            android:layout_height="@dimen/dimen_0dp"
             android:background="@color/colorWhite"
             app:layout_constraintStart_toStartOf="@id/guideline_info"
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
             android:layout_width="1dp"
-            android:layout_height="@dimen/toolbar_height"
+            android:layout_height="@dimen/dimen_0dp"
             android:background="@color/colorWhite"
             app:layout_constraintStart_toStartOf="@id/guideline_info"
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
             android:layout_width="1dp"
-            android:layout_height="@dimen/toolbar_height"
+            android:layout_height="@dimen/dimen_0dp"
             android:background="@color/colorWhite"
             app:layout_constraintStart_toStartOf="@id/guideline_logout"
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
             android:layout_width="1dp"
-            android:layout_height="@dimen/toolbar_height"
+            android:layout_height="@dimen/dimen_0dp"
             android:background="@color/colorWhite"
             app:layout_constraintLeft_toLeftOf="@id/iv_app_logo" />
 
@@ -159,15 +162,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent=".84" />
-
-
-
-        <android.support.constraint.Guideline
-            android:id="@+id/guideline_toolbar_height"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent=".85" />
 
 
     </android.support.constraint.ConstraintLayout>

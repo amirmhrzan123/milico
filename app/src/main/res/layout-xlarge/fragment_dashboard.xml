@@ -215,6 +215,8 @@
             android:paddingStart="@dimen/dimen_50"
             android:paddingTop="@dimen/horizontal_margin"
             android:text="@string/points_available"
+            android:onClick="@{()->viewModel.onPointsClicked()}"
+
             android:textColor="@color/textView_color"
             android:textSize="@dimen/textsize_25sp"
             app:layout_constraintEnd_toEndOf="@+id/tv_loyalty_value"

@@ -2,8 +2,6 @@ package app.com.milico.ui.pin
 
 import android.arch.lifecycle.Observer
 import android.content.Context
-import android.os.Bundle
-import android.view.View
 import app.com.milico.R
 import app.com.milico.base.BaseFragment
 import app.com.milico.databinding.FragmentEnterPinBinding
@@ -26,10 +24,6 @@ class EnterPinFragment : BaseFragment<FragmentEnterPinBinding>() {
         fun newInstance(): EnterPinFragment = EnterPinFragment()
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        initBinder()
-    }
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)

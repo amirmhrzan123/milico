@@ -1,10 +1,10 @@
 package app.com.milico.util.bindings
 
 import android.databinding.BindingAdapter
-import android.text.TextUtils
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import app.com.milico.util.extensions.loadImage
 import app.com.milico.util.extensions.setFirstLetterCapitalisedText
 
 
@@ -13,12 +13,7 @@ object BindingAdapters {
     @JvmStatic
     fun loadImage(imageView: ImageView, url: String) {
         with(imageView) {
-            if (!TextUtils.isEmpty(url)) {
-
-
-            } else {
-
-            }
+           loadImage(url)
         }
     }
 

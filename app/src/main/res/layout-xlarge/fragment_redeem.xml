@@ -18,7 +18,7 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorWhite">
+        android:background="@color/background">
 
         <android.support.constraint.Guideline
             android:id="@+id/guideline_lower_baseline"
@@ -35,7 +35,22 @@
             app:layout_constraintGuide_percent="0.4" />
 
 
-        <android.support.v7.widget.RecyclerView
+        <com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
+            android:id="@+id/rvGiftsCards"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:fastScrollAutoHide="false"
+            app:fastScrollTrackColor="@android:color/transparent"
+            style="@style/scrollbar_shape_style_horizontal"
+            app:fastScrollPopupBgColor="@android:color/transparent"
+            app:fastScrollEnableThumbInactiveColor="false"
+            app:fastScrollThumbColor="@android:color/transparent"
+            android:scrollbars="horizontal"
+            app:giftsCardList="@{viewModel.listGiftsCards}"
+            app:layout_constraintBottom_toTopOf="@+id/guideline_lower_baseline"
+            app:layout_constraintTop_toTopOf="@+id/recylerView_beginning"
+             />
+        <!--<android.support.v7.widget.RecyclerView
             android:id="@+id/rvGiftsCards"
             style="@style/scrollbar_shape_style"
             android:layout_width="match_parent"
@@ -47,6 +62,7 @@
             app:giftsCardList="@{viewModel.listGiftsCards}"
             app:layout_constraintBottom_toTopOf="@+id/guideline_lower_baseline"
             app:layout_constraintTop_toTopOf="@+id/recylerView_beginning" />
+-->
 
         <TextView
             android:id="@+id/tv_touch_card"

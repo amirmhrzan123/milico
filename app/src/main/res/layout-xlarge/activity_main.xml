@@ -28,7 +28,9 @@
             android:id="@+id/toolbar"
             layout="@layout/layout_header"
             android:visibility="@{viewModel.isFirstTime ? View.VISIBLE : View.GONE}"
-            app:layout_constraintBottom_toTopOf="@+id/guideline_upper_baseline"
+            android:layout_height="@dimen/dimen_0dp"
+            android:layout_width="match_parent"
+            app:layout_constraintHeight_percent="0.14"
             app:viewModel="@{viewModel}" />
 
 

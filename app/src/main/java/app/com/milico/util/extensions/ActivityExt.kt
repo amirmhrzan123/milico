@@ -63,7 +63,7 @@ fun AppCompatActivity.replaceFragmentInActivity(fragment: Fragment, frameId: Int
  * The `fragment` is added to the container view with tag. The operation is
  * performed by the `fragmentManager`.
  */
-fun AppCompatActivity.addFragmentToActivity(fragment: Fragment, frameId: Int, tag: String, transition: Boolean = true) {
+fun AppCompatActivity.addFragmentToActivity(fragment: Fragment, frameId: Int, tag: String, transition: Boolean = false) {
     supportFragmentManager.transact {
         if (transition) {
           //  setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)

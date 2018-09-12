@@ -3,7 +3,6 @@ package app.com.milico.ui.dashboard
 import android.arch.lifecycle.Observer
 import android.content.Context
 import android.os.Bundle
-import android.view.View
 import app.com.milico.R
 import app.com.milico.base.BaseFragment
 import app.com.milico.databinding.FragmentDashboardBinding
@@ -21,10 +20,7 @@ class DashBoardFragment: BaseFragment<FragmentDashboardBinding>() {
         arguments!!.getParcelable(DashBoardFragment.DASHBOARDMODEL) as DashBoardModel
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        initBinder()
-    }
+
 
     companion object {
         const val TAG = "DashboardFragment"
@@ -52,6 +48,10 @@ class DashBoardFragment: BaseFragment<FragmentDashboardBinding>() {
         dataBinding.viewModel = dashboardViewModel.apply {
             redeemClickEvent.observe(this@DashBoardFragment, Observer {
                 iFragmentListener?.openRedeemPage()
+            })
+
+            pointsClickEvent.observe(this@DashBoardFragment, Observer {
+                iFragmentListener?.openReview()
             })
         }
 

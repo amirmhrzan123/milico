@@ -1,9 +1,7 @@
 package app.com.milico.ui.redeem
 
-import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.View
 import app.com.milico.R
 import app.com.milico.base.BaseFragment
@@ -38,23 +36,21 @@ class RedeemFragment:BaseFragment<FragmentRedeemBinding>() {
         dataBinding.viewModel = redeemViewModel.apply {
             getGiftsCards()
 
-            itemClickEvent.observe(this@RedeemFragment, Observer {
+           /* itemClickEvent.observe(this@RedeemFragment, Observer {
                 Log.d("id",it.toString())
                 dataBinding.rvGiftsCards.apply {
-                   /* if (it != null) {
+                   *//* if (it != null) {
                         smoothScrollToPosition(it)
-                    }*/
+                    }*//*
 
                 }
-            })
+            })*/
 
             dataBinding.rvGiftsCards.apply {
                 val layoutManager = LinearLayoutManager(baseActivity).apply {
                     orientation = LinearLayoutManager.HORIZONTAL
                 }
-
                 this.layoutManager = layoutManager
-
                 val adapters = RedeemAdapter()
                 dataBinding.viewModel?.let {
 
@@ -62,23 +58,12 @@ class RedeemFragment:BaseFragment<FragmentRedeemBinding>() {
                 }
                 adapters.setOnItemClickListener(object: RedeemAdapter.OnItemClickListener{
                     override fun onClick(view: View, data: RedeemModel.AdapterModel) {
-                        val itemToScroll = getChildPosition(view)
-                        val centerOfScreen = getWidth() / 2 - view.getWidth() / 2
-                        layoutManager.scrollToPositionWithOffset(itemToScroll, centerOfScreen)
-                        //Log.d("startingposition",view.)
+                        smoothScrollToPosition(data.position)
                     }
 
                 })
-
-
             }
         }
-
-
-
-
-
-
 
     }
 
