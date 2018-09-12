@@ -20,6 +20,7 @@ class RedeemViewModel constructor(
 
         val listGiftsCards = ObservableField<JsonModel>()
         val itemClickEvent = SingleLiveEvent<Int>()
+        val checkOutEvent = SingleLiveEvent<Void>()
 
         fun getGiftsCards(){
                 val jsonModel = jsonReader.getModel("")
@@ -29,5 +30,9 @@ class RedeemViewModel constructor(
 
         fun onItemClicked(position:Int,id:String,view: View){
               itemClickEvent.value = position
+        }
+
+        fun onCheckOutClicked(){
+                checkOutEvent.call()
         }
 }

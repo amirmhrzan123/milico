@@ -18,6 +18,13 @@
         android:layout_height="match_parent"
         android:background="@color/background">
 
+        <include layout="@layout/layout_progress_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:viewModel="@{viewModel}"
+            app:layout_constraintBottom_toTopOf="parent"/>
+
         <android.support.constraint.Guideline
             android:id="@+id/guideline_lower_baseline"
             android:layout_width="wrap_content"
@@ -47,7 +54,7 @@
 
 
         <android.support.constraint.ConstraintLayout
-            android:layout_width="@dimen/dimen_0dp"
+            android:layout_width="@dimen/dimen_0"
             android:layout_height="0dp"
             android:background="@color/keypad_not_selected"
             app:layout_constraintBottom_toTopOf="@+id/guideline_lower_baseline"
@@ -57,8 +64,8 @@
 
             <LinearLayout
                 android:id="@+id/ll_keys"
-                android:layout_width="@dimen/dimen_0dp"
-                android:layout_height="@dimen/dimen_0dp"
+                android:layout_width="@dimen/dimen_0"
+                android:layout_height="@dimen/dimen_0"
                 android:background="@color/colorWhite"
                 android:orientation="horizontal"
                 android:padding="30dp"
@@ -159,7 +166,7 @@
                 android:gravity="center"
                 android:onClick='@{() -> viewModel.checkLength("1")}'
                 android:text="@string/number_one"
-                android:textSize="@dimen/textsize_60"
+                android:textSize="@dimen/txtSize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_second_row"
                 app:layout_constraintEnd_toStartOf="@+id/guideline_first_column"
                 app:layout_constraintStart_toStartOf="parent"
@@ -176,7 +183,7 @@
                 android:gravity="center"
                 android:onClick='@{() -> viewModel.checkLength("2")}'
                 android:text="@string/number_two"
-                android:textSize="@dimen/textsize_60"
+                android:textSize="@dimen/txtSize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_second_row"
                 app:layout_constraintEnd_toStartOf="@+id/guideline_second_column"
                 app:layout_constraintStart_toEndOf="@+id/tv_one"
@@ -191,7 +198,7 @@
                 android:gravity="center"
                 android:onClick='@{() -> viewModel.checkLength("3")}'
                 android:text="@string/number_three"
-                android:textSize="@dimen/textsize_60"
+                android:textSize="@dimen/txtSize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_second_row"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline_second_column"
@@ -207,7 +214,7 @@
                 android:gravity="center"
                 android:onClick='@{() -> viewModel.checkLength("4")}'
                 android:text="@string/number_four"
-                android:textSize="@dimen/textsize_60"
+                android:textSize="@dimen/txtSize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_third_row"
                 app:layout_constraintEnd_toStartOf="@+id/guideline_first_column"
                 app:layout_constraintStart_toStartOf="parent"
@@ -223,7 +230,7 @@
                 android:gravity="center"
                 android:onClick='@{() -> viewModel.checkLength("5")}'
                 android:text="@string/number_five"
-                android:textSize="@dimen/textsize_60"
+                android:textSize="@dimen/txtSize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_third_row"
                 app:layout_constraintEnd_toStartOf="@+id/guideline_second_column"
                 app:layout_constraintStart_toEndOf="@+id/guideline_first_column"
@@ -238,7 +245,7 @@
                 android:gravity="center"
                 android:onClick='@{() -> viewModel.checkLength("6")}'
                 android:text="@string/number_six"
-                android:textSize="@dimen/textsize_60"
+                android:textSize="@dimen/txtSize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_third_row"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline_second_column"
@@ -254,7 +261,7 @@
                 android:gravity="center"
                 android:onClick='@{() -> viewModel.checkLength("7")}'
                 android:text="@string/number_seven"
-                android:textSize="@dimen/textsize_60"
+                android:textSize="@dimen/txtSize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_fourth_row"
                 app:layout_constraintEnd_toStartOf="@+id/guideline_first_column"
                 app:layout_constraintStart_toStartOf="parent"
@@ -270,7 +277,7 @@
                 android:gravity="center"
                 android:onClick='@{() -> viewModel.checkLength("8")}'
                 android:text="@string/number_eight"
-                android:textSize="@dimen/textsize_60"
+                android:textSize="@dimen/txtSize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_fourth_row"
                 app:layout_constraintEnd_toStartOf="@+id/guideline_second_column"
                 app:layout_constraintStart_toEndOf="@+id/guideline_first_column"
@@ -285,7 +292,7 @@
                 android:gravity="center"
                 android:onClick='@{() -> viewModel.checkLength("9")}'
                 android:text="@string/number_nine"
-                android:textSize="@dimen/textsize_60"
+                android:textSize="@dimen/txtSize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_fourth_row"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline_second_column"
@@ -300,7 +307,7 @@
                 android:gravity="center"
                 android:onClick='@{() -> viewModel.checkLength("0")}'
                 android:text="@string/number_zero"
-                android:textSize="@dimen/textsize_60"
+                android:textSize="@dimen/txtSize_60"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/guideline_second_column"
                 app:layout_constraintStart_toStartOf="@+id/guideline_first_column"
@@ -316,18 +323,18 @@
                 android:onClick="@{() -> viewModel.onOkPressed()}"
                 android:text="@android:string/VideoView_error_button"
                 android:textColor="@color/colorWhite"
-                android:textSize="@dimen/textsize_40"
+                android:textSize="@dimen/txtSize_40"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/guideline_first_column"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/guildeline_fourth_row"
-                tools:textSize="@dimen/textsize_40" />
+                tools:textSize="@dimen/txtSize_40" />
 
 
             <ImageView
                 android:id="@+id/iv_back"
-                android:layout_width="@dimen/dimen_0dp"
-                android:layout_height="@dimen/dimen_0dp"
+                android:layout_width="@dimen/dimen_0"
+                android:layout_height="@dimen/dimen_0"
                 android:background="@drawable/keypad_button"
                 android:onClick="@{() -> viewModel.onBackPressed()}"
                 android:padding="@dimen/dimen_40"
@@ -359,7 +366,7 @@
             android:layout_height="wrap_content"
             android:text="@string/points_to_retail"
             android:textColor="@color/keypad_selected"
-            android:textSize="@dimen/textsize_30"
+            android:textSize="@dimen/txtSize_30"
             app:layout_constraintEnd_toStartOf="@+id/guideline_keypad"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/guideline_upper_text_left"
@@ -374,7 +381,7 @@
             android:layout_marginTop="10dp"
             android:text="@string/enter_pin"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/textsize_60"
+            android:textSize="@dimen/txtSize_60"
             app:layout_constraintEnd_toStartOf="@+id/guideline_keypad"
             app:layout_constraintStart_toStartOf="@+id/guideline_upper_text_left"
             app:layout_constraintTop_toBottomOf="@+id/tv_convert" />
@@ -393,7 +400,7 @@
             android:text="@string/forgotten_pin"
             android:textAllCaps="false"
             android:textColor="@color/forgotten_password_text"
-            android:textSize="@dimen/textsize_30"
+            android:textSize="@dimen/txtSize_30"
             app:layout_constraintStart_toStartOf="@+id/tv_enter_pin"
             app:layout_constraintTop_toBottomOf="@+id/tv_enter_pin" />
 

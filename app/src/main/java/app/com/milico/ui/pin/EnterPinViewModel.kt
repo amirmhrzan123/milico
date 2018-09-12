@@ -6,14 +6,18 @@ import android.util.Log
 import app.com.milico.R
 import app.com.milico.base.BaseViewModel
 import app.com.milico.data.repository.AppDataManager
+import app.com.milico.ui.dashboard.DashBoardModel
+import app.com.milico.util.StatusCode
 import app.com.milico.util.bindings.SingleLiveEvent
+import np.com.amir.apptest.util.SchedulerProvider
 
 class EnterPinViewModel constructor(
         resources: Resources,
+        private val schedulers: SchedulerProvider,
         private val dataManager: AppDataManager): BaseViewModel(resources) {
 
 
-    val okPressedEvent = SingleLiveEvent<Void>()
+    val okPressedEvent = SingleLiveEvent<DashBoardModel.ResponseModel>()
     val forgottenPasswordEvent = SingleLiveEvent<Void>()
     var okenabled = ObservableBoolean(false)
 
@@ -36,13 +40,32 @@ class EnterPinViewModel constructor(
 
 
     fun onOkPressed(){
-        if(keys.equals("1234")){
-            okPressedEvent.call()
-        }else{
-            showAlertDialog(R.string.incorrect_pin)
-        }
+        showProgressBar()
+        compositeDisposable.add(dataManager.getCardInfo(DashBoardModel.CardRequestModel("1","1234"))
+                .subscribeOn(schedulers.io())
+                .observeOn(schedulers.ui())
+                .subscribe({
+                    response:DashBoardModel.ResponseModel?->
+                    response?.apply {
+                        hideProgressBar()
+                        when(status){
+                            StatusCode.SUCCESS->{
+                                okPressedEvent.value = response
+                            }else->{
+                            showAlertDialog(R.string.incorrect_pin)
+                        }
+
+                        }
+                    }
+                },{
+                    error->
+                    hideProgressBar()
+                    handleError(error)
+
+                }))
 
     }
+
 
 
 

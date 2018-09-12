@@ -2,33 +2,32 @@
 <resources>
     <dimen name="horizontal_margin">15dp</dimen>
     <dimen name="toolbar_height">150dp</dimen>
-    <dimen name="dimen_0dp">0dp</dimen>
-    <dimen name="dimen_5dp">5dp</dimen>
-    <dimen name="dimen_80dp">80dp</dimen>
+    <dimen name="dimen_0">0dp</dimen>
+    <dimen name="dimen_5">5dp</dimen>
+    <dimen name="dimen_80">80dp</dimen>
+    <dimen name="dimen_40">40dp</dimen>
+    <dimen name="dimen_45">45dp</dimen>
+    <dimen name="dimen_20">20dp</dimen>
+    <dimen name="dimen_100">100dp</dimen>
+    <dimen name="dimen_60">60dp</dimen>
+    <dimen name="dimen_30">30dp</dimen>
+    <dimen name="dimen_10">10dp</dimen>
+    <dimen name="dimen_50">50dp</dimen>
 
 
 
     <!--textsize-->
-    <dimen name="textsize_60">60sp</dimen>
-    <dimen name="textsize_40">40sp</dimen>
-    <dimen name="dimen_40">40dp</dimen>
-    <dimen name="dimen_45">45dp</dimen>
-    <dimen name="textsize_100">100sp</dimen>
-    <dimen name="dimen_20dp">20dp</dimen>
-    <dimen name="textsize_45">45sp</dimen>
-    <dimen name="textsize_80">80sp</dimen>
-    <dimen name="textsize_50">50sp</dimen>
-    <dimen name="textsize_30">30sp</dimen>
-    <dimen name="textsize_35">35sp</dimen>
-    <dimen name="dimen_100">100dp</dimen>
-    <dimen name="dimen_60">60dp</dimen>
-    <dimen name="dimen_20sp">20sp</dimen>
-    <dimen name="dimen_30">30dp</dimen>
-    <dimen name="textsize_200">200sp</dimen>
-    <dimen name="textsize_170">170sp</dimen>
-    <dimen name="dimen_50">50dp</dimen>
-    <dimen name="textsize_25sp">25sp</dimen>
-    <dimen name="dimen_10">10dp</dimen>
-    <dimen name="textsize_120s" />
-    <dimen name="textsize_120">120sp</dimen>
+    <dimen name="txtSize_60">60sp</dimen>
+    <dimen name="txtSize_40">40sp</dimen>
+    <dimen name="txtSize_100">100sp</dimen>
+    <dimen name="txtSize_45">45sp</dimen>
+    <dimen name="txtSize_80">80sp</dimen>
+    <dimen name="txtSize_50">50sp</dimen>
+    <dimen name="txtSize_30">30sp</dimen>
+    <dimen name="txtSize_35">35sp</dimen>
+    <dimen name="txtSize_20">20sp</dimen>
+    <dimen name="txtSize_200">200sp</dimen>
+    <dimen name="txtSize_170">170sp</dimen>
+    <dimen name="txtSize_25">25sp</dimen>
+    <dimen name="txtSize_120">120sp</dimen>
 </resources>

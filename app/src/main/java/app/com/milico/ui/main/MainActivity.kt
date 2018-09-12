@@ -44,7 +44,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IFragmentListener {
         replaceFragmentInActivity(EnterPinFragment.newInstance(), R.id.fl_container, EnterPinFragment.TAG)
     }
 
-    override fun openDashBoard(dashboardModel: DashBoardModel) {
+    override fun openDashBoard(dashboardModel: DashBoardModel.ResponseModel) {
         replaceFragmentInActivity(DashBoardFragment.newInstance(dashboardModel), R.id.fl_container, DashBoardFragment.TAG)
     }
 

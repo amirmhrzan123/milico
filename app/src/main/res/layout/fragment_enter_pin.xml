@@ -21,7 +21,7 @@
 
 
         <android.support.constraint.ConstraintLayout
-            android:layout_width="@dimen/dimen_0dp"
+            android:layout_width="@dimen/dimen_0"
             android:layout_height="match_parent"
             android:background="@color/keypad_not_selected"
             app:layout_constraintEnd_toStartOf="@id/guideline_keypad_end"
@@ -29,8 +29,8 @@
 
             <LinearLayout
                 android:id="@+id/ll_keys"
-                android:layout_width="@dimen/dimen_0dp"
-                android:layout_height="@dimen/dimen_0dp"
+                android:layout_width="@dimen/dimen_0"
+                android:layout_height="@dimen/dimen_0"
                 android:background="@color/colorWhite"
                 android:orientation="horizontal"
                 android:padding="30dp"
@@ -127,7 +127,7 @@
                 android:gravity="center"
                 android:onClick='@{() -> viewModel.checkLength("2")}'
                 android:text="@string/number_one"
-                android:textSize="@dimen/textsize_60"
+                android:textSize="@dimen/txtSize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_second_row"
                 app:layout_constraintEnd_toStartOf="@+id/guideline_first_column"
                 app:layout_constraintStart_toStartOf="parent"
@@ -144,7 +144,7 @@
                 android:gravity="center"
                 android:onClick='@{() -> viewModel.checkLength("2")}'
                 android:text="@string/number_two"
-                android:textSize="@dimen/textsize_60"
+                android:textSize="@dimen/txtSize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_second_row"
                 app:layout_constraintEnd_toStartOf="@+id/guideline_second_column"
                 app:layout_constraintStart_toEndOf="@+id/tv_one"
@@ -159,7 +159,7 @@
                 android:gravity="center"
                 android:onClick='@{() -> viewModel.checkLength("2")}'
                 android:text="@string/number_three"
-                android:textSize="@dimen/textsize_60"
+                android:textSize="@dimen/txtSize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_second_row"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline_second_column"
@@ -175,7 +175,7 @@
                 android:gravity="center"
                 android:onClick='@{() -> viewModel.checkLength("2")}'
                 android:text="@string/number_four"
-                android:textSize="@dimen/textsize_60"
+                android:textSize="@dimen/txtSize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_third_row"
                 app:layout_constraintEnd_toStartOf="@+id/guideline_first_column"
                 app:layout_constraintStart_toStartOf="parent"
@@ -191,7 +191,7 @@
                 android:gravity="center"
                 android:onClick='@{() -> viewModel.checkLength("2")}'
                 android:text="@string/number_five"
-                android:textSize="@dimen/textsize_60"
+                android:textSize="@dimen/txtSize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_third_row"
                 app:layout_constraintEnd_toStartOf="@+id/guideline_second_column"
                 app:layout_constraintStart_toEndOf="@+id/guideline_first_column"
@@ -206,7 +206,7 @@
                 android:gravity="center"
                 android:onClick='@{() -> viewModel.checkLength("2")}'
                 android:text="@string/number_six"
-                android:textSize="@dimen/textsize_60"
+                android:textSize="@dimen/txtSize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_third_row"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline_second_column"
@@ -222,7 +222,7 @@
                 android:gravity="center"
                 android:onClick='@{() -> viewModel.checkLength("2")}'
                 android:text="@string/number_seven"
-                android:textSize="@dimen/textsize_60"
+                android:textSize="@dimen/txtSize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_fourth_row"
                 app:layout_constraintEnd_toStartOf="@+id/guideline_first_column"
                 app:layout_constraintStart_toStartOf="parent"
@@ -238,7 +238,7 @@
                 android:gravity="center"
                 android:onClick='@{() -> viewModel.checkLength("2")}'
                 android:text="@string/number_eight"
-                android:textSize="@dimen/textsize_60"
+                android:textSize="@dimen/txtSize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_fourth_row"
                 app:layout_constraintEnd_toStartOf="@+id/guideline_second_column"
                 app:layout_constraintStart_toEndOf="@+id/guideline_first_column"
@@ -253,7 +253,7 @@
                 android:gravity="center"
                 android:onClick='@{() -> viewModel.checkLength("2")}'
                 android:text="@string/number_nine"
-                android:textSize="@dimen/textsize_60"
+                android:textSize="@dimen/txtSize_60"
                 app:layout_constraintBottom_toTopOf="@+id/guildeline_fourth_row"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline_second_column"
@@ -268,7 +268,7 @@
                 android:gravity="center"
                 android:onClick='@{() -> viewModel.checkLength("2")}'
                 android:text="@string/number_zero"
-                android:textSize="@dimen/textsize_60"
+                android:textSize="@dimen/txtSize_60"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/guideline_second_column"
                 app:layout_constraintStart_toStartOf="@+id/guideline_first_column"
@@ -282,16 +282,16 @@
                 android:background="@color/ok_keypad"
                 android:onClick='@{() -> viewModel.checkLength("2")}'
                 android:text="@android:string/VideoView_error_button"
-                android:textSize="@dimen/textsize_60"
+                android:textSize="@dimen/txtSize_60"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/guideline_first_column"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/guildeline_fourth_row"
-                tools:textSize="@dimen/textsize_40" />
+                tools:textSize="@dimen/txtSize_40" />
 
             <View
-                android:layout_width="@dimen/dimen_0dp"
-                android:layout_height="@dimen/dimen_0dp"
+                android:layout_width="@dimen/dimen_0"
+                android:layout_height="@dimen/dimen_0"
                 android:background="@drawable/keypad_button"
                 android:onClick='@{() -> viewModel.checkLength("2")}'
                 android:orientation="horizontal"
@@ -336,7 +336,7 @@
             fontPath="@string/font_medium"
             android:layout_marginStart="100dp"
             android:layout_marginTop="80dp"
-            android:textSize="@dimen/textsize_30"
+            android:textSize="@dimen/txtSize_30"
             android:text="@string/points_to_retail"
             android:textColor="@color/keypad_selected"
             app:layout_constraintEnd_toStartOf="@+id/guideline_keypad"
@@ -354,7 +354,7 @@
             android:layout_marginTop="10dp"
             android:text="@string/enter_pin"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/textsize_60"
+            android:textSize="@dimen/txtSize_60"
             app:layout_constraintEnd_toStartOf="@+id/guideline_keypad"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_convert" />
@@ -372,7 +372,7 @@
             android:text="@string/forgotten_pin"
             android:textAllCaps="false"
             android:textColor="@color/forgotten_password_text"
-            android:textSize="@dimen/textsize_30"
+            android:textSize="@dimen/txtSize_30"
             app:layout_constraintStart_toStartOf="@+id/tv_enter_pin"
             app:layout_constraintTop_toBottomOf="@+id/tv_enter_pin" />
 

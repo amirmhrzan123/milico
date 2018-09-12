@@ -38,18 +38,18 @@
                 android:gravity="center"
                 android:layout_gravity="center"
                 android:textColor="@color/colorWhite"
-                android:textSize="@dimen/textsize_30"
+                android:textSize="@dimen/txtSize_30"
                 />
 
             <TextView
                 android:id="@+id/tv_edit"
-                android:layout_width="@dimen/dimen_0dp"
+                android:layout_width="@dimen/dimen_0"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
                 android:gravity="center"
                 android:paddingStart="@dimen/dimen_10"
                 android:text="@string/edit"
-                android:textSize="@dimen/textsize_30"
+                android:textSize="@dimen/txtSize_30"
                 android:layout_gravity="center"
                 android:textColor="@color/colorWhite"
                 />
@@ -61,16 +61,16 @@
                 android:layout_marginStart="@dimen/dimen_10"/>
 
             <TextView
-                android:layout_width="@dimen/dimen_0dp"
+                android:layout_width="@dimen/dimen_0"
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
-                android:textSize="@dimen/textsize_30"
+                android:textSize="@dimen/txtSize_30"
                 android:text="@string/remove"
                 android:textColor="@color/colorWhite"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:paddingEnd="@dimen/dimen_40"
-                android:paddingStart="@dimen/dimen_20dp"
+                android:paddingStart="@dimen/dimen_20"
                 android:drawablePadding="@dimen/dimen_10"
                 />
 
