@@ -11,4 +11,17 @@
         <item name="android:scrollbarTrackVertical">@drawable/scrollbar_vertical_track</item>
         <item name="android:scrollbarSize">30dp</item>
     </style>
+
+
+    <style name="scrollbar_shape_style_horizontal">
+        <item name="android:scrollbarAlwaysDrawHorizontalTrack">true</item>
+        <item name="android:scrollbarStyle">outsideInset</item>
+        <item name="android:scrollbars">horizontal</item>
+        <item name="android:fadeScrollbars">false</item>
+        <item name="android:fastScrollEnabled">true</item>
+        <item name="android:scrollbarThumbHorizontal">@drawable/custom_scroll_thumb</item>
+        <item name="android:scrollbarTrackHorizontal">@drawable/scrollbar_vertical_track</item>
+        <item name="android:scrollbarSize">30dp</item>
+
+    </style>
 </resources>

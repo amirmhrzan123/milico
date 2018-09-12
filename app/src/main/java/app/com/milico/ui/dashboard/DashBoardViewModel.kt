@@ -13,10 +13,15 @@ class DashBoardViewModel constructor(
     val isButtonEnabled = ObservableBoolean(false)
 
     val redeemClickEvent = SingleLiveEvent<Void>()
+    val pointsClickEvent = SingleLiveEvent<Void>()
 
 
     fun onRedeemClicked(){
         redeemClickEvent.call()
+    }
+
+    fun onPointsClicked(){
+        pointsClickEvent.call()
     }
 
 

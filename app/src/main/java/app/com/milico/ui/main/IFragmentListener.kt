@@ -15,4 +15,6 @@ interface IFragmentListener {
 
     fun hideShowToolbar()
 
+    fun openReview()
+
 }

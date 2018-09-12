@@ -7,9 +7,11 @@ import android.provider.Settings
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import app.com.milico.R
+import com.bumptech.glide.Glide
 import uk.co.chrisjenx.calligraphy.CalligraphyUtils
 import java.math.BigDecimal
 
@@ -115,6 +117,8 @@ private fun capitalize(line: String): String {
 fun BigDecimal.roundUpTo2DecimalPlaces(): BigDecimal {
     return this.setScale(2, BigDecimal.ROUND_HALF_UP)
 }
+
+
 
 interface AlertDialogCallback {
     fun onPositiveButtonClicked()

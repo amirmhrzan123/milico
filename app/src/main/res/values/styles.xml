@@ -10,14 +10,14 @@
 
 
 
-    <style name="scrollbar_shape_style">
-        <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
-        <item name="android:scrollbarStyle">outsideInset</item>
-        <item name="android:scrollbars">vertical</item>
-        <item name="android:fadeScrollbars">false</item>
-        <item name="android:scrollbarThumbVertical">@drawable/horizontal_arrow</item>
-        <item name="android:scrollbarTrackVertical">@drawable/scrollbar_vertical_track</item>
-        <item name="android:scrollbarSize">30dp</item>
-    </style>
+    <!--<style name="scrollbar_shape_style">-->
+        <!--<item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>-->
+        <!--<item name="android:scrollbarStyle">outsideInset</item>-->
+        <!--<item name="android:scrollbars">vertical</item>-->
+        <!--<item name="android:fadeScrollbars">false</item>-->
+        <!--<item name="android:scrollbarThumbVertical">@drawable/horizontal_arrow</item>-->
+        <!--<item name="android:scrollbarTrackVertical">@drawable/scrollbar_vertical_track</item>-->
+        <!--<item name="android:scrollbarSize">30dp</item>-->
+    <!--</style>-->
 
 </resources>

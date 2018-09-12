@@ -26,15 +26,14 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
                     getDeviceName()!!, getOSVersion(), getTimeZone(), Locale.getDefault().getLanguage()))
 
             registerEvent.observe(this@SplashActivity, Observer {
-//                MainActivity.start(this@SplashActivity)
+                MainActivity.start(this@SplashActivity)
+                finish()
             })
-
         }
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        initBinder()
+        initBinder()
     }
 }
