@@ -3,7 +3,6 @@ package app.com.milico.base
 import android.arch.lifecycle.ViewModel
 import android.content.res.Resources
 import android.databinding.ObservableBoolean
-import android.databinding.ObservableField
 import android.support.annotation.StringRes
 import app.com.milico.R
 import app.com.milico.util.bindings.SingleLiveEvent
@@ -20,10 +19,7 @@ open class BaseViewModel constructor(val resources: Resources ) : ViewModel() {
     internal val alertMessageEvent = SingleLiveEvent<String>()
     internal val confirmationDialogEvent = SingleLiveEvent<String>()
 
-    val mainContentVisibility = ObservableBoolean(false)
     val progressBarVisibility = ObservableBoolean(false)
-    val errorMessageVisibility = ObservableBoolean(false)
-    val errorMessage = ObservableField<Int>(R.string.err_no_data_available)
 
     override fun onCleared() {
         compositeDisposable.clear()
@@ -46,14 +42,6 @@ open class BaseViewModel constructor(val resources: Resources ) : ViewModel() {
         alertMessageEvent.value = message
     }
 
-    protected fun showMainContent() {
-        mainContentVisibility.set(true)
-    }
-
-    protected fun hideMainContent() {
-        mainContentVisibility.set(false)
-    }
-
     protected fun showProgressBar() {
         progressBarVisibility.set(true)
     }
@@ -62,18 +50,6 @@ open class BaseViewModel constructor(val resources: Resources ) : ViewModel() {
         progressBarVisibility.set(false)
     }
 
-    private fun showErrorMessage() {
-        errorMessageVisibility.set(true)
-    }
-
-    protected fun hideErrorMessage() {
-        errorMessageVisibility.set(false)
-    }
-
-    protected fun setErrorMessage(@StringRes message: Int = R.string.err_no_data_available) {
-        showErrorMessage()
-        errorMessage.set(message)
-    }
 
     protected fun showConfirmationDialog(message: String) {
         confirmationDialogEvent.value = message

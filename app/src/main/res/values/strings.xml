@@ -54,4 +54,11 @@
     <string name="review">Review</string>
     <string name="checkout">Checkout</string>
     <string name="redeem_more">Reedem More</string>
+    <string name="price_25">$25</string>
+    <string name="price_50">$50</string>
+    <string name="price_100">$100</string>
+    <string name="price_200">$200</string>
+    <string name="price_500">$500</string>
+    <string name="price_other">$OTHER</string>
+    <string name="redeem_all">Redeem All</string>
 </resources>

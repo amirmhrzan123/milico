@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.support.annotation.LayoutRes
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 
@@ -41,13 +40,6 @@ abstract class BaseFragment<V : ViewDataBinding> : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initBinder()
 
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when (item?.itemId) {
-            android.R.id.home -> baseActivity.onBackPressed()
-        }
-        return true
     }
 
     private fun performViewBinding(inflater: LayoutInflater, container: ViewGroup?) {

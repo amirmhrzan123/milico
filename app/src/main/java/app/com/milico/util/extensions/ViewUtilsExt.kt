@@ -5,15 +5,14 @@ import android.content.Intent
 import android.net.Uri
 import android.provider.Settings
 import android.support.v7.app.AlertDialog
-import android.support.v7.app.AppCompatActivity
-import android.view.ViewGroup
-import android.widget.ImageView
+import android.util.DisplayMetrics
+import android.view.WindowManager
 import android.widget.TextView
 import android.widget.Toast
 import app.com.milico.R
-import com.bumptech.glide.Glide
-import uk.co.chrisjenx.calligraphy.CalligraphyUtils
 import java.math.BigDecimal
+
+
 
 fun Context.showAlert(message: String) {
     val builder: AlertDialog.Builder = AlertDialog.Builder(this)
@@ -25,18 +24,6 @@ fun Context.showAlert(message: String) {
             .show()
 }
 
-fun AppCompatActivity.showNotCancellableAlert(message: String) {
-    val builder: AlertDialog.Builder = AlertDialog.Builder(this)
-    builder.setTitle(R.string.app_name)
-            .setMessage(message)
-            .setPositiveButton(R.string.tv_ok) { _, _ ->
-                finish()
-                transitionActivityFinish()
-            }
-    val alertDialog = builder.create()
-    alertDialog.setCancelable(false)
-    alertDialog.show()
-}
 
 fun Context.showNotCancellableAlert(message: String, callback: AlertDialogCallback) {
     val builder: AlertDialog.Builder = AlertDialog.Builder(this)
@@ -94,16 +81,7 @@ fun Context.showToast(message: Int, length: Int = Toast.LENGTH_SHORT) {
     Toast.makeText(this, message, length).show()
 }
 
-fun ViewGroup.changeFont(fontPath: String) {
-    for (i in 0 until childCount) {
-        val child = getChildAt(i)
-        if (TextView::class.java.isAssignableFrom(child.javaClass)) {
-            CalligraphyUtils.applyFontToTextView(child.context, child as TextView, fontPath)
-        } else if (ViewGroup::class.java.isAssignableFrom(child.javaClass)) {
-            (getChildAt(i) as ViewGroup).changeFont(fontPath)
-        }
-    }
-}
+
 
 fun TextView.setFirstLetterCapitalisedText(string: String) {
     val capitalisedText = Character.toUpperCase(string[0]) + string.substring(1)
@@ -117,6 +95,16 @@ private fun capitalize(line: String): String {
 fun BigDecimal.roundUpTo2DecimalPlaces(): BigDecimal {
     return this.setScale(2, BigDecimal.ROUND_HALF_UP)
 }
+
+fun WindowManager.getWidthOfScreen():Int{
+    val displayMetrics = DisplayMetrics()
+    defaultDisplay.getMetrics(displayMetrics)
+    val height = displayMetrics.heightPixels
+    val width = displayMetrics.widthPixels
+    return width
+
+}
+
 
 
 

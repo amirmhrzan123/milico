@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.4" />
+            app:layout_constraintGuide_percent="0.5" />
 
         <android.support.constraint.Guideline
             android:id="@+id/tv_beginning"
@@ -61,6 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:fastScrollAutoHide="false"
+            android:layout_marginLeft="@dimen/dimen_10"
             app:fastScrollTrackColor="@android:color/transparent"
             style="@style/scrollbar_shape_style_horizontal"
             app:fastScrollPopupBgColor="@android:color/transparent"

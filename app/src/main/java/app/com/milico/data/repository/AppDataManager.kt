@@ -2,7 +2,6 @@ package app.com.milico.data.repository
 
 
 import app.com.milico.base.BaseResponse
-import app.com.milico.data.local.dbHelper.IDbHelper
 import app.com.milico.data.preference.IPreferenceHelper
 import app.com.milico.data.remote.IApiService
 import app.com.milico.ui.dashboard.DashBoardModel
@@ -10,12 +9,9 @@ import app.com.milico.ui.homeScreen.HomeScreenModel
 import app.com.milico.ui.splash.RegisterModel
 import com.google.gson.Gson
 import io.reactivex.Observable
-import io.reactivex.disposables.CompositeDisposable
 
 class AppDataManager(private val apiService: IApiService,
                      private val iPreferenceHelper: IPreferenceHelper,
-                     private val iDbHelper: IDbHelper,
-                     private val compositeDisposable: CompositeDisposable,
                      private val gson: Gson) : IAppDataManager {
 
 

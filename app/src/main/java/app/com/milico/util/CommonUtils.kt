@@ -1,8 +1,14 @@
 package app.com.milico.util
 
+import android.graphics.Point
 import android.os.Build
 import android.text.TextUtils
+import android.util.Log
+import android.view.Display
 import java.util.*
+import android.util.DisplayMetrics
+
+
 
 
 fun getTimeZone():String = TimeZone.getDefault().id
@@ -37,4 +43,6 @@ private fun capitalize(str: String): String? {
 }
 
 fun getOSVersion() = android.os.Build.VERSION.RELEASE
+
+
 
