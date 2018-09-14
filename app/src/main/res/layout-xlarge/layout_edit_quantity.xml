@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="app.com.milico.ui.redeem.RedeemViewModel"/>
+
+
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:minHeight="350dp"
+        android:minWidth="520dp"
+        android:background="@color/transparent">
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline_triangle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.92" />
+
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline_button_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.88" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline_button_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.04" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/start_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.07" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/end_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.93" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/quantity_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.3" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/minus_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/quanity_number_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.73" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/first_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.27" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/second_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.54" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="akfsljd"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline_button_bottom"
+            app:srcCompat="@drawable/triangle" />
+
+        <View
+            android:id="@+id/view5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/guideline_triangle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/et_price"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/price_background"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="number"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/txtSize_30"
+            app:layout_constraintBottom_toTopOf="@+id/first_row"
+            app:layout_constraintEnd_toStartOf="@+id/end_button"
+            app:layout_constraintStart_toStartOf="@+id/start_button"
+            app:layout_constraintTop_toTopOf="@+id/guideline_button_top"
+            tools:text="@string/price_500" />
+
+        <TextView
+            android:id="@+id/tv_quantity"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="@string/qty"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/txtSize_30"
+            app:layout_constraintBottom_toTopOf="@+id/second_row"
+            app:layout_constraintEnd_toStartOf="@+id/quantity_end"
+            app:layout_constraintStart_toStartOf="@+id/start_button"
+            app:layout_constraintTop_toTopOf="@+id/first_row" />
+
+        <View
+            android:id="@+id/view_minus"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/pop_up_red_background"
+            app:layout_constraintBottom_toTopOf="@+id/second_row"
+            app:layout_constraintEnd_toStartOf="@+id/minus_end"
+            app:layout_constraintStart_toStartOf="@+id/quantity_end"
+            app:layout_constraintTop_toTopOf="@+id/first_row"
+            app:layout_constraintVertical_bias="0.6" />
+
+        <View
+            android:id="@+id/view_add"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/pop_up_red_background"
+            app:layout_constraintBottom_toTopOf="@+id/second_row"
+            app:layout_constraintEnd_toStartOf="@+id/end_button"
+            app:layout_constraintStart_toStartOf="@+id/quanity_number_end"
+            app:layout_constraintTop_toTopOf="@+id/first_row" />
+
+        <TextView
+            android:id="@+id/tv_quantity_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorWhite"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/second_row"
+            app:layout_constraintEnd_toStartOf="@+id/quanity_number_end"
+            app:layout_constraintStart_toStartOf="@+id/minus_end"
+            app:layout_constraintTop_toTopOf="@+id/first_row" />
+
+        <Button
+            android:id="@+id/bnt_confirm"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/redeem_button"
+            android:text="@string/confirm"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/txtSize_45"
+            app:layout_constraintBottom_toTopOf="@+id/guideline_button_bottom"
+            app:layout_constraintEnd_toStartOf="@+id/end_button"
+            app:layout_constraintStart_toStartOf="@+id/start_button"
+            app:layout_constraintTop_toTopOf="@+id/second_row" />
+
+        <ImageView
+            android:id="@+id/iv_add"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/second_row"
+            app:layout_constraintEnd_toStartOf="@+id/end_button"
+            app:layout_constraintStart_toStartOf="@+id/quanity_number_end"
+            app:layout_constraintTop_toTopOf="@+id/first_row"
+            app:srcCompat="@drawable/ic_add" />
+
+        <ImageView
+            android:id="@+id/iv_minus"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/second_row"
+            app:layout_constraintEnd_toStartOf="@+id/minus_end"
+            app:layout_constraintHorizontal_bias="0.527"
+            app:layout_constraintStart_toStartOf="@+id/quantity_end"
+            app:layout_constraintTop_toTopOf="@+id/first_row"
+            app:srcCompat="@drawable/ic_minus" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+
+</layout>
+

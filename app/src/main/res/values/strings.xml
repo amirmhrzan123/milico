@@ -61,4 +61,6 @@
     <string name="price_500">$500</string>
     <string name="price_other">$OTHER</string>
     <string name="redeem_all">Redeem All</string>
+    <string name="qty">QTY</string>
+    <string name="confirm">Confirm</string>
 </resources>

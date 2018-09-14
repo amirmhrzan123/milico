@@ -21,6 +21,11 @@ class RedeemViewModel constructor(
         val listGiftsCards = ObservableField<JsonModel>()
         val itemClickEvent = SingleLiveEvent<Int>()
         val checkOutEvent = SingleLiveEvent<Void>()
+        val buttonClickEvent = SingleLiveEvent<Int>()
+        val confirmClickEvent = SingleLiveEvent<String>()
+        var x:Int = 0
+        var y:Int = 0
+
 
         fun getGiftsCards(){
                 val jsonModel = jsonReader.getModel("")
@@ -28,11 +33,29 @@ class RedeemViewModel constructor(
                 Log.d("totalloyaly",jsonModel.totalLoyalty.toString())
         }
 
+        fun setXYvalue(xvalue:Int,yvalue:Int){
+                x = xvalue
+                y = yvalue
+        }
+        fun getXvalue():Int = x
+
+        fun getYvalue():Int = y
+
         fun onItemClicked(position:Int,id:String,view: View){
               itemClickEvent.value = position
         }
 
+        //after editing all the giftcards quantity and price
         fun onCheckOutClicked(){
                 checkOutEvent.call()
+        }
+
+        //
+        fun onButtonClicked(price:Int){
+            buttonClickEvent.value = price
+        }
+
+        fun onConfirmClicked(){
+            confirmClickEvent.call()
         }
 }

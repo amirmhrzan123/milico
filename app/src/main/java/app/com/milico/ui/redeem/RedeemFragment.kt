@@ -11,16 +11,15 @@ import app.com.milico.R
 import app.com.milico.base.BaseFragment
 import app.com.milico.databinding.FragmentRedeemBinding
 import app.com.milico.ui.main.IFragmentListener
-import app.com.milico.ui.popUpView.RedeemValueDialog
 import app.com.milico.util.extensions.convertDpToPixel
 import kotlinx.android.synthetic.main.fragment_redeem.view.*
-import org.koin.android.ext.android.inject
-import kotlin.math.absoluteValue
+import org.koin.android.viewmodel.ext.android.viewModel
 
 
 class RedeemFragment:BaseFragment<FragmentRedeemBinding>() {
 
-    private val redeemViewModel: RedeemViewModel by inject()
+
+    private val redeemViewModel: RedeemViewModel by viewModel()
 
     private var redeemValueDialog: RedeemValueDialog? = null
 
@@ -61,6 +60,7 @@ class RedeemFragment:BaseFragment<FragmentRedeemBinding>() {
                 iFragmentListener.openReview()
             })
 
+
         }
 
         dataBinding.rvGiftsCards.apply {
@@ -85,22 +85,22 @@ class RedeemFragment:BaseFragment<FragmentRedeemBinding>() {
                     activity?.windowManager?.defaultDisplay?.getMetrics(displayMetrics)
                     var width = displayMetrics.widthPixels
                     var height = displayMetrics.heightPixels
-                    if((data.position-firstVisibleItem).absoluteValue==1){
+                    if((data.position<firstVisibleItem)){
                         Log.d("herefirst","first")
                         x=0
                         y=rvGiftsCards.y.toInt()
-                    }else if((data.position-lastVisibleItem).absoluteValue==1){
+                    }else if((data.position>lastVisibleItem)){
                         Log.d("herefirst","seconde")
-                        x=width-convertDpToPixel(600).toInt()
-                        y= view.y.toInt()
+                        x=width-convertDpToPixel(520).toInt()
+                        y= rvGiftsCards.y.toInt()
                     }else{
                         x=view.x.toInt()
                         Log.d("herefirst","third")
 
                         y=rvGiftsCards.y.toInt()
                     }
-
-
+                    redeemViewModel.setXYvalue(x,y)
+                    Log.d("xyvalue",redeemViewModel.getXvalue().toString()+"  "+redeemViewModel.getYvalue().toString())
                     Log.d("lastvisiblepositon",layoutManager.findLastCompletelyVisibleItemPosition().toString())
                     Log.d("firstVisibleposition",layoutManager.findFirstCompletelyVisibleItemPosition().toString())
 
@@ -116,6 +116,8 @@ class RedeemFragment:BaseFragment<FragmentRedeemBinding>() {
         }
 
     }
+
+
 
 
 }

@@ -7,13 +7,17 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="app.com.milico.ui.redeem.RedeemViewModel"/>
+
 
     </data>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:minWidth="500dp"
+        android:minWidth="520dp"
         android:minHeight="450dp"
         android:background="@color/transparent"
         >
@@ -25,8 +29,6 @@
             android:layout_height="match_parent"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.92" />
-
-
 
 
         <android.support.constraint.Guideline
@@ -120,6 +122,7 @@
             android:text="@string/price_50"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/txtSize_20"
+            android:onClick="@{()->viewModel.onButtonClicked(50)}"
             app:layout_constraintBottom_toTopOf="@+id/first_row"
             app:layout_constraintEnd_toStartOf="@+id/end_button"
             app:layout_constraintStart_toStartOf="@+id/guideline_middle_section"
@@ -137,6 +140,7 @@
             android:text="@string/price_25"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/txtSize_20"
+            android:onClick="@{()->viewModel.onButtonClicked(25)}"
             app:layout_constraintBottom_toTopOf="@+id/first_row"
             app:layout_constraintEnd_toStartOf="@+id/guideline_middle_section"
             app:layout_constraintStart_toStartOf="@+id/start_button"
@@ -154,6 +158,7 @@
             android:text="@string/price_100"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/txtSize_20"
+            android:onClick="@{()->viewModel.onButtonClicked(100)}"
             app:layout_constraintBottom_toTopOf="@+id/second_row"
             app:layout_constraintEnd_toStartOf="@+id/guideline_middle_section"
             app:layout_constraintStart_toStartOf="@+id/start_button"
@@ -169,6 +174,7 @@
             android:layout_marginTop="4dp"
             android:background="@color/ok_keypad"
             android:text="@string/price_200"
+            android:onClick="@{()->viewModel.onButtonClicked(200)}"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/txtSize_20"
             app:layout_constraintBottom_toTopOf="@+id/second_row"
@@ -186,6 +192,7 @@
             android:layout_marginTop="4dp"
             android:background="@color/ok_keypad"
             android:text="@string/price_500"
+            android:onClick="@{()->viewModel.onButtonClicked(500)}"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/txtSize_20"
             app:layout_constraintBottom_toTopOf="@+id/third_row"
@@ -205,6 +212,7 @@
             android:text="@string/price_other"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/txtSize_20"
+            android:onClick="@{()->viewModel.onButtonClicked(1000)}"
             app:layout_constraintBottom_toTopOf="@+id/third_row"
             app:layout_constraintEnd_toStartOf="@+id/end_button"
             app:layout_constraintStart_toStartOf="@+id/guideline_middle_section"
@@ -220,14 +228,13 @@
             android:layout_marginTop="8dp"
             android:background="@color/not_ok_keypad"
             android:text="@string/redeem_all"
+            android:onClick="@{()->viewModel.onButtonClicked(0)}"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/txtSize_20"
             app:layout_constraintBottom_toTopOf="@+id/guideline_button_bottom"
             app:layout_constraintEnd_toStartOf="@+id/end_button"
             app:layout_constraintStart_toStartOf="@+id/start_button"
             app:layout_constraintTop_toTopOf="@+id/third_row" />
-
-
 
 
     </android.support.constraint.ConstraintLayout>
