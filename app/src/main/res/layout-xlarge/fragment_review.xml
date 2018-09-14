@@ -45,22 +45,28 @@
             app:layout_constraintGuide_percent="0.33"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
-            android:id="@+id/rvReview"
+
+        <android.support.v4.widget.NestedScrollView
+            style="@style/scrollbar_shape_style"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:fastScrollAutoHide="false"
-            app:fastScrollTrackColor="@android:color/transparent"
-            style="@style/scrollbar_shape_style"
-            app:fastScrollPopupBgColor="@android:color/transparent"
-            app:fastScrollEnableThumbInactiveColor="false"
-            app:fastScrollThumbColor="@android:color/transparent"
-            android:scrollbars="vertical"
+            android:fadeScrollbars="false"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/leftGuideLine"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view3" />
+            app:layout_constraintTop_toBottomOf="@+id/view3">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvReview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:fastScrollPopupTextColor="@android:color/primary_text_dark"
+                app:fastScrollPopupTextSize="56sp"
+                app:fastScrollThumbColor="@color/colorAccent"
+                app:fastScrollThumbEnabled="true" />
+        </android.support.v4.widget.NestedScrollView>
 
 
         <View

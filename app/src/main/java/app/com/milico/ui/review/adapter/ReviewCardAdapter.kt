@@ -15,7 +15,7 @@ class ReviewCardAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         return MyViewHolder(view)
     }
 
-    override fun getItemCount() = 10
+    override fun getItemCount() = 5
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 

@@ -7,6 +7,7 @@ import app.com.milico.R
 import app.com.milico.base.BaseActivity
 import app.com.milico.databinding.ActivitySplashBinding
 import app.com.milico.ui.main.MainActivity
+import app.com.milico.util.extensions.showAlert
 import app.com.milico.util.getDeviceName
 import app.com.milico.util.getOSVersion
 import app.com.milico.util.getTimeZone
@@ -23,11 +24,15 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
         dataBinding.viewModel = splashViewModel.apply {
             setPinKey("1234")
             registerDevice(RegisterModel.DeviceRegisterRequestModel(Settings.Secure.getString(application.contentResolver, Settings.Secure.ANDROID_ID),
-                    getDeviceName()!!, getOSVersion(), getTimeZone(), Locale.getDefault().getLanguage()))
+                    getDeviceName()!!, getOSVersion(), getTimeZone(), Locale.getDefault().language))
 
             registerEvent.observe(this@SplashActivity, Observer {
                 MainActivity.start(this@SplashActivity)
                 finish()
+            })
+
+            alertMessageEvent.observe(this@SplashActivity, Observer {
+                showAlert(it!!)
             })
         }
     }

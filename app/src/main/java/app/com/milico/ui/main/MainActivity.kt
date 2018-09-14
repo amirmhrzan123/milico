@@ -28,8 +28,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IFragmentListener {
         addFragmentToActivity(ReviewFragment.getInstance(), R.id.fl_container, RedeemFragment.TAG)
     }
 
+    private val DISCONNECT_TIMEOUT: Long = 20000 // 5 second
 
-    val mainViewModel: MainViewModel by inject()
+    private val mainViewModel: MainViewModel by inject()
 
     private var infoPopUpFragment: InfoPopUpFragment? = null
 
@@ -53,7 +54,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IFragmentListener {
     }
 
     override fun openRedeemPage() {
-        replaceFragmentInActivity(RedeemFragment.newInstance(), R.id.fl_container, RedeemFragment.TAG, addToBackStack = true)
+//        replaceFragmentInActivity(RedeemFragment.newInstance(), R.id.fl_container, RedeemFragment.TAG, addToBackStack = true)
         addFragmentToActivity(RedeemFragment.newInstance(), R.id.fl_container, RedeemFragment.TAG)
     }
 
@@ -109,7 +110,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IFragmentListener {
 
     private val disconnectCallback = Runnable {
         toast("User inactive")
-        openPinKeyScreen()
+        openHomeScreen()
     }
 
     private fun resetDisconnectTimer() {

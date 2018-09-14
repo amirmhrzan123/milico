@@ -47,7 +47,7 @@ class DashBoardFragment: BaseFragment<FragmentDashboardBinding>() {
     override fun initBinder() {
         dataBinding.viewModel = dashboardViewModel.apply {
             redeemClickEvent.observe(this@DashBoardFragment, Observer {
-                iFragmentListener?.openRedeemPage()
+                iFragmentListener?.openReview()
             })
 
             pointsClickEvent.observe(this@DashBoardFragment, Observer {

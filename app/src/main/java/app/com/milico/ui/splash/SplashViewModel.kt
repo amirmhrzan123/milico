@@ -14,7 +14,7 @@ import np.com.amir.apptest.util.SchedulerProvider
 class SplashViewModel constructor(
         resources: Resources,
         private val schedulers: SchedulerProvider,
-        private val  dataManager: AppDataManager):BaseViewModel(resources) {
+        private val dataManager: AppDataManager) : BaseViewModel(resources) {
 
     var isLogIn = SingleLiveEvent<Boolean>()
 
@@ -22,35 +22,27 @@ class SplashViewModel constructor(
 
     val notRegisterEvent = SingleLiveEvent<String>()
 
-    fun isUserLoggedIn(){
+    fun isUserLoggedIn() {
         isLogIn.value = dataManager.isLogIn()
     }
 
-    fun setPinKey(key: String){
+    fun setPinKey(key: String) {
         dataManager.setPinKey(key)
     }
 
-    fun registerDevice(deviceRegisterRequestModel: RegisterModel.DeviceRegisterRequestModel){
+    fun registerDevice(deviceRegisterRequestModel: RegisterModel.DeviceRegisterRequestModel) {
 
         compositeDisposable.add(
                 dataManager.registerDevice(deviceRegisterRequestModel)
                         .subscribeOn(schedulers.io())
                         .observeOn(schedulers.ui())
-                        .subscribe({
-                            t: BaseResponse<Any>?->
-                            t?.let{
+                        .subscribe({ t: BaseResponse<Any>? ->
+                            t?.let {
                                 registerEvent.call()
                             }
-                        },{
-                            error->
+                        }, { error ->
                             handleError(error)
                         }))
 
     }
-
-
-
-
-
-
 }

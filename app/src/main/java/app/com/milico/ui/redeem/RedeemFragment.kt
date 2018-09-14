@@ -47,7 +47,7 @@ class RedeemFragment:BaseFragment<FragmentRedeemBinding>() {
             })*/
 
             dataBinding.rvGiftsCards.apply {
-                val layoutManager = LinearLayoutManager(baseActivity).apply {
+                val layoutManager = LinearLayoutManager(baseActivity, LinearLayoutManager.HORIZONTAL, false).apply {
                     orientation = LinearLayoutManager.HORIZONTAL
                 }
                 this.layoutManager = layoutManager

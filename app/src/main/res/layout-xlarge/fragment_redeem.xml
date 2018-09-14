@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <variable
             name="viewModel"
-            type="app.com.milico.ui.redeem.RedeemViewModel"/>
-
+            type="app.com.milico.ui.redeem.RedeemViewModel" />
 
 
     </data>
@@ -39,17 +38,11 @@
             android:id="@+id/rvGiftsCards"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:fastScrollAutoHide="false"
-            app:fastScrollTrackColor="@android:color/transparent"
             style="@style/scrollbar_shape_style_horizontal"
-            app:fastScrollPopupBgColor="@android:color/transparent"
             app:fastScrollEnableThumbInactiveColor="false"
-            app:fastScrollThumbColor="@android:color/transparent"
-            android:scrollbars="horizontal"
             app:giftsCardList="@{viewModel.listGiftsCards}"
             app:layout_constraintBottom_toTopOf="@+id/guideline_lower_baseline"
-            app:layout_constraintTop_toTopOf="@+id/recylerView_beginning"
-             />
+            app:layout_constraintTop_toTopOf="@+id/recylerView_beginning" />
         <!--<android.support.v7.widget.RecyclerView
             android:id="@+id/rvGiftsCards"
             style="@style/scrollbar_shape_style"
@@ -59,7 +52,7 @@
             android:layout_marginTop="8dp"
             android:paddingBottom="8dp"
             app:layout_goneMarginBottom="@dimen/dimen_10"
-            app:giftsCardList="@{viewModel.listGiftsCards}"
+
             app:layout_constraintBottom_toTopOf="@+id/guideline_lower_baseline"
             app:layout_constraintTop_toTopOf="@+id/recylerView_beginning" />
 -->
@@ -90,9 +83,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_touch_card" />
 
 
-
     </android.support.constraint.ConstraintLayout>
-
 
 
 </layout>

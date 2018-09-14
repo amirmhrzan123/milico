@@ -54,4 +54,5 @@
     <string name="review">Review</string>
     <string name="checkout">Checkout</string>
     <string name="redeem_more">Reedem More</string>
+    <string name="retry_again">Retry</string>
 </resources>

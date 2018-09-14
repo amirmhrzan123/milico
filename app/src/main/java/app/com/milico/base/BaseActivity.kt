@@ -13,7 +13,6 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 
 abstract class BaseActivity<V : ViewDataBinding> : AppCompatActivity() {
-    val DISCONNECT_TIMEOUT: Long = 5000 // 5 second
     private var doubleBackToExitPressedOnce = false
     protected lateinit var dataBinding: V
     private lateinit var progressDialog: ProgressDialog

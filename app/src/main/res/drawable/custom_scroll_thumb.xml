@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <gradient android:startColor="@color/redeem_button" android:endColor="@color/pop_up_red_background"
-        android:angle="45"/>
-    <corners android:radius="20dp" />
-</shape>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="45"
+                android:endColor="@color/pop_up_red_background"
+                android:startColor="@color/redeem_button" />
+            <corners android:radius="20dp" />
+        </shape>
+    </item>
+
+    <item android:top="10dp">
+        <bitmap
+            android:gravity="center_horizontal|top"
+            android:src="@drawable/arrow_down" />
+    </item>
+
+    <item android:bottom="10dp">
+        <bitmap
+            android:gravity="center_horizontal|bottom"
+            android:src="@drawable/arrow_up" />
+    </item>
+</layer-list>

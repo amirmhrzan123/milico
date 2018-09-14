@@ -2,7 +2,6 @@ package app.com.milico.ui.review
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.view.MotionEvent
 import android.view.View
 import app.com.milico.R
 import app.com.milico.base.BaseFragment
@@ -31,6 +30,7 @@ class ReviewFragment : BaseFragment<FragmentReviewBinding>() {
         with(rvReview) {
             layoutManager = LinearLayoutManager(activity)
             adapter = ReviewCardAdapter()
-            }
+            isNestedScrollingEnabled = false
         }
+    }
 }
