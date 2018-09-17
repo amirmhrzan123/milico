@@ -5,24 +5,23 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.util.DisplayMetrics
-import android.util.Log
 import android.view.View
 import app.com.milico.R
 import app.com.milico.base.BaseFragment
 import app.com.milico.databinding.FragmentRedeemBinding
 import app.com.milico.ui.main.IFragmentListener
+import app.com.milico.ui.main.MainViewModel
 import app.com.milico.util.extensions.convertDpToPixel
 import kotlinx.android.synthetic.main.fragment_redeem.view.*
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 
 class RedeemFragment:BaseFragment<FragmentRedeemBinding>() {
 
 
-    private val redeemViewModel: RedeemViewModel by viewModel()
+    private val redeemViewModel: MainViewModel by sharedViewModel()
 
     private var redeemValueDialog: RedeemValueDialog? = null
-
 
 
     lateinit var iFragmentListener: IFragmentListener
@@ -38,6 +37,7 @@ class RedeemFragment:BaseFragment<FragmentRedeemBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initBinder()
+
 
     }
 
@@ -84,31 +84,22 @@ class RedeemFragment:BaseFragment<FragmentRedeemBinding>() {
                     val displayMetrics = DisplayMetrics()
                     activity?.windowManager?.defaultDisplay?.getMetrics(displayMetrics)
                     var width = displayMetrics.widthPixels
-                    var height = displayMetrics.heightPixels
-                    if((data.position<firstVisibleItem)){
-                        Log.d("herefirst","first")
+
+                    y=rvGiftsCards.y.toInt()
+
+                    if((data.position<firstVisibleItem)){ //if first visible item is not completely seen, show dialog from the x=0
                         x=0
-                        y=rvGiftsCards.y.toInt()
-                    }else if((data.position>lastVisibleItem)){
-                        Log.d("herefirst","seconde")
+                    } else if((data.position>lastVisibleItem)){ //if final visible item is not completely seen, keep the end of dialog to x=width of screen
                         x=width-convertDpToPixel(520).toInt()
-                        y= rvGiftsCards.y.toInt()
                     }else{
                         x=view.x.toInt()
-                        Log.d("herefirst","third")
-
-                        y=rvGiftsCards.y.toInt()
                     }
                     redeemViewModel.setXYvalue(x,y)
-                    Log.d("xyvalue",redeemViewModel.getXvalue().toString()+"  "+redeemViewModel.getYvalue().toString())
-                    Log.d("lastvisiblepositon",layoutManager.findLastCompletelyVisibleItemPosition().toString())
-                    Log.d("firstVisibleposition",layoutManager.findFirstCompletelyVisibleItemPosition().toString())
 
+                    //for smooth scrolling of partially visible item
                     smoothScrollToPosition(data.position)
 
-                    Log.d("POSITION_X",view.x.toString())
-                    Log.d("POSITION_Y",rvGiftsCards.y.toString())
-                    redeemValueDialog = RedeemValueDialog.newInstance(x,y)
+                    redeemValueDialog = RedeemValueDialog.newInstance()
                     redeemValueDialog!!.show(fragmentManager, RedeemValueDialog.TAG)
                 }
 
@@ -116,8 +107,6 @@ class RedeemFragment:BaseFragment<FragmentRedeemBinding>() {
         }
 
     }
-
-
 
 
 }

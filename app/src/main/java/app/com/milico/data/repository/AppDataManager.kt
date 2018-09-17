@@ -13,6 +13,11 @@ import io.reactivex.Observable
 class AppDataManager(private val apiService: IApiService,
                      private val iPreferenceHelper: IPreferenceHelper,
                      private val gson: Gson) : IAppDataManager {
+    override fun setDeviceId(deviceId: String) {
+        iPreferenceHelper.setDeviceId(deviceId)
+    }
+
+    override fun getDeviceId(): String = iPreferenceHelper.getDeviceId()
 
 
     override fun getCardInfo(cardRequestModel: DashBoardModel.CardRequestModel): Observable<DashBoardModel.ResponseModel> {

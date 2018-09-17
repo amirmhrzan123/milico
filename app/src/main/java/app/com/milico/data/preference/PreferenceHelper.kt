@@ -6,6 +6,11 @@ import android.preference.PreferenceManager
 
 class PreferenceHelper constructor(
         context: Context): IPreferenceHelper{
+    override fun setDeviceId(deviceId: String) {
+        prefs.deviceId = deviceId
+    }
+
+    override fun getDeviceId(): String = prefs.deviceId
 
 
     fun defaultPrefs(context: Context): SharedPreferences
@@ -23,6 +28,7 @@ class PreferenceHelper constructor(
         private const val PREF_CLUB_LOGO =  "clubLogo"
         private const val PREF_IS_FIRST_TIME = "isFirstTime"
         private const val PREF_APP_INFO = "appInfo"
+        private const val PREF_DEVICE_ID = "deviceId"
 
 
     }
@@ -129,6 +135,12 @@ class PreferenceHelper constructor(
         get() = getString(PREF_APP_INFO, "")
         set(value) {
             putValue(PREF_APP_INFO, value)
+        }
+
+    private var SharedPreferences.deviceId
+        get() = getString(PREF_DEVICE_ID, "")
+        set(value) {
+            putValue(PREF_DEVICE_ID, value)
         }
 
 }

@@ -8,17 +8,17 @@
 
         <variable
             name="viewModel"
-            type="app.com.milico.ui.redeem.RedeemViewModel"/>
+            type="app.com.milico.ui.main.MainViewModel"/>
 
 
 
     </data>
 
     <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:minHeight="350dp"
-        android:minWidth="520dp"
+        android:layout_width="520dp"
+        android:layout_height="400dp"
+        android:minHeight="@dimen/edit_dialog_height"
+        android:minWidth="@dimen/edit_dialog_width"
         android:background="@color/transparent">
 
         <android.support.constraint.Guideline
@@ -121,9 +121,11 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="4dp"
             android:layout_marginTop="4dp"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
             android:background="@color/price_background"
             android:ems="10"
             android:gravity="center"
@@ -158,23 +160,23 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="4dp"
             android:layout_marginTop="8dp"
             android:background="@color/pop_up_red_background"
             app:layout_constraintBottom_toTopOf="@+id/second_row"
             app:layout_constraintEnd_toStartOf="@+id/minus_end"
             app:layout_constraintStart_toStartOf="@+id/quantity_end"
             app:layout_constraintTop_toTopOf="@+id/first_row"
-            app:layout_constraintVertical_bias="0.6" />
+            />
 
         <View
             android:id="@+id/view_add"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="4dp"
             android:layout_marginTop="8dp"
             android:background="@color/pop_up_red_background"
             app:layout_constraintBottom_toTopOf="@+id/second_row"
@@ -186,27 +188,25 @@
             android:id="@+id/tv_quantity_number"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
             android:background="@color/colorWhite"
             android:gravity="center"
-            android:text="TextView"
+            android:text="100"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/second_row"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_minus"
             app:layout_constraintEnd_toStartOf="@+id/quanity_number_end"
             app:layout_constraintStart_toStartOf="@+id/minus_end"
-            app:layout_constraintTop_toTopOf="@+id/first_row" />
+            app:layout_constraintTop_toTopOf="@+id/iv_minus" />
 
         <Button
             android:id="@+id/bnt_confirm"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
             android:background="@color/redeem_button"
             android:text="@string/confirm"
             android:textColor="@color/colorWhite"
@@ -221,11 +221,12 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="4dp"
             android:layout_marginTop="8dp"
             app:layout_constraintBottom_toTopOf="@+id/second_row"
             app:layout_constraintEnd_toStartOf="@+id/end_button"
+            app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toStartOf="@+id/quanity_number_end"
             app:layout_constraintTop_toTopOf="@+id/first_row"
             app:srcCompat="@drawable/ic_add" />
@@ -235,8 +236,8 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="4dp"
             android:layout_marginTop="8dp"
             app:layout_constraintBottom_toTopOf="@+id/second_row"
             app:layout_constraintEnd_toStartOf="@+id/minus_end"

@@ -63,4 +63,7 @@
     <string name="redeem_all">Redeem All</string>
     <string name="qty">QTY</string>
     <string name="confirm">Confirm</string>
+
+
+    <!--size of redeem screen-->
 </resources>

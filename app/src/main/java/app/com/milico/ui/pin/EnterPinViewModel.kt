@@ -41,7 +41,7 @@ class EnterPinViewModel constructor(
 
     fun onOkPressed(){
         showProgressBar()
-        compositeDisposable.add(dataManager.getCardInfo(DashBoardModel.CardRequestModel("1","1234"))
+        compositeDisposable.add(dataManager.getCardInfo(DashBoardModel.CardRequestModel("1",1234,dataManager.getDeviceId(),1))
                 .subscribeOn(schedulers.io())
                 .observeOn(schedulers.ui())
                 .subscribe({

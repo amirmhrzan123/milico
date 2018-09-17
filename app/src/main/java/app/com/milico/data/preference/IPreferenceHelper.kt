@@ -30,5 +30,9 @@ interface IPreferenceHelper {
 
     fun setAppInfo(info:String)
 
+    fun setDeviceId(deviceId:String)
+
+    fun getDeviceId():String
+
 
 }

@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="app.com.milico.ui.redeem.RedeemViewModel"/>
+            type="app.com.milico.ui.main.MainViewModel"/>
 
 
 

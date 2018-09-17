@@ -11,12 +11,17 @@ import android.view.WindowManager
 import app.com.milico.R
 import app.com.milico.base.BaseDialogFragment
 import app.com.milico.databinding.LayoutEditQuantityBinding
+import app.com.milico.ui.main.MainViewModel
 import app.com.milico.util.extensions.convertDpToPixel
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 class EditQuantityDialog:BaseDialogFragment<LayoutEditQuantityBinding>() {
 
-    private val redeemViewModel:RedeemViewModel by sharedViewModel()
+    private val redeemViewModel:MainViewModel by sharedViewModel()
+
+    var DIALOG_HEIGHT : Int = 0
+
+    val HEIGHT_FACTOR = 0.4
 
 
     companion object {
@@ -35,7 +40,8 @@ class EditQuantityDialog:BaseDialogFragment<LayoutEditQuantityBinding>() {
         val dialog = super.onCreateDialog(savedInstanceState)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.window.setBackgroundDrawable( ColorDrawable(Color.TRANSPARENT))
-        // dialog.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
+        DIALOG_HEIGHT = resources.getDimension(R.dimen.edit_dialog_height).toInt()
+
         return dialog
     }
 
@@ -47,7 +53,7 @@ class EditQuantityDialog:BaseDialogFragment<LayoutEditQuantityBinding>() {
         p.softInputMode = WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE
         p.x = redeemViewModel.getXvalue() // about half of confirm button size left of source view
         Log.d("height",p.height.toString())
-        p.y = redeemViewModel.getYvalue() + (0.20*400).toInt() - convertDpToPixel(450).toInt()// above source view
+        p.y = redeemViewModel.getYvalue() + (HEIGHT_FACTOR*DIALOG_HEIGHT).toInt() - convertDpToPixel(DIALOG_HEIGHT).toInt()// above source view
         window.attributes = p
     }
 

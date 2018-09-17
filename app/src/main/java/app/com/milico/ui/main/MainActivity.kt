@@ -76,7 +76,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IFragmentListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        openRedeemPage()
+        openHomeScreen()
 
     }
 

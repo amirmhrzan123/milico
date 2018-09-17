@@ -52,6 +52,8 @@ class DashBoardModel {
     @Parcelize
     data class CardRequestModel(
             @SerializedName("card_id") val cardId: String,
-            @SerializedName("pin") val pin: String
+            @SerializedName("pin") val pin: Int,
+            @SerializedName("device_uuid") val deviceId: String,
+            @SerializedName("club_id") val clubId: Int
     ):Parcelable
 }

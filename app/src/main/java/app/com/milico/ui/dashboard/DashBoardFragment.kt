@@ -52,13 +52,17 @@ class DashBoardFragment: BaseFragment<FragmentDashboardBinding>() {
 
 
         dataBinding.viewModel = dashboardViewModel.apply {
+            setFields(getDashBoardModel.data.cardInfo.name,
+                    getDashBoardModel.data.cardInfo.membershipStatus,
+                    getDashBoardModel.data.cardInfo.email,
+                    getDashBoardModel.data.cardInfo.membershipExpiry,
+                    getDashBoardModel.data.cardInfo.loyaltyValue,
+                    getDashBoardModel.data.cardInfo.loyaltyPoint)
             redeemClickEvent.observe(this@DashBoardFragment, Observer {
                 iFragmentListener?.openRedeemPage()
             })
 
-            pointsClickEvent.observe(this@DashBoardFragment, Observer {
-                iFragmentListener?.openReview()
-            })
+
         }
 
     }
