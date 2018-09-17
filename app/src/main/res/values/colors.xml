@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#eaeaea</color>
+    <color name="colorAccent">#808080</color>
 
     <color name="colorWhite">#ffffff</color>
     <color name="color_gray">#504f4f</color>
@@ -14,7 +14,7 @@
     <color name="background">#393D46</color>
     <color name="keypad_not_selected">#eaeaea</color>
     <color name="keypad_selected">#D0D0D0</color>
-    <color name="ok_keypad">#709B18</color>
+    <color name="ok_keypad">#709b18</color>
     <color name="not_ok_keypad">#C40000</color>
     <color name="forgotten_password">#5A5B60</color>
     <color name="forgotten_password_text">#CFD0D3</color>
@@ -27,6 +27,7 @@
     <color name="textView_color">#C2C9CB</color>
     <color name="redeem_button">#709b18</color>
     <color name="item_background">#7C7E7D</color>
+    <color name="price_background">#747474</color>
 
     <!-- Review -->
     <color name="review_title_bar">#32373D</color>

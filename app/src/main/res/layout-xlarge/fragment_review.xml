@@ -10,6 +10,8 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:clickable="true"
         android:background="@color/review_background">
 
         <View
@@ -31,7 +33,7 @@
             android:layout_marginTop="8dp"
             android:text="@string/review"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/textsize_80"
+            android:textSize="@dimen/txtSize_80"
             app:layout_constraintBottom_toBottomOf="@+id/view3"
             app:layout_constraintStart_toStartOf="@+id/view3"
             app:layout_constraintTop_toTopOf="parent"
@@ -45,28 +47,20 @@
             app:layout_constraintGuide_percent="0.33"
             app:layout_constraintStart_toStartOf="parent" />
 
-
-        <android.support.v4.widget.NestedScrollView
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvReview"
             style="@style/scrollbar_shape_style"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:fadeScrollbars="false"
-
+            app:fastScrollPopupTextColor="@android:color/primary_text_dark"
+            app:fastScrollPopupTextSize="56sp"
+            app:fastScrollThumbColor="@color/colorAccent"
+            app:fastScrollThumbEnabled="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/leftGuideLine"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view3">
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rvReview"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:fastScrollPopupTextColor="@android:color/primary_text_dark"
-                app:fastScrollPopupTextSize="56sp"
-                app:fastScrollThumbColor="@color/colorAccent"
-                app:fastScrollThumbEnabled="true" />
-        </android.support.v4.widget.NestedScrollView>
+            app:layout_constraintTop_toBottomOf="@+id/view3" />
 
 
         <View
@@ -83,7 +77,7 @@
             app:layout_constraintVertical_bias="1.0" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnCheckOut"
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_marginBottom="148dp"
@@ -92,16 +86,16 @@
             android:background="@color/redeem_button"
             android:text="@string/checkout"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/textsize_25sp"
+            android:textSize="@dimen/txtSize_25"
             app:layout_constraintBottom_toTopOf="@+id/view4"
-            app:layout_constraintEnd_toStartOf="@+id/button2"
+            app:layout_constraintEnd_toStartOf="@+id/btnReedemMore"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toEndOf="@+id/leftGuideLine"
             app:layout_constraintStart_toStartOf="@+id/leftGuideLine" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btnReedemMore"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginEnd="32dp"
@@ -109,12 +103,12 @@
             android:background="@color/pop_up_red_background"
             android:text="@string/redeem_more"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/textsize_25sp"
-            app:layout_constraintBottom_toBottomOf="@+id/button"
+            android:textSize="@dimen/txtSize_25"
+            app:layout_constraintBottom_toBottomOf="@+id/btnCheckOut"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/button"
-            app:layout_constraintTop_toTopOf="@+id/button" />
+            app:layout_constraintStart_toEndOf="@+id/btnCheckOut"
+            app:layout_constraintTop_toTopOf="@+id/btnCheckOut" />
 
         <TextView
             android:id="@+id/textView3"
@@ -125,14 +119,14 @@
             android:layout_marginTop="48dp"
             android:background="@color/textView_background"
             android:gravity="center_vertical"
-            android:paddingLeft="@dimen/dimen_20dp"
+            android:paddingLeft="@dimen/dimen_20"
             android:text="17124 points starting point"
             android:textAllCaps="true"
             android:textColor="@color/textView_color"
-            android:textSize="@dimen/textsize_25sp"
-            app:layout_constraintEnd_toEndOf="@+id/button"
+            android:textSize="@dimen/txtSize_25"
+            app:layout_constraintEnd_toEndOf="@+id/btnCheckOut"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/button"
+            app:layout_constraintStart_toStartOf="@+id/btnCheckOut"
             app:layout_constraintTop_toBottomOf="@+id/view3" />
 
         <TextView
@@ -144,14 +138,14 @@
             android:layout_marginTop="20dp"
             android:background="@color/textView_background"
             android:gravity="center_vertical"
-            android:paddingLeft="@dimen/dimen_20dp"
+            android:paddingLeft="@dimen/dimen_20"
             android:text="10000 point redeemed"
             android:textAllCaps="true"
             android:textColor="@color/textView_color"
-            android:textSize="@dimen/textsize_25sp"
-            app:layout_constraintEnd_toEndOf="@+id/button"
+            android:textSize="@dimen/txtSize_25"
+            app:layout_constraintEnd_toEndOf="@+id/btnCheckOut"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/button"
+            app:layout_constraintStart_toStartOf="@+id/btnCheckOut"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
         <TextView
@@ -163,14 +157,220 @@
             android:layout_marginTop="20dp"
             android:background="@color/textView_background"
             android:gravity="center_vertical"
-            android:paddingLeft="@dimen/dimen_20dp"
+            android:paddingLeft="@dimen/dimen_20"
             android:text="7.124 remaining"
             android:textAllCaps="true"
             android:textColor="@color/textView_color"
-            android:textSize="@dimen/textsize_25sp"
-            app:layout_constraintEnd_toEndOf="@+id/button"
+            android:textSize="@dimen/txtSize_25"
+            app:layout_constraintEnd_toEndOf="@+id/btnCheckOut"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/button"
+            app:layout_constraintStart_toStartOf="@+id/btnCheckOut"
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <android.support.constraint.Group
+            android:id="@+id/grReview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:constraint_referenced_ids="textView5,textView3,btnCheckOut,btnReedemMore,textView4" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guidelineCheckout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <TextView
+            android:id="@+id/tvPrintInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="72dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="48dp"
+            android:background="@color/textView_background"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dimen_10"
+            android:text="@string/can_be_redeemed"
+            android:textAllCaps="true"
+            android:textColor="@color/textView_color"
+            android:textSize="@dimen/txtSize_25"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tvLostNote"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toEndOf="@+id/view4"
+            app:layout_constraintStart_toStartOf="@+id/leftGuideLine" />
+
+        <TextView
+            android:id="@+id/tvLostNote"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:background="@color/textView_background"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dimen_10"
+            android:paddingLeft="@dimen/dimen_20"
+            android:text="@string/note_lost_print"
+            android:textAllCaps="true"
+            android:textColor="@color/textView_color"
+            android:textSize="@dimen/txtSize_25"
+            app:layout_constraintBottom_toBottomOf="@+id/tvPrintInfo"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineCheckout"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tvPrintInfo"
+            app:layout_constraintTop_toTopOf="@+id/tvPrintInfo" />
+
+        <View
+            android:id="@+id/btnEmailCard"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/redeem_button"
+            android:drawablePadding="@dimen/dimen_20"
+            app:layout_constraintBottom_toTopOf="@+id/tvPrintInfo"
+            app:layout_constraintEnd_toEndOf="@+id/tvPrintInfo"
+            app:layout_constraintStart_toStartOf="@+id/tvPrintInfo"
+            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+        <View
+            android:id="@+id/btnPrintNow"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/pop_up_red_background"
+            app:layout_constraintBottom_toBottomOf="@+id/btnEmailCard"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineCheckout"
+            app:layout_constraintStart_toStartOf="@+id/tvLostNote"
+            app:layout_constraintTop_toTopOf="@+id/btnEmailCard" />
+
+        <View
+            android:id="@+id/textView13"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="100dp"
+            android:background="@color/textView_background"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="@+id/btnPrintNow"
+            app:layout_constraintStart_toStartOf="@+id/btnEmailCard"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/your_card_will_emailed"
+            android:textAllCaps="true"
+            android:textColor="@color/textView_color"
+            android:textSize="@dimen/txtSize_25"
+            app:layout_constraintStart_toStartOf="@+id/textView13"
+            app:layout_constraintTop_toTopOf="@+id/textView13" />
+
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Mark@gmail.com"
+            android:textColor="@color/textView_color"
+            android:textSize="@dimen/txtSize_25"
+            app:layout_constraintBottom_toBottomOf="@+id/textView13"
+            app:layout_constraintStart_toStartOf="@+id/textView14"
+            app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+        <View
+            android:id="@+id/editEmailView"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="32dp"
+            android:background="@color/pop_up_red_background"
+            android:text="Button"
+            app:layout_constraintBottom_toBottomOf="@+id/textView13"
+            app:layout_constraintEnd_toEndOf="@+id/textView13"
+            app:layout_constraintTop_toTopOf="@+id/textView13" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_20"
+            android:text="@string/edit"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/txtSize_25"
+            app:layout_constraintBottom_toBottomOf="@+id/editEmailView"
+            app:layout_constraintStart_toStartOf="@+id/editEmailView"
+            app:layout_constraintTop_toTopOf="@+id/editEmailView" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dimen_20"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/ic_edit"
+            android:tint="@color/colorWhite"
+            app:layout_constraintBottom_toBottomOf="@+id/editEmailView"
+            app:layout_constraintEnd_toEndOf="@+id/editEmailView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/textView16"
+            app:layout_constraintTop_toTopOf="@+id/editEmailView" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="@dimen/dimen_100"
+            android:layout_height="0dp"
+            android:layout_marginTop="68dp"
+            android:tint="@color/colorWhite"
+            app:layout_constraintEnd_toEndOf="@+id/btnEmailCard"
+            app:layout_constraintHorizontal_bias="0.524"
+            app:layout_constraintStart_toStartOf="@+id/btnEmailCard"
+            app:layout_constraintTop_toTopOf="@+id/btnEmailCard"
+            app:srcCompat="@drawable/mail_icon" />
+
+        <TextView
+            android:id="@+id/tvEmailCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_email_card"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/txtSize_25"
+            app:layout_constraintBottom_toBottomOf="@+id/btnEmailCard"
+            app:layout_constraintEnd_toEndOf="@+id/btnEmailCard"
+            app:layout_constraintStart_toStartOf="@+id/btnEmailCard"
+            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tint="@color/colorWhite"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+            app:layout_constraintEnd_toEndOf="@+id/btnPrintNow"
+            app:layout_constraintStart_toStartOf="@+id/btnPrintNow"
+            app:layout_constraintTop_toTopOf="@+id/imageView5"
+            app:srcCompat="@drawable/printer_icon" />
+
+        <TextView
+            android:id="@+id/tvPrintNow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/print_now"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/txtSize_25"
+            app:layout_constraintBottom_toBottomOf="@+id/tvEmailCard"
+            app:layout_constraintEnd_toEndOf="@+id/btnPrintNow"
+            app:layout_constraintStart_toStartOf="@+id/btnPrintNow"
+            app:layout_constraintTop_toTopOf="@+id/tvEmailCard" />
+
+        <android.support.constraint.Group
+            android:id="@+id/grCheckout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="btnEmailCard,textView14,tvEmail,tvLostNote,tvPrintNow,textView13,imageView5,btnPrintNow,imageView4,imageView6,editEmailView,tvEmailCard,tvPrintInfo,textView16" />
     </android.support.constraint.ConstraintLayout>
 </layout>

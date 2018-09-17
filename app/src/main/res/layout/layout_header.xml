@@ -17,7 +17,7 @@
 
         <ImageView
             android:id="@+id/iv_brand_logo"
-            android:layout_width="@dimen/dimen_0dp"
+            android:layout_width="@dimen/dimen_0"
             android:layout_height="@dimen/toolbar_height"
             android:contentDescription="@string/todo"
             android:src="@color/colorPrimary"
@@ -29,7 +29,7 @@
 
         <ImageView
             android:id="@+id/iv_home"
-            android:layout_width="@dimen/dimen_0dp"
+            android:layout_width="@dimen/dimen_0"
             android:layout_height="@dimen/toolbar_height"
             android:contentDescription="@string/todo"
             android:padding="5dp"
@@ -42,10 +42,10 @@
 
         <ImageView
             android:id="@+id/iv_info"
-            android:layout_width="@dimen/dimen_0dp"
+            android:layout_width="@dimen/dimen_0"
             android:layout_height="@dimen/toolbar_height"
             android:contentDescription="@string/todo"
-            android:padding="@dimen/dimen_5dp"
+            android:padding="@dimen/dimen_5"
             app:layout_constraintBottom_toTopOf="@+id/guideline_toolbar_height"
             app:layout_constraintEnd_toStartOf="@+id/guideline_info"
             app:layout_constraintStart_toStartOf="@+id/guideline_home"
@@ -54,10 +54,10 @@
 
         <ImageView
             android:id="@+id/iv_logout"
-            android:layout_width="@dimen/dimen_0dp"
+            android:layout_width="@dimen/dimen_0"
             android:layout_height="@dimen/toolbar_height"
             android:contentDescription="@string/todo"
-            android:padding="@dimen/dimen_5dp"
+            android:padding="@dimen/dimen_5"
             app:layout_constraintBottom_toTopOf="@+id/guideline_toolbar_height"
             app:layout_constraintEnd_toStartOf="@+id/guideline_logout"
             app:layout_constraintStart_toStartOf="@+id/guideline_info"
@@ -66,7 +66,7 @@
 
         <ImageView
             android:id="@+id/iv_app_logo"
-            android:layout_width="@dimen/dimen_0dp"
+            android:layout_width="@dimen/dimen_0"
             android:layout_height="@dimen/toolbar_height"
             android:contentDescription="@string/todo"
             android:src="@color/colorPrimary"

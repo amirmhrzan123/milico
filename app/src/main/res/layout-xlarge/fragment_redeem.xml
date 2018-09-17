@@ -9,8 +9,6 @@
         <variable
             name="viewModel"
             type="app.com.milico.ui.redeem.RedeemViewModel" />
-
-
     </data>
 
 
@@ -31,31 +29,58 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.4" />
+            app:layout_constraintGuide_percent="0.45" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/tv_beginning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/btn_beginning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.75" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/btn_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.93" />
 
 
-        <com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
-            android:id="@+id/rvGiftsCards"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+        <HorizontalScrollView
             style="@style/scrollbar_shape_style_horizontal"
-            app:fastScrollEnableThumbInactiveColor="false"
-            app:giftsCardList="@{viewModel.listGiftsCards}"
-            app:layout_constraintBottom_toTopOf="@+id/guideline_lower_baseline"
-            app:layout_constraintTop_toTopOf="@+id/recylerView_beginning" />
-        <!--<android.support.v7.widget.RecyclerView
-            android:id="@+id/rvGiftsCards"
-            style="@style/scrollbar_shape_style"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp"
-            android:paddingBottom="8dp"
-            app:layout_goneMarginBottom="@dimen/dimen_10"
-
+            android:scrollbars="horizontal"
             app:layout_constraintBottom_toTopOf="@+id/guideline_lower_baseline"
-            app:layout_constraintTop_toTopOf="@+id/recylerView_beginning" />
--->
+            app:layout_constraintTop_toTopOf="@+id/recylerView_beginning">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvGiftsCards"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="@dimen/dimen_10"
+                app:fastScrollAutoHide="false"
+                app:fastScrollEnableThumbInactiveColor="false"
+                app:fastScrollTrackColor="@android:color/transparent"
+                app:giftsCardList="@{viewModel.listGiftsCards}" />
+            <!--<android.support.v7.widget.RecyclerView-->
+            <!--android:id="@+id/rvGiftsCards"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_marginBottom="8dp"-->
+            <!--app:giftsCardList="@{viewModel.listGiftsCards}"-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:paddingBottom="8dp"-->
+            <!--app:layout_goneMarginBottom="@dimen/dimen_10" />-->
+        </HorizontalScrollView>
 
         <TextView
             android:id="@+id/tv_touch_card"
@@ -64,7 +89,7 @@
             android:layout_marginStart="100dp"
             android:text="@string/touch_card"
             android:textColor="@color/textView_color"
-            android:textSize="@dimen/textsize_40"
+            android:textSize="@dimen/txtSize_40"
             app:layout_constraintBottom_toTopOf="@+id/tv_best_seller"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -74,14 +99,31 @@
             android:id="@+id/tv_best_seller"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_20dp"
+            android:layout_marginTop="@dimen/dimen_20"
             android:text="@string/best_sellers"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/textsize_80"
+            android:textSize="@dimen/txtSize_80"
             app:layout_constraintBottom_toTopOf="@+id/recylerView_beginning"
             app:layout_constraintStart_toStartOf="@+id/tv_touch_card"
             app:layout_constraintTop_toBottomOf="@+id/tv_touch_card" />
 
+        <Button
+            android:id="@+id/btn_checkout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="50dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/button_state"
+            android:onClick="@{()->viewModel.onCheckOutClicked()}"
+            android:text="CheckOut"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/txtSize_30"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_best_seller"
+            app:layout_constraintEnd_toStartOf="@+id/btn_end"
+            app:layout_constraintStart_toStartOf="@+id/btn_beginning"
+            app:layout_constraintTop_toTopOf="@+id/tv_touch_card" />
 
     </android.support.constraint.ConstraintLayout>
 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="45"
+                android:endColor="@color/pop_up_red_background"
+                android:startColor="@color/redeem_button" />
+            <corners android:radius="20dp" />
+        </shape>
+    </item>
+
+    <item android:left="10dp">
+        <bitmap
+            android:gravity="center_vertical|left"
+            android:src="@drawable/arrow_left" />
+    </item>
+
+    <item android:right="10dp">
+        <bitmap
+            android:gravity="center_vertical|right"
+            android:src="@drawable/arrow_right" />
+    </item>
+</layer-list>

@@ -12,8 +12,7 @@ import android.view.MenuItem
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 
-abstract class BaseActivity<V : ViewDataBinding> : AppCompatActivity() {
-    private var doubleBackToExitPressedOnce = false
+abstract class BaseActivity<V: ViewDataBinding> : AppCompatActivity() {
     protected lateinit var dataBinding: V
     private lateinit var progressDialog: ProgressDialog
     private var toolbar: Toolbar? = null
@@ -58,28 +57,7 @@ abstract class BaseActivity<V : ViewDataBinding> : AppCompatActivity() {
         progressDialog.show()
     }
 
-    /**
-     * Function called by activities to setup toolbar with title and back button
-     * @param toolbar toolbar from view
-     * @param title title of the toolbar
-     * @param backButtonEnabled true if back button is required else false
-     *//*
-    protected fun setupToolbar(toolbar: Toolbar, title: Any = R.string.app_name, backButtonEnabled: Boolean = true) {
-        this.toolbar = toolbar
-        setSupportActionBar(toolbar)
-        supportActionBar?.apply {
-            setDisplayShowTitleEnabled(false)
-            setDisplayHomeAsUpEnabled(backButtonEnabled)
-            *//*findViewById<TextView>(R.id.tv_toolbar_title).apply {
-                when (title) {
-                    is Int -> setText(title)
-                    is String -> text = title
-                }
-            }*//*
-        }
-    }
 
-    */
     /**
      * Called by fragments to customise toolbar
      * @param title toolbar title

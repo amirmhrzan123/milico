@@ -5,7 +5,6 @@ import android.content.Context
 import app.com.milico.R
 import app.com.milico.base.BaseFragment
 import app.com.milico.databinding.FragmentEnterPinBinding
-import app.com.milico.ui.dashboard.DashBoardModel
 import app.com.milico.ui.main.IFragmentListener
 import app.com.milico.ui.popUpView.ForgetPopUpFragment
 import app.com.milico.util.extensions.showAlert
@@ -39,8 +38,8 @@ class EnterPinFragment : BaseFragment<FragmentEnterPinBinding>() {
 
 
             okPressedEvent.observe(this@EnterPinFragment, Observer {
-                val dashBoardModel = DashBoardModel()
-                iFragmentListener?.openDashBoard(dashBoardModel)
+
+                iFragmentListener?.openDashBoard(it)
             })
 
 

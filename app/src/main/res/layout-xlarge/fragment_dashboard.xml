@@ -12,6 +12,10 @@
             name="viewModel"
             type="app.com.milico.ui.dashboard.DashBoardViewModel"/>
 
+        <variable
+            name="model"
+            type="app.com.milico.ui.dashboard.DashBoardModel.ResponseModel"/>
+
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -102,7 +106,7 @@
             android:layout_marginTop="8dp"
             android:text="@string/points_to_retail"
             android:textColor="@color/keypad_selected"
-            android:textSize="@dimen/textsize_40"
+            android:textSize="@dimen/txtSize_40"
             app:layout_constraintEnd_toStartOf="@+id/tv_first_end_right"
             app:layout_constraintStart_toStartOf="@+id/tv_starting_left"
             app:layout_constraintTop_toTopOf="@+id/tv_starting_top" />
@@ -115,7 +119,7 @@
             android:layout_marginTop="24dp"
             android:text="@string/welcome_back"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/textsize_60"
+            android:textSize="@dimen/txtSize_60"
             app:layout_constraintStart_toStartOf="@+id/tv_convert_dashboard"
             app:layout_constraintTop_toBottomOf="@+id/tv_convert_dashboard" />
 
@@ -125,7 +129,7 @@
             android:layout_height="wrap_content"
             android:text="Mark"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/textsize_60"
+            android:textSize="@dimen/txtSize_60"
             app:layout_constraintStart_toStartOf="@+id/tv_welcome_back"
             app:layout_constraintTop_toBottomOf="@+id/tv_welcome_back" />
 
@@ -138,7 +142,7 @@
             android:padding="@dimen/horizontal_margin"
             android:text="@string/tv_membership_status"
             android:textColor="@color/textView_color"
-            android:textSize="@dimen/textsize_25sp"
+            android:textSize="@dimen/txtSize_25"
             app:layout_constraintEnd_toEndOf="@+id/tv_convert_dashboard"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/tv_convert_dashboard"
@@ -154,7 +158,7 @@
             android:padding="@dimen/horizontal_margin"
             android:text="@string/tv_expiry_date"
             android:textColor="@color/textView_color"
-            android:textSize="@dimen/textsize_25sp"
+            android:textSize="@dimen/txtSize_25"
             app:layout_constraintEnd_toEndOf="@+id/tv_convert_dashboard"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/tv_convert_dashboard"
@@ -170,7 +174,7 @@
             android:padding="@dimen/horizontal_margin"
             android:text="@string/tv_email"
             android:textColor="@color/textView_color"
-            android:textSize="@dimen/textsize_25sp"
+            android:textSize="@dimen/txtSize_25"
             app:layout_constraintEnd_toEndOf="@+id/tv_convert_dashboard"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/tv_convert_dashboard"
@@ -185,7 +189,7 @@
             android:layout_marginTop="8dp"
             android:text="@string/loyalty_value_available"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/textsize_40"
+            android:textSize="@dimen/txtSize_40"
             app:layout_constraintStart_toStartOf="@+id/tv_second_starting_left"
             app:layout_constraintTop_toTopOf="@+id/tv_starting_top" />
 
@@ -198,7 +202,7 @@
             android:letterSpacing="0.1"
             android:text="@string/loyalty_value"
             android:textColor="@color/not_ok_keypad"
-            android:textSize="@dimen/textsize_120"
+            android:textSize="@dimen/txtSize_120"
             app:layout_constraintBottom_toBottomOf="@+id/tv_userName"
             app:layout_constraintStart_toStartOf="@+id/textView7"
             app:layout_constraintTop_toTopOf="@+id/tv_welcome_back"
@@ -218,7 +222,7 @@
             android:onClick="@{()->viewModel.onPointsClicked()}"
 
             android:textColor="@color/textView_color"
-            android:textSize="@dimen/textsize_25sp"
+            android:textSize="@dimen/txtSize_25"
             app:layout_constraintEnd_toEndOf="@+id/tv_loyalty_value"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/tv_loyalty_value"
@@ -233,7 +237,7 @@
             android:background="@color/redeem_button"
             android:text="@string/redeem"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/textsize_40"
+            android:textSize="@dimen/txtSize_40"
             android:onClick="@{()->viewModel.onRedeemClicked()}"
             app:layout_constraintBottom_toBottomOf="@+id/textView6"
             app:layout_constraintEnd_toEndOf="@+id/tv_available_loyalty"
@@ -247,11 +251,12 @@
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="@dimen/horizontal_margin"
             android:layout_marginTop="8dp"
-            android:padding="@dimen/dimen_5dp"
+            android:padding="@dimen/dimen_5"
             app:layout_constraintBottom_toBottomOf="@+id/textView6"
             app:layout_constraintEnd_toEndOf="@+id/textView6"
             app:layout_constraintTop_toTopOf="@+id/textView6"
-            app:srcCompat="@drawable/ic_edit" />
+            android:tint="@color/colorWhite"
+            android:src="@drawable/ic_edit" />
 
         <Button
             android:id="@+id/btn_edit_email"
@@ -262,7 +267,7 @@
             android:padding="@dimen/horizontal_margin"
             android:text="@string/edit_email_address"
             android:textColor="@color/textView_color"
-            android:textSize="@dimen/textsize_25sp"
+            android:textSize="@dimen/txtSize_25"
             app:layout_constraintEnd_toEndOf="@+id/textView6"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/textView6"

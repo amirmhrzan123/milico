@@ -5,7 +5,10 @@ import android.arch.lifecycle.Observer
 import android.content.Context
 import android.os.Bundle
 import android.os.Handler
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentManager
 import android.util.Log
+import android.widget.Toast
 import app.com.milico.R
 import app.com.milico.base.BaseActivity
 import app.com.milico.databinding.ActivityMainBinding
@@ -16,6 +19,7 @@ import app.com.milico.ui.pin.EnterPinFragment
 import app.com.milico.ui.popUpView.InfoPopUpFragment
 import app.com.milico.ui.redeem.RedeemFragment
 import app.com.milico.ui.review.ReviewFragment
+import app.com.milico.ui.updateEmail.UpdateEmailFragment
 import app.com.milico.util.extensions.addFragmentToActivity
 import app.com.milico.util.extensions.replaceFragmentInActivity
 import org.jetbrains.anko.startActivity
@@ -24,11 +28,15 @@ import org.koin.android.ext.android.inject
 
 
 class MainActivity : BaseActivity<ActivityMainBinding>(), IFragmentListener {
+    override fun openUpdateEmail() {
+        addFragmentToActivity(UpdateEmailFragment.getInstance(), R.id.fl_container, RedeemFragment.TAG)
+    }
+
     override fun openReview() {
         addFragmentToActivity(ReviewFragment.getInstance(), R.id.fl_container, RedeemFragment.TAG)
     }
 
-    private val DISCONNECT_TIMEOUT: Long = 20000 // 5 second
+    private val DISCONNECT_TIMEOUT: Long = 200000 // 20 second
 
     private val mainViewModel: MainViewModel by inject()
 
@@ -49,7 +57,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IFragmentListener {
         replaceFragmentInActivity(EnterPinFragment.newInstance(), R.id.fl_container, EnterPinFragment.TAG)
     }
 
-    override fun openDashBoard(dashboardModel: DashBoardModel) {
+    override fun openDashBoard(dashboardModel: DashBoardModel.ResponseModel?) {
         replaceFragmentInActivity(DashBoardFragment.newInstance(dashboardModel), R.id.fl_container, DashBoardFragment.TAG)
     }
 
@@ -62,7 +70,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IFragmentListener {
     override fun hideShowToolbar() {
         mainViewModel.setFirstTime()
     }
-
 
     override fun getLayout(): Int = R.layout.activity_main
 
@@ -81,6 +88,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IFragmentListener {
         super.onCreate(savedInstanceState)
         initBinder()
         openHomeScreen()
+//        openRedeemPage()
+
     }
 
     private fun openPopUpInfo(texts: String) {
@@ -89,9 +98,32 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IFragmentListener {
     }
 
 
+    /**
+     * if visible fragment  = JobListFragment implement double click to exit
+     * else Show current fragment from back stack and manipulate views accordingly
+     */
     override fun onBackPressed() {
-        //do nothing
+        if (supportFragmentManager.backStackEntryCount > 0) {
+            supportFragmentManager.popBackStack()
+        } else {
+            super.onBackPressed()
+        }
     }
+
+
+    /**
+     * Get currently visible fragment in supportfragment Manager
+     */
+    private fun getVisibleFragment(): Fragment? {
+        val fragmentManager = this@MainActivity.supportFragmentManager
+        val fragments = fragmentManager.fragments
+        for (i in fragments.size downTo 1) {
+            if (fragments.get(i - 1) != null && fragments.get(i - 1).isVisible)
+                return fragments.get(i - 1)
+        }
+        return null
+    }
+
 
     // To check user inactivity
     override fun onPause() {

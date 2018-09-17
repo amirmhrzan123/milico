@@ -9,12 +9,13 @@ interface IFragmentListener {
     fun openPinKeyScreen()
 
 
-    fun openDashBoard(dashboardModel: DashBoardModel)
+    fun openDashBoard(dashboardModel: DashBoardModel.ResponseModel?)
 
     fun openRedeemPage()
 
     fun hideShowToolbar()
 
     fun openReview()
+    fun openUpdateEmail()
 
 }

@@ -15,7 +15,7 @@ val viewModelModule = module {
 
     viewModel { SplashViewModel(get(), get(), get()) }
     viewModel { HomeScreenViewModel(get(),get(),get()) }
-    viewModel { EnterPinViewModel(get(),get()) }
+    viewModel { EnterPinViewModel(get(), get(), get()) }
     viewModel { MainViewModel(get(),get(), get()) }
     viewModel { DashBoardViewModel(get(),get()) }
     viewModel { RedeemViewModel(get(),get(), get() as JsonReader,get() as Gson) }

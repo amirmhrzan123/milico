@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="400dp"
     android:layout_marginBottom="@dimen/dimen_10"
-    android:layout_marginLeft="@dimen/dimen_20dp"
-    android:layout_marginRight="@dimen/dimen_20dp"
+    android:layout_marginLeft="@dimen/dimen_20"
+    android:layout_marginRight="@dimen/dimen_20"
     android:layout_marginTop="@dimen/dimen_10"
     android:background="@color/black">
 
@@ -34,7 +34,7 @@
         android:layout_marginTop="16dp"
         android:text="100$"
         android:textColor="@color/colorWhite"
-        android:textSize="@dimen/dimen_20sp"
+        android:textSize="@dimen/txtSize_20"
         app:layout_constraintEnd_toStartOf="@+id/textView10"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,7 +48,7 @@
         android:layout_marginTop="16dp"
         android:text="Edit"
         android:textColor="@color/colorWhite"
-        android:textSize="@dimen/dimen_20sp"
+        android:textSize="@dimen/txtSize_20"
         app:layout_constraintEnd_toStartOf="@+id/textView11"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -60,7 +60,7 @@
         android:layout_marginTop="16dp"
         android:text="Remove"
         android:textColor="@color/colorWhite"
-        android:textSize="@dimen/dimen_20sp"
+        android:textSize="@dimen/txtSize_20"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

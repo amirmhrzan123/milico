@@ -13,12 +13,12 @@
     <item android:top="10dp">
         <bitmap
             android:gravity="center_horizontal|top"
-            android:src="@drawable/arrow_down" />
+            android:src="@drawable/arrow_up" />
     </item>
 
     <item android:bottom="10dp">
         <bitmap
             android:gravity="center_horizontal|bottom"
-            android:src="@drawable/arrow_up" />
+            android:src="@drawable/arrow_down" />
     </item>
 </layer-list>

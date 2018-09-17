@@ -31,6 +31,8 @@ class RedeemAdapter constructor(
         }
     }
 
+
+
     inner class ViewHolder(private val  itemGiftCardBinding: ItemGiftCardBinding):RecyclerView.ViewHolder(itemGiftCardBinding.root), Binder {
         override fun onBind(position: Int) {
 

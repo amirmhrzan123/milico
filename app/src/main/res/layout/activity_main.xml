@@ -29,8 +29,8 @@
 
         <!--<FrameLayout
             android:id="@+id/fl_container"
-            android:layout_width="@dimen/dimen_0dp"
-            android:layout_height="@dimen/dimen_0dp"
+            android:layout_width="@dimen/dimen_0"
+            android:layout_height="@dimen/dimen_0"
             android:background="@color/colorWhite"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

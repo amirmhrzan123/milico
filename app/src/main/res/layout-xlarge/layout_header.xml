@@ -22,7 +22,7 @@
 
         <ImageView
             android:id="@+id/iv_brand_logo"
-            android:layout_width="@dimen/dimen_0dp"
+            android:layout_width="@dimen/dimen_0"
             android:layout_height="match_parent"
             android:contentDescription="@string/todo"
             android:src="@color/colorPrimary"
@@ -34,7 +34,7 @@
 
         <ImageView
             android:id="@+id/iv_home"
-            android:layout_width="@dimen/dimen_0dp"
+            android:layout_width="@dimen/dimen_0"
             android:layout_height="match_parent"
             android:contentDescription="@string/todo"
             app:layout_constraintBottom_toTopOf="parent"
@@ -47,8 +47,8 @@
 
         <ImageView
             android:id="@+id/iv_info"
-            android:layout_width="@dimen/dimen_0dp"
-            android:layout_height="@dimen/dimen_0dp"
+            android:layout_width="@dimen/dimen_0"
+            android:layout_height="@dimen/dimen_0"
             android:layout_marginBottom="8dp"
             android:padding="@dimen/dimen_40"
             android:contentDescription="@string/todo"
@@ -61,8 +61,8 @@
 
         <ImageView
             android:id="@+id/iv_logout"
-            android:layout_width="@dimen/dimen_0dp"
-            android:layout_height="@dimen/dimen_0dp"
+            android:layout_width="@dimen/dimen_0"
+            android:layout_height="@dimen/dimen_0"
             android:layout_marginBottom="8dp"
             android:padding="@dimen/dimen_40"
             android:contentDescription="@string/todo"
@@ -92,35 +92,35 @@
 
         <View
             android:layout_width="1dp"
-            android:layout_height="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_0"
             android:background="@color/colorWhite"
             app:layout_constraintStart_toStartOf="@id/guideline_home"
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
             android:layout_width="1dp"
-            android:layout_height="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_0"
             android:background="@color/colorWhite"
             app:layout_constraintStart_toStartOf="@id/guideline_info"
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
             android:layout_width="1dp"
-            android:layout_height="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_0"
             android:background="@color/colorWhite"
             app:layout_constraintStart_toStartOf="@id/guideline_info"
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
             android:layout_width="1dp"
-            android:layout_height="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_0"
             android:background="@color/colorWhite"
             app:layout_constraintStart_toStartOf="@id/guideline_logout"
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
             android:layout_width="1dp"
-            android:layout_height="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_0"
             android:background="@color/colorWhite"
             app:layout_constraintLeft_toLeftOf="@id/iv_app_logo" />
 

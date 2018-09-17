@@ -55,4 +55,21 @@
     <string name="checkout">Checkout</string>
     <string name="redeem_more">Reedem More</string>
     <string name="retry_again">Retry</string>
+    <string name="price_25">$25</string>
+    <string name="price_50">$50</string>
+    <string name="price_100">$100</string>
+    <string name="price_200">$200</string>
+    <string name="price_500">$500</string>
+    <string name="price_other">$OTHER</string>
+    <string name="redeem_all">Redeem All</string>
+    <string name="qty">QTY</string>
+    <string name="confirm">Confirm</string>
+    <string name="can_be_redeemed">Can be Redeemed using your phone or print at home</string>
+    <string name="note_lost_print">Note Lost Print Outs cannot be re-issued</string>
+    <string name="your_card_will_emailed">Your Card Will Be Emailed To:</string>
+    <string name="txt_email_card">Email Card</string>
+    <string name="print_now">Print Now</string>
+    <string name="email_details">Email details</string>
+    <string name="update_email">Update Email</string>
+    >>>>>>> origin/dev
 </resources>

@@ -9,20 +9,21 @@ import app.com.milico.R
 /**
 Created by Prajeet on 9/10/2018, 4:40 PM
  **/
-class ReviewCardAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+class ReviewCardAdapter : RecyclerView.Adapter<ReviewCardAdapter.MyViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.layout_item_card, parent, false)
         return MyViewHolder(view)
     }
 
-    override fun getItemCount() = 5
+    override fun getItemCount() = 10
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        holder.bind(position)
 
     }
 
-    internal inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        init {
+    class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        fun bind(position: Int) {
 
         }
     }

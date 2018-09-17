@@ -24,8 +24,6 @@ val netModules  = module {
 
     single(override = true){ provideRetrofit(get(),get())}
 
-    //single{ provideTokenService(get(),get(),get())}
-
     single{ provideCompositeDisposable()}
 
 }
@@ -38,10 +36,6 @@ fun provideOkHttpBuilder(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttp
     builder.writeTimeout(2, TimeUnit.MINUTES)
    // builder.authenticator(tokenAuthenticator)
     builder.addInterceptor(httpLoggingInterceptor)
-
-    /* if (BuildConfig.DEBUG) {
-         builder.addInterceptor(httpLoggingInterceptor)
-     }*/
     return builder.build()
 }
 
@@ -58,14 +52,7 @@ fun provideRetrofit(gson: Gson, okHttpClient: OkHttpClient): Retrofit =
                 .build()
 
 
-fun provideApiService(retrofit: Retrofit): IApiService {
-    val apiService = retrofit.create(IApiService::class.java)
-    //apiServiceHolder.apiService = apiService
-    return apiService
-}
-
-//fun provideTokenService(context: Context, apiServiceHolder: ApiServiceHolder, preferenceHelper: IPreferenceHelper): TokenAuthenticator = TokenAuthenticator(context, apiServiceHolder, preferenceHelper)
-
+fun provideApiService(retrofit: Retrofit): IApiService = retrofit.create(IApiService::class.java)
 
 fun provideGson(): Gson = GsonBuilder()
         .setPrettyPrinting()
@@ -81,5 +68,4 @@ fun provideCompositeDisposable(): CompositeDisposable {
 
 
 
-const val SERVER_URL = "http://13.211.109.111:8092/api/"
 

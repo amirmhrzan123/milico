@@ -30,7 +30,8 @@
 
         <activity
             android:name=".ui.main.MainActivity"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan">
 
         </activity>
     </application>
