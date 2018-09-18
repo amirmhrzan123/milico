@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.text.Html
 import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.style.ImageSpan
@@ -48,11 +49,7 @@ class ReviewFragment : BaseFragment<FragmentReviewBinding>() {
             isNestedScrollingEnabled = false
         }
 
-        //Add image before the text
-        val ssb = SpannableStringBuilder(resources.getString(R.string.note_lost_print))
-        val smiley = BitmapFactory.decodeResource(resources, R.drawable.ic_info)
-        ssb.setSpan(ImageSpan(smiley), ssb.length - 1, ssb.length, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
-        tvLostNote.setText(ssb, BufferType.SPANNABLE)
+        tvLostNote.text = Html.fromHtml("\uD83D  " + resources.getString(R.string.note_lost_print))
 
         btnCheckOut.setOnClickListener {
             grReview.visibility = View.GONE
