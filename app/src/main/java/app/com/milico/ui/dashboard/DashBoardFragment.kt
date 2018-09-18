@@ -3,7 +3,6 @@ package app.com.milico.ui.dashboard
 import android.arch.lifecycle.Observer
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import app.com.milico.R
 import app.com.milico.base.BaseFragment
 import app.com.milico.databinding.FragmentDashboardBinding

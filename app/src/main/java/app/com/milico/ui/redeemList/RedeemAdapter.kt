@@ -1,4 +1,4 @@
-package app.com.milico.ui.redeem
+package app.com.milico.ui.redeemList
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -54,6 +54,13 @@ class RedeemAdapter constructor(
             giftcardsList.addAll(it.giftCardInfo)
             notifyDataSetChanged()
         }
+    }
+
+    fun editLoyaltyGiftsCards(position: Int, quantity: Int, value: Float){
+        giftcardsList[position].quantity = quantity
+        giftcardsList[position].redeemPoint = value
+        notifyDataSetChanged()
+
     }
 
     interface OnItemClickListener {

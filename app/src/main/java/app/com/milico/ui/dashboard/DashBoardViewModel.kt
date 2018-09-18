@@ -28,6 +28,8 @@ class DashBoardViewModel constructor(
     val redeemClickEvent = SingleLiveEvent<Void>()
 
 
+
+
     fun onRedeemClicked(){
         redeemClickEvent.call()
     }
@@ -40,6 +42,7 @@ class DashBoardViewModel constructor(
         loyaltyValue.set("\$ $loyaltyValues")
         loyaltyPointsAvailable.set("$loyaltyPointAvailables POINTS AVAILABLE")
     }
+
 
 
 }

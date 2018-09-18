@@ -8,24 +8,22 @@
             name="model"
             type="app.com.milico.ui.dashboard.DashBoardModel.GiftCardInfo"/>
 
-
-
     </data>
 
     <android.support.constraint.ConstraintLayout
-        android:layout_width="500dp"
+        android:layout_width="@dimen/item_width"
         android:layout_height="match_parent"
         android:layout_marginEnd="@dimen/dimen_10"
         android:background="@color/item_background">
-
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:weightSum="10"
+            app:quantity="@{model.quantity}"
+            app:redeemValue="@{model.redeemPoint}"
             android:orientation="horizontal"
             android:background="@color/background">
-
             <TextView
                 android:id="@+id/tv_price"
                 android:layout_width="0dp"
@@ -81,10 +79,11 @@
             android:id="@+id/iv_git_card"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginBottom="60dp"
-            android:layout_marginEnd="50dp"
-            android:layout_marginStart="50dp"
+            android:layout_marginBottom="50dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
+            app:imageUrl="@{model.productThumbnailUrl}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

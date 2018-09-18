@@ -1,4 +1,4 @@
-package app.com.milico.ui.redeem
+package app.com.milico.ui.redeemList
 
 import android.app.Dialog
 import android.graphics.Color
@@ -23,6 +23,10 @@ class EditQuantityDialog:BaseDialogFragment<LayoutEditQuantityBinding>() {
 
     val HEIGHT_FACTOR = 0.5
 
+    private val getPrice: String by lazy{
+        arguments!!.getString(PRICE,"")
+    }
+
 
     companion object {
         const val PRICE = "PRICE"
@@ -35,6 +39,7 @@ class EditQuantityDialog:BaseDialogFragment<LayoutEditQuantityBinding>() {
             return editQuantityDialog
         }
     }
+
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = super.onCreateDialog(savedInstanceState)
@@ -61,7 +66,7 @@ class EditQuantityDialog:BaseDialogFragment<LayoutEditQuantityBinding>() {
 
     override fun initBinder() {
         dataBinding.viewModel = redeemViewModel.apply {
-
+            setPriceForEdit(getPrice)
         }
         setDialogPosition()
 

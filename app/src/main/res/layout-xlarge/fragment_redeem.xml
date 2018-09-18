@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
         <variable
             name="viewModel"
             type="app.com.milico.ui.main.MainViewModel"/>
+
+
 
 
 
@@ -57,34 +59,22 @@
             app:layout_constraintGuide_percent="0.93" />
 
 
-        <HorizontalScrollView
+        <com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
+            android:id="@+id/rvGiftsCards"
             style="@style/scrollbar_shape_style_horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/dimen_10"
             android:scrollbars="horizontal"
+            app:fastScrollAutoHide="false"
+            app:fastScrollEnableThumbInactiveColor="false"
+            app:fastScrollPopupBgColor="@android:color/transparent"
+            app:fastScrollThumbColor="@android:color/transparent"
+            app:fastScrollTrackColor="@android:color/transparent"
+            app:giftsCardList="@{viewModel.dashBoardModel}"
             app:layout_constraintBottom_toTopOf="@+id/guideline_lower_baseline"
-            app:layout_constraintTop_toTopOf="@+id/recylerView_beginning">
+            app:layout_constraintTop_toTopOf="@+id/recylerView_beginning" />
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rvGiftsCards"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="15dp"
-                android:layout_marginLeft="@dimen/dimen_10"
-                app:fastScrollAutoHide="false"
-                app:fastScrollEnableThumbInactiveColor="false"
-                app:fastScrollTrackColor="@android:color/transparent"
-                app:giftsCardList="@{viewModel.listGiftsCards}" />
-            <!--<android.support.v7.widget.RecyclerView-->
-            <!--android:id="@+id/rvGiftsCards"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_marginBottom="8dp"-->
-            <!--app:giftsCardList="@{viewModel.listGiftsCards}"-->
-            <!--android:layout_marginTop="8dp"-->
-            <!--android:paddingBottom="8dp"-->
-            <!--app:layout_goneMarginBottom="@dimen/dimen_10" />-->
-        </HorizontalScrollView>
 
         <TextView
             android:id="@+id/tv_touch_card"
@@ -139,7 +129,7 @@
             android:layout_marginTop="24dp"
             android:background="@drawable/circle"
             android:gravity="center"
-            android:text="100"
+            app:editedCardCount="@{viewModel.giftsCardCount}"
             android:textColor="@color/colorWhite"
             app:layout_constraintEnd_toEndOf="@+id/btn_checkout"
             app:layout_constraintTop_toTopOf="@+id/btn_checkout" />

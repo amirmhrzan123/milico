@@ -29,10 +29,6 @@ class EnterPinViewModel constructor(
     val image4 = ObservableBoolean(false)
 
 
-
-
-
-
     fun enableDisableButton(enable:Boolean){
         okenabled.set(enable)
     }

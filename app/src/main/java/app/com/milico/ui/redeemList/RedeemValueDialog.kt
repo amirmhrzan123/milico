@@ -1,4 +1,4 @@
-package app.com.milico.ui.redeem
+package app.com.milico.ui.redeemList
 
 import android.app.Dialog
 import android.arch.lifecycle.Observer
@@ -29,13 +29,9 @@ class RedeemValueDialog: BaseDialogFragment<LayoutRedeemValueBinding>(){
     val HEIGHT_FACTOR = 0.4
 
 
-
-
-
     companion object {
 
         const val TAG: String = "RedeemValue"
-
 
         fun newInstance(): RedeemValueDialog {
             return RedeemValueDialog()
@@ -59,7 +55,6 @@ class RedeemValueDialog: BaseDialogFragment<LayoutRedeemValueBinding>(){
 
         setDialogPosition()
     }
-
 
 
     private fun setDialogPosition() {

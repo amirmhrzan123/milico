@@ -1,4 +1,4 @@
-package app.com.milico.ui.redeem
+package app.com.milico.ui.redeemList
 
 import android.arch.lifecycle.Observer
 import android.content.Context

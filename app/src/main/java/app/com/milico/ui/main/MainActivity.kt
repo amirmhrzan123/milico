@@ -6,9 +6,7 @@ import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
 import android.util.Log
-import android.widget.Toast
 import app.com.milico.R
 import app.com.milico.base.BaseActivity
 import app.com.milico.databinding.ActivityMainBinding
@@ -17,7 +15,7 @@ import app.com.milico.ui.dashboard.DashBoardModel
 import app.com.milico.ui.homeScreen.HomeScreenFragment
 import app.com.milico.ui.pin.EnterPinFragment
 import app.com.milico.ui.popUpView.InfoPopUpFragment
-import app.com.milico.ui.redeem.RedeemFragment
+import app.com.milico.ui.redeemList.RedeemFragment
 import app.com.milico.ui.review.ReviewFragment
 import app.com.milico.ui.updateEmail.UpdateEmailFragment
 import app.com.milico.util.extensions.addFragmentToActivity

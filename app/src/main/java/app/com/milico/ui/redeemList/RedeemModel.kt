@@ -1,4 +1,4 @@
-package app.com.milico.ui.redeem
+package app.com.milico.ui.redeemList
 
 class RedeemModel {
     data class AdapterModel(
@@ -6,4 +6,6 @@ class RedeemModel {
            val name:String
 
     )
+
+
 }
