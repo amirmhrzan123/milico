@@ -39,7 +39,7 @@ class EnterPinFragment : BaseFragment<FragmentEnterPinBinding>() {
 
             okPressedEvent.observe(this@EnterPinFragment, Observer {
 
-                iFragmentListener?.openDashBoard(it)
+                iFragmentListener?.openDashBoard(it!!)
             })
 
 

@@ -42,7 +42,6 @@ class HomeScreenFragment: BaseFragment<FragmentHomeScreenBinding>() {
 
     override fun initBinder() {
 
-
         dataBinding.viewModel = homeScreenViewModel.apply {
             getAppDetails(Settings.Secure.getString(activity?.application?.contentResolver, Settings.Secure.ANDROID_ID))
 

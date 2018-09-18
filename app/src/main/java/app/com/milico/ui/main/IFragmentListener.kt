@@ -9,9 +9,9 @@ interface IFragmentListener {
     fun openPinKeyScreen()
 
 
-    fun openDashBoard(dashboardModel: DashBoardModel.ResponseModel?)
+    fun openDashBoard(dashboardModel: DashBoardModel.ResponseModel)
 
-    fun openRedeemPage()
+    fun openRedeemPage(dashboardModel: DashBoardModel.ResponseModel)
 
     fun hideShowToolbar()
 

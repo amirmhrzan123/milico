@@ -57,13 +57,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IFragmentListener {
         replaceFragmentInActivity(EnterPinFragment.newInstance(), R.id.fl_container, EnterPinFragment.TAG)
     }
 
-    override fun openDashBoard(dashboardModel: DashBoardModel.ResponseModel?) {
+    override fun openDashBoard(dashboardModel: DashBoardModel.ResponseModel) {
         replaceFragmentInActivity(DashBoardFragment.newInstance(dashboardModel), R.id.fl_container, DashBoardFragment.TAG)
     }
 
-    override fun openRedeemPage() {
-//        replaceFragmentInActivity(RedeemFragment.newInstance(), R.id.fl_container, RedeemFragment.TAG, addToBackStack = true)
-        addFragmentToActivity(RedeemFragment.newInstance(), R.id.fl_container, RedeemFragment.TAG)
+    override fun openRedeemPage(dashboardModel: DashBoardModel.ResponseModel) {
+        addFragmentToActivity(RedeemFragment.newInstance(dashboardModel),R.id.fl_container,RedeemFragment.TAG)
     }
 
     //show toolbar if the device has been registered to club only
@@ -86,8 +85,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IFragmentListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initBinder()
         openHomeScreen()
+        initBinder()
 //        openRedeemPage()
 
     }

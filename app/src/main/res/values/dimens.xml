@@ -31,4 +31,12 @@
     <dimen name="txtSize_25">25sp</dimen>
     <dimen name="txtSize_120">120sp</dimen>
     <dimen name="txtSize_22">22sp</dimen>
+
+    <!--size of redeem screen-->
+    <dimen name="item_width">500dp</dimen>
+    <dimen name="item_height">500dp</dimen>
+    <dimen name="dialog_width">520dp</dimen>
+    <dimen name="dialog_height">550dp</dimen>
+    <dimen name="edit_dialog_width">520dp</dimen>
+    <dimen name="edit_dialog_height">400dp</dimen>
 </resources>

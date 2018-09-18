@@ -1,12 +1,14 @@
 package app.com.milico.util
 
-import android.graphics.Point
 import android.os.Build
 import android.text.TextUtils
-import android.util.Log
-import android.view.Display
+import java.text.ParseException
+import java.text.SimpleDateFormat
 import java.util.*
-import android.util.DisplayMetrics
+
+
+const val FORMAT_DAY_MONTH_YEAR: String = "dd MMMM yyyy"
+const val FORMAT_FULL_DATE: String = "yyyy-MM-dd HH:mm:ss"
 
 
 
@@ -43,6 +45,27 @@ private fun capitalize(str: String): String? {
 }
 
 fun getOSVersion() = android.os.Build.VERSION.RELEASE
+
+fun convertDateToString(string: String, sourceFormat: String = FORMAT_FULL_DATE, resultFormat: String = FORMAT_DAY_MONTH_YEAR): String {
+    val sdf = SimpleDateFormat(sourceFormat, Locale.getDefault())
+    return try {
+        val date = sdf.parse(string)
+        convertDateToString(date, resultFormat)
+    } catch (e: ParseException) {
+        e.printStackTrace()
+        ""
+    }
+}
+
+fun convertDateToString(date: Date?, format: String = FORMAT_DAY_MONTH_YEAR): String {
+    return if (date != null) {
+        val dateFormat = SimpleDateFormat(format, Locale.getDefault())
+        dateFormat.format(date)
+    } else {
+        ""
+    }
+}
+
 
 
 

@@ -6,7 +6,7 @@
 
         <variable
             name="model"
-            type="app.com.milico.data.local.json.GiftCard"/>
+            type="app.com.milico.ui.dashboard.DashBoardModel.GiftCardInfo"/>
 
 
 
@@ -84,12 +84,13 @@
             android:layout_marginBottom="60dp"
             android:layout_marginEnd="50dp"
             android:layout_marginStart="50dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-            app:layout_constraintVertical_bias="0.475"
+            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@color/color_gray" />
 
 

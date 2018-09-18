@@ -106,8 +106,8 @@
             android:layout_marginTop="8dp"
             android:text="@string/points_to_retail"
             android:textColor="@color/keypad_selected"
-            android:textSize="@dimen/txtSize_40"
-            app:layout_constraintEnd_toStartOf="@+id/tv_first_end_right"
+            android:textSize="@dimen/txtSize_35"
+            app:layout_constraintEnd_toStartOf="@+id/middle_segment"
             app:layout_constraintStart_toStartOf="@+id/tv_starting_left"
             app:layout_constraintTop_toTopOf="@+id/tv_starting_top" />
 
@@ -127,7 +127,7 @@
             android:id="@+id/tv_userName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mark"
+            android:text="@{viewModel.userName}"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/txtSize_60"
             app:layout_constraintStart_toStartOf="@+id/tv_welcome_back"
@@ -140,7 +140,7 @@
             android:layout_height="wrap_content"
             android:background="@color/textView_background"
             android:padding="@dimen/horizontal_margin"
-            android:text="@string/tv_membership_status"
+            android:text="@{viewModel.membershipType}"
             android:textColor="@color/textView_color"
             android:textSize="@dimen/txtSize_25"
             app:layout_constraintEnd_toEndOf="@+id/tv_convert_dashboard"
@@ -156,7 +156,7 @@
             android:layout_marginTop="24dp"
             android:background="@color/textView_background"
             android:padding="@dimen/horizontal_margin"
-            android:text="@string/tv_expiry_date"
+            android:text="@{viewModel.expiryDate}"
             android:textColor="@color/textView_color"
             android:textSize="@dimen/txtSize_25"
             app:layout_constraintEnd_toEndOf="@+id/tv_convert_dashboard"
@@ -172,7 +172,7 @@
             android:layout_marginTop="24dp"
             android:background="@color/textView_background"
             android:padding="@dimen/horizontal_margin"
-            android:text="@string/tv_email"
+            android:text="@{viewModel.userEmail}"
             android:textColor="@color/textView_color"
             android:textSize="@dimen/txtSize_25"
             app:layout_constraintEnd_toEndOf="@+id/tv_convert_dashboard"
@@ -189,7 +189,7 @@
             android:layout_marginTop="8dp"
             android:text="@string/loyalty_value_available"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/txtSize_40"
+            android:textSize="@dimen/txtSize_35"
             app:layout_constraintStart_toStartOf="@+id/tv_second_starting_left"
             app:layout_constraintTop_toTopOf="@+id/tv_starting_top" />
 
@@ -200,13 +200,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:letterSpacing="0.1"
-            android:text="@string/loyalty_value"
+            android:text="@{viewModel.loyaltyValue}"
             android:textColor="@color/not_ok_keypad"
             android:textSize="@dimen/txtSize_120"
             app:layout_constraintBottom_toBottomOf="@+id/tv_userName"
             app:layout_constraintStart_toStartOf="@+id/textView7"
             app:layout_constraintTop_toTopOf="@+id/tv_welcome_back"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="$200"/>
 
         <TextView
             android:id="@+id/tv_available_loyalty"
@@ -218,9 +219,7 @@
             android:paddingEnd="@dimen/horizontal_margin"
             android:paddingStart="@dimen/dimen_50"
             android:paddingTop="@dimen/horizontal_margin"
-            android:text="@string/points_available"
-            android:onClick="@{()->viewModel.onPointsClicked()}"
-
+            android:text="@{viewModel.loyaltyPointsAvailable}"
             android:textColor="@color/textView_color"
             android:textSize="@dimen/txtSize_25"
             app:layout_constraintEnd_toEndOf="@+id/tv_loyalty_value"
