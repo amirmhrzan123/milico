@@ -59,7 +59,7 @@ class DashBoardFragment: BaseFragment<FragmentDashboardBinding>() {
                     getDashBoardModel.data.cardInfo.loyaltyValue,
                     getDashBoardModel.data.cardInfo.loyaltyPoint)
             redeemClickEvent.observe(this@DashBoardFragment, Observer {
-                iFragmentListener?.openRedeemPage()
+                iFragmentListener?.openRedeemPage(getDashBoardModel)
             })
 
 

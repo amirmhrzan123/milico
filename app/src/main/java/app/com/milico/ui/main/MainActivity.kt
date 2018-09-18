@@ -48,8 +48,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IFragmentListener {
         replaceFragmentInActivity(DashBoardFragment.newInstance(dashboardModel), R.id.fl_container, DashBoardFragment.TAG)
     }
 
-    override fun openRedeemPage() {
-        addFragmentToActivity(RedeemFragment.newInstance(),R.id.fl_container,RedeemFragment.TAG)
+    override fun openRedeemPage(dashboardModel: DashBoardModel.ResponseModel) {
+        addFragmentToActivity(RedeemFragment.newInstance(dashboardModel),R.id.fl_container,RedeemFragment.TAG)
     }
 
     //show toolbar if the device has been registered to club only

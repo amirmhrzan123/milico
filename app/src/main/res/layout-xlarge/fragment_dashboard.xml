@@ -101,11 +101,13 @@
             fontPath="@string/font_medium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/points_to_retail"
             android:textColor="@color/keypad_selected"
-            android:textSize="@dimen/txtSize_40"
+            android:textSize="@dimen/txtSize_35"
+            app:layout_constraintEnd_toStartOf="@+id/middle_segment"
             app:layout_constraintStart_toStartOf="@+id/tv_starting_left"
             app:layout_constraintTop_toTopOf="@+id/tv_starting_top" />
 
@@ -187,7 +189,7 @@
             android:layout_marginTop="8dp"
             android:text="@string/loyalty_value_available"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/txtSize_40"
+            android:textSize="@dimen/txtSize_35"
             app:layout_constraintStart_toStartOf="@+id/tv_second_starting_left"
             app:layout_constraintTop_toTopOf="@+id/tv_starting_top" />
 

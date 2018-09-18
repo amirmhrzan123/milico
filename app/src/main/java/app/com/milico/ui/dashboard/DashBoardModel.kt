@@ -19,6 +19,7 @@ class DashBoardModel {
             @SerializedName("card-info") val cardInfo: CardInfo,
             @SerializedName("gift-card-info") val giftCardInfo: List<GiftCardInfo>,
             @SerializedName("user") val user: User
+
     ):Parcelable
 
     @Parcelize

@@ -16,6 +16,7 @@
 
 
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/tv_count"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background">
@@ -32,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.5" />
+            app:layout_constraintGuide_percent="0.45" />
 
         <android.support.constraint.Guideline
             android:id="@+id/tv_beginning"
@@ -46,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.75" />
+            app:layout_constraintGuide_percent="0.72" />
 
         <android.support.constraint.Guideline
             android:id="@+id/btn_end"
@@ -58,20 +59,19 @@
 
         <com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
             android:id="@+id/rvGiftsCards"
+            style="@style/scrollbar_shape_style_horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:fastScrollAutoHide="false"
             android:layout_marginLeft="@dimen/dimen_10"
-            app:fastScrollTrackColor="@android:color/transparent"
-            style="@style/scrollbar_shape_style_horizontal"
-            app:fastScrollPopupBgColor="@android:color/transparent"
-            app:fastScrollEnableThumbInactiveColor="false"
-            app:fastScrollThumbColor="@android:color/transparent"
             android:scrollbars="horizontal"
+            app:fastScrollAutoHide="false"
+            app:fastScrollEnableThumbInactiveColor="false"
+            app:fastScrollPopupBgColor="@android:color/transparent"
+            app:fastScrollThumbColor="@android:color/transparent"
+            app:fastScrollTrackColor="@android:color/transparent"
             app:giftsCardList="@{viewModel.listGiftsCards}"
             app:layout_constraintBottom_toTopOf="@+id/guideline_lower_baseline"
-            app:layout_constraintTop_toTopOf="@+id/recylerView_beginning"
-             />
+            app:layout_constraintTop_toTopOf="@+id/recylerView_beginning" />
         <!--<android.support.v7.widget.RecyclerView
             android:id="@+id/rvGiftsCards"
             style="@style/scrollbar_shape_style"
@@ -115,19 +115,34 @@
             android:id="@+id/btn_checkout"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginBottom="50dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/button_state"
+            android:drawableEnd="@drawable/ic_shopping_cart"
+            android:drawablePadding="10dp"
+            android:gravity="start|center_vertical"
+            android:onClick="@{()->viewModel.onCheckOutClicked()}"
+            android:padding="@dimen/dimen_30"
             android:text="CheckOut"
             android:textColor="@color/colorWhite"
-            android:onClick="@{()->viewModel.onCheckOutClicked()}"
-            android:textSize="@dimen/txtSize_30"
+            android:textSize="@dimen/txtSize_40"
             app:layout_constraintBottom_toBottomOf="@+id/tv_best_seller"
             app:layout_constraintEnd_toStartOf="@+id/btn_end"
             app:layout_constraintStart_toStartOf="@+id/btn_beginning"
             app:layout_constraintTop_toTopOf="@+id/tv_touch_card" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/circle"
+            android:gravity="center"
+            android:text="100"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintEnd_toEndOf="@+id/btn_checkout"
+            app:layout_constraintTop_toTopOf="@+id/btn_checkout" />
 
 
     </android.support.constraint.ConstraintLayout>

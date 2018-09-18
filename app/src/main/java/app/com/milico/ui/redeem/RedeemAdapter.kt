@@ -5,12 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import app.com.milico.base.Binder
-import app.com.milico.data.local.json.GiftCard
-import app.com.milico.data.local.json.JsonModel
 import app.com.milico.databinding.ItemGiftCardBinding
+import app.com.milico.ui.dashboard.DashBoardModel
 
 class RedeemAdapter constructor(
-        private val giftcardsList: MutableList<GiftCard> = arrayListOf()
+        private val giftcardsList: MutableList<DashBoardModel.GiftCardInfo> = arrayListOf()
         ): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
     lateinit var listener: OnItemClickListener
@@ -39,7 +38,7 @@ class RedeemAdapter constructor(
             with(itemGiftCardBinding){
                 model = giftcardsList[position]
                 root.setOnClickListener{
-                    var redeemModel = RedeemModel.AdapterModel(position,giftcardsList[position].id)
+                    var redeemModel = RedeemModel.AdapterModel(position,giftcardsList[position].productName)
                     listener.onClick(it,redeemModel)
                 }
                 executePendingBindings()
@@ -49,10 +48,10 @@ class RedeemAdapter constructor(
 
     }
 
-    fun setLoyaltyGiftsCards(giftsCardModel: JsonModel){
+    fun setLoyaltyGiftsCards(giftsCardModel: DashBoardModel.Data){
         giftsCardModel.let {
             giftcardsList.clear()
-            giftcardsList.addAll(it.giftCards)
+            giftcardsList.addAll(it.giftCardInfo)
             notifyDataSetChanged()
         }
     }

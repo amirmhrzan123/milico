@@ -6,9 +6,9 @@ import android.databinding.ObservableField
 import android.util.Log
 import android.view.View
 import app.com.milico.base.BaseViewModel
-import app.com.milico.data.local.json.JsonModel
 import app.com.milico.data.local.json.JsonReader
 import app.com.milico.data.repository.AppDataManager
+import app.com.milico.ui.dashboard.DashBoardModel
 import app.com.milico.util.bindings.SingleLiveEvent
 import np.com.amir.apptest.util.SchedulerProvider
 
@@ -24,28 +24,22 @@ class MainViewModel constructor(
 
     val clubLogo = ObservableField<String>("")
 
-    val listGiftsCards = ObservableField<JsonModel>()
     val itemClickEvent = SingleLiveEvent<Int>()
     val checkOutEvent = SingleLiveEvent<Void>()
     val buttonClickEvent = SingleLiveEvent<Int>()
     val confirmClickEvent = SingleLiveEvent<String>()
+
+    //for redeemModel
     var x:Int = 0
     var y:Int = 0
-
+    val listGiftsCards = ObservableField<DashBoardModel.Data>()
+    val giftsCardCount = ObservableField<Int>()
 
     fun getGiftsCards(){
         val jsonModel = jsonReader.getModel("")
-        listGiftsCards.set(jsonModel)
         Log.d("totalloyaly",jsonModel.totalLoyalty.toString())
     }
 
-    fun setXYvalue(xvalue:Int,yvalue:Int){
-        x = xvalue
-        y = yvalue
-    }
-    fun getXvalue():Int = x
-
-    fun getYvalue():Int = y
 
     fun onItemClicked(position:Int,id:String,view: View){
         itemClickEvent.value = position
@@ -72,6 +66,24 @@ class MainViewModel constructor(
     fun setFirstTime(){
         isFirstTime.set(true)
         clubLogo.set(dataManager.getClubLogo())
+    }
+
+
+    //for redeem ViewModel
+    fun setGiftsCards(redeemModel: DashBoardModel.Data){
+        listGiftsCards.set(redeemModel)
+    }
+
+    fun setXYvalue(xvalue:Int,yvalue:Int){
+        x = xvalue
+        y = yvalue
+    }
+    fun getXvalue():Int = x
+
+    fun getYvalue():Int = y
+
+    fun setGiftsCardCount(count:Int){
+        giftsCardCount.set(count)
     }
 
 

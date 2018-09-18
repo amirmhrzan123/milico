@@ -11,7 +11,7 @@ interface IFragmentListener {
 
     fun openDashBoard(dashboardModel: DashBoardModel.ResponseModel)
 
-    fun openRedeemPage()
+    fun openRedeemPage(dashboardModel: DashBoardModel.ResponseModel)
 
     fun hideShowToolbar()
 

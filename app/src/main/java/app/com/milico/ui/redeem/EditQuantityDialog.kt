@@ -21,7 +21,7 @@ class EditQuantityDialog:BaseDialogFragment<LayoutEditQuantityBinding>() {
 
     var DIALOG_HEIGHT : Int = 0
 
-    val HEIGHT_FACTOR = 0.4
+    val HEIGHT_FACTOR = 0.5
 
 
     companion object {
