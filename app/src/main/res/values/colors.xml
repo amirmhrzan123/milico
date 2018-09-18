@@ -9,7 +9,6 @@
     <color name="color_light_gray">#c7c7c7</color>
 
 
-
     <color name="border">#585A5E</color>
     <color name="background">#393D46</color>
     <color name="keypad_not_selected">#eaeaea</color>
@@ -28,7 +27,8 @@
     <color name="redeem_button">#709b18</color>
     <color name="item_background">#7C7E7D</color>
     <color name="price_background">#747474</color>
-
+    <color name="green_disabled">#FF9AB95C</color>
+    <color name="red_disabled">#FFC75454</color>
     <!-- Review -->
     <color name="review_title_bar">#32373D</color>
     <color name="review_footer_bar">#28292C</color>
