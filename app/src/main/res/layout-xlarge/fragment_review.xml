@@ -83,7 +83,7 @@
             android:layout_marginBottom="148dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="32dp"
-            android:background="@color/redeem_button"
+            android:background="@drawable/bg_green_button"
             android:text="@string/checkout"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/txtSize_25"
@@ -100,7 +100,7 @@
             android:layout_height="0dp"
             android:layout_marginEnd="32dp"
             android:layout_marginStart="16dp"
-            android:background="@color/pop_up_red_background"
+            android:background="@drawable/bg_red_button"
             android:text="@string/redeem_more"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/txtSize_25"
@@ -221,24 +221,24 @@
             app:layout_constraintStart_toEndOf="@+id/tvPrintInfo"
             app:layout_constraintTop_toTopOf="@+id/tvPrintInfo" />
 
-        <View
+        <Button
             android:id="@+id/btnEmailCard"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginBottom="24dp"
             android:layout_marginTop="24dp"
-            android:background="@color/redeem_button"
+            android:background="@drawable/bg_green_button"
             android:drawablePadding="@dimen/dimen_20"
             app:layout_constraintBottom_toTopOf="@+id/tvPrintInfo"
             app:layout_constraintEnd_toEndOf="@+id/tvPrintInfo"
             app:layout_constraintStart_toStartOf="@+id/tvPrintInfo"
             app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
-        <View
+        <Button
             android:id="@+id/btnPrintNow"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@color/pop_up_red_background"
+            android:background="@drawable/bg_red_button"
             app:layout_constraintBottom_toBottomOf="@+id/btnEmailCard"
             app:layout_constraintEnd_toStartOf="@+id/guidelineCheckout"
             app:layout_constraintStart_toStartOf="@+id/tvLostNote"
@@ -286,7 +286,7 @@
             android:layout_width="120dp"
             android:layout_height="40dp"
             android:layout_marginEnd="32dp"
-            android:background="@color/pop_up_red_background"
+            android:background="@drawable/bg_red_button"
             android:text="Button"
             app:layout_constraintBottom_toBottomOf="@+id/textView13"
             app:layout_constraintEnd_toEndOf="@+id/textView13"
@@ -320,13 +320,14 @@
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="@dimen/dimen_100"
-            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="68dp"
             android:tint="@color/colorWhite"
-            app:layout_constraintEnd_toEndOf="@+id/btnEmailCard"
-            app:layout_constraintHorizontal_bias="0.524"
-            app:layout_constraintStart_toStartOf="@+id/btnEmailCard"
+            app:layout_constraintEnd_toEndOf="@+id/tvEmailCard"
+            app:layout_constraintStart_toStartOf="@+id/tvEmailCard"
             app:layout_constraintTop_toTopOf="@+id/btnEmailCard"
             app:srcCompat="@drawable/mail_icon" />
 

@@ -61,7 +61,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0" />
 
-        <EditText
+        <View
             android:id="@+id/textView3"
             android:layout_width="0dp"
             android:layout_height="@dimen/dimen_60"
@@ -71,12 +71,41 @@
             android:gravity="center_vertical"
             android:paddingLeft="@dimen/dimen_10"
             android:paddingRight="@dimen/dimen_10"
-            android:text="Your Email: Mark@Gmail.com"
-            android:textColor="@color/textView_color"
-            android:textSize="@dimen/txtSize_20"
             app:layout_constraintEnd_toStartOf="@+id/leftGuideLine"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="16dp"
+            android:text="@string/your_email"
+            android:textColor="@color/textView_color"
+            android:textSize="@dimen/txtSize_20"
+            app:layout_constraintBottom_toBottomOf="@+id/textView3"
+            app:layout_constraintStart_toStartOf="@+id/textView3"
+            app:layout_constraintTop_toTopOf="@+id/textView3"
+            app:layout_constraintVertical_bias="0.515" />
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="2dp"
+            android:background="@null"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Mark@gmail.com"
+            android:textColor="@color/textView_color"
+            android:textSize="@dimen/txtSize_20"
+            app:layout_constraintBottom_toBottomOf="@+id/textView3"
+            app:layout_constraintEnd_toEndOf="@+id/textView3"
+            app:layout_constraintStart_toEndOf="@+id/tvEmail"
+            app:layout_constraintTop_toTopOf="@+id/textView3" />
 
         <android.support.constraint.Guideline
             android:id="@+id/rightGuideLine"
@@ -85,28 +114,17 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.54" />
 
-        <View
+        <Button
             android:id="@+id/view6"
             android:layout_width="0dp"
             android:layout_height="200dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView3"
-            android:background="@color/redeem_button"
+            android:background="@drawable/bg_green_button"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView3"
             app:layout_constraintTop_toBottomOf="@+id/textView3"
             app:layout_constraintVertical_bias="0.154" />
-
-        <View
-            android:id="@+id/view7"
-            android:layout_width="0dp"
-            android:layout_height="200dp"
-            android:layout_marginEnd="14dp"
-            android:layout_marginStart="36dp"
-            android:background="@color/textView_background"
-            app:layout_constraintEnd_toStartOf="@+id/rightGuideLine"
-            app:layout_constraintStart_toEndOf="@+id/view6"
-            app:layout_constraintTop_toTopOf="@+id/view6" />
 
         <ImageView
             android:id="@+id/imageView7"
@@ -133,6 +151,18 @@
             app:layout_constraintStart_toStartOf="@+id/view6"
             app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
+        <Button
+            android:id="@+id/view7"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_marginEnd="14dp"
+            android:layout_marginStart="36dp"
+            android:background="@drawable/bg_gray_button"
+            app:layout_constraintEnd_toStartOf="@+id/rightGuideLine"
+            app:layout_constraintStart_toEndOf="@+id/view6"
+            app:layout_constraintTop_toTopOf="@+id/view6" />
+
+
         <ImageView
             android:id="@+id/imageView8"
             android:layout_width="wrap_content"
@@ -156,6 +186,8 @@
             app:layout_constraintEnd_toEndOf="@+id/view7"
             app:layout_constraintStart_toStartOf="@+id/view7"
             app:layout_constraintTop_toTopOf="@+id/textView8" />
+
+
 
     </android.support.constraint.ConstraintLayout>
 </layout>

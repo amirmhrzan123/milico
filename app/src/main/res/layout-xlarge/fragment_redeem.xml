@@ -57,34 +57,34 @@
             app:layout_constraintGuide_percent="0.93" />
 
 
-        <HorizontalScrollView
+        <com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
+            android:id="@+id/rvGiftsCards"
             style="@style/scrollbar_shape_style_horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/dimen_10"
             android:scrollbars="horizontal"
+            app:fastScrollAutoHide="false"
+            app:fastScrollEnableThumbInactiveColor="false"
+            app:fastScrollPopupBgColor="@android:color/transparent"
+            app:fastScrollThumbColor="@android:color/transparent"
+            app:fastScrollTrackColor="@android:color/transparent"
+            app:giftsCardList="@{viewModel.listGiftsCards}"
             app:layout_constraintBottom_toTopOf="@+id/guideline_lower_baseline"
-            app:layout_constraintTop_toTopOf="@+id/recylerView_beginning">
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rvGiftsCards"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="15dp"
-                android:layout_marginLeft="@dimen/dimen_10"
-                app:fastScrollAutoHide="false"
-                app:fastScrollEnableThumbInactiveColor="false"
-                app:fastScrollTrackColor="@android:color/transparent"
-                app:giftsCardList="@{viewModel.listGiftsCards}" />
-            <!--<android.support.v7.widget.RecyclerView-->
-            <!--android:id="@+id/rvGiftsCards"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_marginBottom="8dp"-->
-            <!--app:giftsCardList="@{viewModel.listGiftsCards}"-->
-            <!--android:layout_marginTop="8dp"-->
-            <!--android:paddingBottom="8dp"-->
-            <!--app:layout_goneMarginBottom="@dimen/dimen_10" />-->
-        </HorizontalScrollView>
+            app:layout_constraintTop_toTopOf="@+id/recylerView_beginning" />
+        <!--<android.support.v7.widget.RecyclerView
+            android:id="@+id/rvGiftsCards"
+            style="@style/scrollbar_shape_style"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:paddingBottom="8dp"
+            app:layout_goneMarginBottom="@dimen/dimen_10"
+            app:giftsCardList="@{viewModel.listGiftsCards}"
+            app:layout_constraintBottom_toTopOf="@+id/guideline_lower_baseline"
+            app:layout_constraintTop_toTopOf="@+id/recylerView_beginning" />
+-->
 
         <TextView
             android:id="@+id/tv_touch_card"
@@ -117,7 +117,7 @@
             android:layout_height="0dp"
             android:layout_marginBottom="30dp"
             android:layout_marginTop="30dp"
-            android:background="@drawable/button_state"
+            android:background="@drawable/bg_green_button"
             android:drawableEnd="@drawable/ic_shopping_cart"
             android:drawablePadding="10dp"
             android:gravity="start|center_vertical"

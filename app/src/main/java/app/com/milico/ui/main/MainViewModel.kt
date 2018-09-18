@@ -16,7 +16,7 @@ class MainViewModel constructor(
         resources: Resources,
         private val schedulers: SchedulerProvider,
         private val jsonReader: JsonReader,
-        private val dataManager: AppDataManager):BaseViewModel(resources) {
+        private val dataManager: AppDataManager) : BaseViewModel(resources) {
 
     val infoClicked = SingleLiveEvent<String>()
 
@@ -27,67 +27,71 @@ class MainViewModel constructor(
     val itemClickEvent = SingleLiveEvent<Int>()
     val checkOutEvent = SingleLiveEvent<Void>()
     val buttonClickEvent = SingleLiveEvent<Int>()
+    val goToHome = SingleLiveEvent<Boolean>()
     val confirmClickEvent = SingleLiveEvent<String>()
 
     //for redeemModel
-    var x:Int = 0
-    var y:Int = 0
+    var x: Int = 0
+    var y: Int = 0
     val listGiftsCards = ObservableField<DashBoardModel.Data>()
     val giftsCardCount = ObservableField<Int>()
 
-    fun getGiftsCards(){
+    fun getGiftsCards() {
         val jsonModel = jsonReader.getModel("")
-        Log.d("totalloyaly",jsonModel.totalLoyalty.toString())
+        Log.d("totalloyaly", jsonModel.totalLoyalty.toString())
     }
 
 
-    fun onItemClicked(position:Int,id:String,view: View){
+    fun onItemClicked(position: Int, id: String, view: View) {
         itemClickEvent.value = position
     }
 
     //after editing all the giftcards quantity and price
-    fun onCheckOutClicked(){
+    fun onCheckOutClicked() {
         checkOutEvent.call()
     }
 
     //
-    fun onButtonClicked(price:Int){
+    fun onButtonClicked(price: Int) {
         buttonClickEvent.value = price
     }
 
-    fun onConfirmClicked(){
+    fun onConfirmClicked() {
         confirmClickEvent.call()
     }
 
 
-    fun onInfoClicked(){
+    fun onInfoClicked() {
         infoClicked.value = dataManager.getAppInfo()
     }
-    fun setFirstTime(){
+
+    fun onHomeClicked() {
+        goToHome.value = true
+    }
+
+    fun setFirstTime() {
         isFirstTime.set(true)
         clubLogo.set(dataManager.getClubLogo())
     }
 
 
     //for redeem ViewModel
-    fun setGiftsCards(redeemModel: DashBoardModel.Data){
+    fun setGiftsCards(redeemModel: DashBoardModel.Data) {
         listGiftsCards.set(redeemModel)
     }
 
-    fun setXYvalue(xvalue:Int,yvalue:Int){
+    fun setXYvalue(xvalue: Int, yvalue: Int) {
         x = xvalue
         y = yvalue
     }
-    fun getXvalue():Int = x
 
-    fun getYvalue():Int = y
+    fun getXvalue(): Int = x
 
-    fun setGiftsCardCount(count:Int){
+    fun getYvalue(): Int = y
+
+    fun setGiftsCardCount(count: Int) {
         giftsCardCount.set(count)
     }
-
-
-
 
 
 }

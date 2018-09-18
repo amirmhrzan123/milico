@@ -39,7 +39,7 @@ class EnterPinFragment : BaseFragment<FragmentEnterPinBinding>() {
 
             okPressedEvent.observe(this@EnterPinFragment, Observer {
 
-                iFragmentListener?.openDashBoard(it!!)
+                iFragmentListener?.openDashBoard(it!!.data)
             })
 
 
@@ -58,7 +58,7 @@ class EnterPinFragment : BaseFragment<FragmentEnterPinBinding>() {
     }
 
     fun openPopUpFragment() {
-        forgetPopUpFragment = ForgetPopUpFragment.newInstance()
+        forgetPopUpFragment = ForgetPopUpFragment.newInstance(resources.getString(R.string.tv_select_staff))
         forgetPopUpFragment!!.show(baseActivity.fragmentManager, ForgetPopUpFragment.TAG)
     }
 }

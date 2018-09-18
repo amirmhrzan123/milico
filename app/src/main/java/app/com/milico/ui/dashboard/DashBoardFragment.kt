@@ -18,15 +18,14 @@ class DashBoardFragment : BaseFragment<FragmentDashboardBinding>() {
     val gson: Gson by inject()
     private var iFragmentListener: IFragmentListener? = null
 
-    private val getDashBoardModel: DashBoardModel.ResponseModel by lazy {
-        arguments?.getParcelable(DashBoardFragment.DASHBOARDMODEL) as DashBoardModel.ResponseModel
+    private val userData: DashBoardModel.Data by lazy {
+        arguments?.getParcelable(DashBoardFragment.DASHBOARDMODEL) as DashBoardModel.Data
     }
-
 
     companion object {
         const val TAG = "DashboardFragment"
         const val DASHBOARDMODEL = "DashboardModel"
-        fun newInstance(dashBoardModel: DashBoardModel.ResponseModel?): DashBoardFragment {
+        fun newInstance(dashBoardModel: DashBoardModel.Data?): DashBoardFragment {
             val dashBoardFragment = DashBoardFragment()
             val bundle = Bundle()
             bundle.putParcelable(DASHBOARDMODEL, dashBoardModel)
@@ -47,21 +46,17 @@ class DashBoardFragment : BaseFragment<FragmentDashboardBinding>() {
 
     override fun initBinder() {
 
-//        Log.d("dashboard model",gson.toJson(getDashBoardModel))
-
-
+//        Log.d("dashboard model",gson.toJson(userData))
         dataBinding.viewModel = dashboardViewModel.apply {
-            setFields(getDashBoardModel.data.cardInfo.name,
-                    getDashBoardModel.data.cardInfo.membershipStatus,
-                    getDashBoardModel.data.cardInfo.email,
-                    getDashBoardModel.data.cardInfo.membershipExpiry,
-                    getDashBoardModel.data.cardInfo.loyaltyValue,
-                    getDashBoardModel.data.cardInfo.loyaltyPoint)
+            setFields(userData.cardInfo.name,
+                    userData.cardInfo.membershipStatus,
+                    userData.cardInfo.email,
+                    userData.cardInfo.membershipExpiry,
+                    userData.cardInfo.loyaltyValue,
+                    userData.cardInfo.loyaltyPoint)
             redeemClickEvent.observe(this@DashBoardFragment, Observer {
-                iFragmentListener?.openRedeemPage(getDashBoardModel)
+                iFragmentListener?.openRedeemPage(userData)
             })
-
-
         }
 
     }
