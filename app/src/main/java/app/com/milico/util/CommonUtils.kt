@@ -66,6 +66,12 @@ fun convertDateToString(date: Date?, format: String = FORMAT_DAY_MONTH_YEAR): St
     }
 }
 
+fun convertValueToPoint(value:Double,ratio:Double)= value*ratio
+
+fun convertPointToValue(point:Double,ratio:Double) = point/ratio
+
+
+
 
 
 

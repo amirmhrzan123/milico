@@ -13,6 +13,7 @@ import app.com.milico.ui.dashboard.DashBoardFragment
 import app.com.milico.ui.dashboard.DashBoardModel
 import app.com.milico.ui.main.IFragmentListener
 import app.com.milico.ui.main.MainViewModel
+import app.com.milico.ui.redeemValuePopUp.RedeemValueDialog
 import app.com.milico.util.extensions.convertDpToPixel
 import kotlinx.android.synthetic.main.fragment_redeem.view.*
 import org.koin.android.viewmodel.ext.android.sharedViewModel
@@ -46,7 +47,6 @@ class RedeemFragment : BaseFragment<FragmentRedeemBinding>() {
         super.onViewCreated(view, savedInstanceState)
         initBinder()
 
-
     }
 
     override fun getLayout(): Int = R.layout.fragment_redeem
@@ -62,7 +62,6 @@ class RedeemFragment : BaseFragment<FragmentRedeemBinding>() {
     override fun initBinder() {
 
         dataBinding.viewModel = redeemViewModel.apply {
-            setGiftsCards(userData)
 
             checkOutEvent.observe(this@RedeemFragment, Observer {
                 iFragmentListener.openReview()
@@ -101,13 +100,14 @@ class RedeemFragment : BaseFragment<FragmentRedeemBinding>() {
                     } else {//else original value of x
                         x = view.x.toInt()
                     }
-                    redeemViewModel.setXYvalue(x, y)
 
                     //for smooth scrolling of partially visible item
                     smoothScrollToPosition(data.position)
 
-                    redeemValueDialog = RedeemValueDialog.newInstance()
+                    redeemValueDialog = RedeemValueDialog.newInstance(x,y)
                     redeemValueDialog!!.show(fragmentManager, RedeemValueDialog.TAG)
+
+
                 }
 
             })

@@ -1,25 +1,29 @@
-package app.com.milico.ui.redeemList
+package app.com.milico.ui.redeemValuePopUp
 
 import android.app.Dialog
 import android.arch.lifecycle.Observer
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.Log
 import android.view.Gravity
 import android.view.Window
 import android.view.WindowManager
 import app.com.milico.R
 import app.com.milico.base.BaseDialogFragment
 import app.com.milico.databinding.LayoutRedeemValueBinding
+import app.com.milico.ui.editQuantityDialog.EditQuantityDialog
 import app.com.milico.ui.main.MainViewModel
 import app.com.milico.util.extensions.convertDpToPixel
+import com.google.gson.Gson
 import org.koin.android.viewmodel.ext.android.sharedViewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 
 
 class RedeemValueDialog: BaseDialogFragment<LayoutRedeemValueBinding>(){
 
-    private val redeemViewModel: MainViewModel by sharedViewModel()
+    private val mainViewModel: MainViewModel by sharedViewModel()
+
+    private val redeemViewModel: RedeemValueViewModel by viewModel()
 
 
     private var editQuantityDialog: EditQuantityDialog? = null
@@ -28,13 +32,30 @@ class RedeemValueDialog: BaseDialogFragment<LayoutRedeemValueBinding>(){
 
     val HEIGHT_FACTOR = 0.4
 
+    val gson = Gson()
+
+    private val getXValue: Int by lazy {
+        arguments!!.getInt(XVALUE)
+    }
+
+    private val getYValue:Int by lazy{
+        arguments!!.getInt(YVALUE)
+    }
+
 
     companion object {
 
         const val TAG: String = "RedeemValue"
+        const val XVALUE: String = "Xvalue"
+        const val YVALUE: String = "Yvalue"
 
-        fun newInstance(): RedeemValueDialog {
-            return RedeemValueDialog()
+        fun newInstance(x:Int,y:Int): RedeemValueDialog {
+            val redeemValueDialog=RedeemValueDialog()
+            val bundle = Bundle()
+            bundle.putInt(XVALUE,x)
+            bundle.putInt(YVALUE,y)
+            redeemValueDialog.arguments = bundle
+            return redeemValueDialog
         }
     }
 
@@ -44,14 +65,17 @@ class RedeemValueDialog: BaseDialogFragment<LayoutRedeemValueBinding>(){
 
     override fun initBinder() {
         dataBinding.viewModel = redeemViewModel.apply {
+            clubPointsAvailable = mainViewModel.dataModel.cardInfo!!.totalRemainingPoints
+            ratio = mainViewModel.dataModel.cardInfo!!.ratio
            buttonClickEvent.observe(this@RedeemValueDialog, Observer {
-                Log.d("xyvalueDialgo",getXvalue().toString()+"  "+getYvalue().toString())
-                editQuantityDialog = EditQuantityDialog.newInstance(it.toString())
-               editQuantityDialog!!.show(fragmentManager, RedeemValueDialog.TAG)
+               editQuantityDialog = EditQuantityDialog.newInstance(it.toString(),getXValue,getYValue)
+               editQuantityDialog!!.show(fragmentManager, TAG)
 
                dismiss()
            })
         }
+
+        dataBinding.model = mainViewModel.dataModel
 
         setDialogPosition()
     }
@@ -62,8 +86,8 @@ class RedeemValueDialog: BaseDialogFragment<LayoutRedeemValueBinding>(){
         window.setGravity(Gravity.START or Gravity.TOP)
         val p = window.attributes
         p.softInputMode = WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE
-        p.x = redeemViewModel.getXvalue() // about half of confirm button size left of source view
-        p.y = redeemViewModel.getYvalue() + (HEIGHT_FACTOR*DIALOG_HEIGHT).toInt() - convertDpToPixel(DIALOG_HEIGHT).toInt()// above source view
+        p.x = getXValue // about half of confirm button size left of source view
+        p.y = getYValue + (HEIGHT_FACTOR*DIALOG_HEIGHT).toInt() - convertDpToPixel(DIALOG_HEIGHT).toInt()// above source view
         window.attributes = p
     }
 
@@ -80,7 +104,6 @@ class RedeemValueDialog: BaseDialogFragment<LayoutRedeemValueBinding>(){
         super.onStart()
         setStyle(STYLE_NO_FRAME, android.R.style.Theme_Dialog);
         dialog.window.setLayout(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT)
-
     }
 
 

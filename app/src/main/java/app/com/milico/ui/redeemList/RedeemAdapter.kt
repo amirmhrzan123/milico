@@ -51,7 +51,7 @@ class RedeemAdapter constructor(
     fun setLoyaltyGiftsCards(giftsCardModel: DashBoardModel.Data){
         giftsCardModel.let {
             giftcardsList.clear()
-            giftcardsList.addAll(it.giftCardInfo)
+            giftcardsList.addAll(it.giftCardInfo!!)
             notifyDataSetChanged()
         }
     }

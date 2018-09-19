@@ -13,8 +13,12 @@
             type="app.com.milico.ui.dashboard.DashBoardViewModel"/>
 
         <variable
+            name="mainViewModel"
+            type="app.com.milico.ui.main.MainViewModel"/>
+
+        <variable
             name="model"
-            type="app.com.milico.ui.dashboard.DashBoardModel.ResponseModel"/>
+            type="app.com.milico.ui.dashboard.DashBoardModel.Data"/>
 
     </data>
 
@@ -101,13 +105,12 @@
             fontPath="@string/font_medium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/points_to_retail"
             android:textColor="@color/keypad_selected"
             android:textSize="@dimen/txtSize_35"
-            app:layout_constraintEnd_toStartOf="@+id/middle_segment"
+            app:layout_constraintEnd_toStartOf="@+id/tv_first_end_right"
             app:layout_constraintStart_toStartOf="@+id/tv_starting_left"
             app:layout_constraintTop_toTopOf="@+id/tv_starting_top" />
 
@@ -127,7 +130,7 @@
             android:id="@+id/tv_userName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{viewModel.userName}"
+            android:text="@{model.cardInfo.name}"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/txtSize_60"
             app:layout_constraintStart_toStartOf="@+id/tv_welcome_back"
@@ -140,7 +143,7 @@
             android:layout_height="wrap_content"
             android:background="@color/textView_background"
             android:padding="@dimen/horizontal_margin"
-            android:text="@{viewModel.membershipType}"
+            app:membershipType="@{model.cardInfo.membershipStatus}"
             android:textColor="@color/textView_color"
             android:textSize="@dimen/txtSize_25"
             app:layout_constraintEnd_toEndOf="@+id/tv_convert_dashboard"
@@ -156,7 +159,7 @@
             android:layout_marginTop="24dp"
             android:background="@color/textView_background"
             android:padding="@dimen/horizontal_margin"
-            android:text="@{viewModel.expiryDate}"
+            app:expiry="@{model.cardInfo.membershipExpiry}"
             android:textColor="@color/textView_color"
             android:textSize="@dimen/txtSize_25"
             app:layout_constraintEnd_toEndOf="@+id/tv_convert_dashboard"
@@ -172,7 +175,7 @@
             android:layout_marginTop="24dp"
             android:background="@color/textView_background"
             android:padding="@dimen/horizontal_margin"
-            android:text="@{viewModel.userEmail}"
+            app:userEmail="@{model.cardInfo.email}"
             android:textColor="@color/textView_color"
             android:textSize="@dimen/txtSize_25"
             app:layout_constraintEnd_toEndOf="@+id/tv_convert_dashboard"
@@ -200,7 +203,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:letterSpacing="0.1"
-            android:text="@{viewModel.loyaltyValue}"
+            app:loyaltyValue="@{model.cardInfo.loyaltyValue}"
             android:textColor="@color/not_ok_keypad"
             android:textSize="@dimen/txtSize_120"
             app:layout_constraintBottom_toBottomOf="@+id/tv_userName"
@@ -219,7 +222,7 @@
             android:paddingEnd="@dimen/horizontal_margin"
             android:paddingStart="@dimen/dimen_50"
             android:paddingTop="@dimen/horizontal_margin"
-            android:text="@{viewModel.loyaltyPointsAvailable}"
+            app:loyaltyPoint="@{model.cardInfo.loyaltyPoint}"
             android:textColor="@color/textView_color"
             android:textSize="@dimen/txtSize_25"
             app:layout_constraintEnd_toEndOf="@+id/tv_loyalty_value"

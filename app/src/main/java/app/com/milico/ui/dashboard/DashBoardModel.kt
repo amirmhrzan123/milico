@@ -17,10 +17,10 @@ class DashBoardModel {
     @Parcelize
     data class Data(
 
-            @SerializedName("card-info") val cardInfo: CardInfo,
-            @SerializedName("gift-card-info") val giftCardInfo: List<GiftCardInfo>,
-            @SerializedName("user") val user: User,
-            @SerializedName("club_info") val club: ClubInfo,
+            @SerializedName("card-info") val cardInfo: CardInfo?=null,
+            @SerializedName("gift-card-info") val giftCardInfo: List<GiftCardInfo>?=null,
+            @SerializedName("user") val user: User?=null,
+            @SerializedName("club-info") val club: ClubInfo?=null,
             val totalRedeemPoint: Float = 0f
     ) : Parcelable
 
@@ -42,8 +42,11 @@ class DashBoardModel {
             @SerializedName("membership_status") val membershipStatus: String,
             @SerializedName("membership_expiry") val membershipExpiry: String,
             @SerializedName("email") val email: String,
-            @SerializedName("loyalty_point") val loyaltyPoint: String,
-            @SerializedName("loyalty_value") val loyaltyValue: String
+            @SerializedName("loyalty_point") val loyaltyPoint: Double,
+            @SerializedName("loyalty_value") val loyaltyValue: Double,
+            var totalRedeemPoints: Double,
+            var totalRemainingPoints: Double,
+            var ratio : Double
     ) : Parcelable
 
     @Parcelize
@@ -62,8 +65,9 @@ class DashBoardModel {
     data class ClubInfo(
             @SerializedName("id") val id:Int,
             @SerializedName("name") val name:String,
-            @SerializedName("float-balance") val floatBalance:Float,
-            @SerializedName("minimum-float") val minimumFloat:Float
+            @SerializedName("float_balance") val floatBalance:Double,
+            @SerializedName("minimum_float") val minimumFloat:Double
+
     ):Parcelable
 
     @Parcelize

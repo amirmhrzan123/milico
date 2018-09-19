@@ -9,7 +9,11 @@
 
         <variable
             name="viewModel"
-            type="app.com.milico.ui.main.MainViewModel"/>
+            type="app.com.milico.ui.redeemValuePopUp.RedeemValueViewModel"/>
+
+       <variable
+           name="model"
+           type="app.com.milico.ui.dashboard.DashBoardModel.Data"/>
 
 
     </data>
@@ -121,6 +125,10 @@
             android:background="@color/ok_keypad"
             android:onClick="@{()->viewModel.onButtonClicked(50)}"
             android:text="@string/price_50"
+            app:dataModel="@{model}"
+            app:amount="@{50.0}"
+            app:isAllRedeem="@{false}"
+
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/txtSize_30"
             app:layout_constraintBottom_toTopOf="@+id/first_row"
@@ -138,9 +146,13 @@
             android:layout_marginTop="8dp"
             android:background="@color/ok_keypad"
             android:onClick="@{()->viewModel.onButtonClicked(25)}"
+            app:dataModel="@{model}"
+            app:amount="@{25.0}"
             android:text="@string/price_25"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/txtSize_30"
+            app:isAllRedeem="@{false}"
+
             app:layout_constraintBottom_toTopOf="@+id/first_row"
             app:layout_constraintEnd_toStartOf="@+id/guideline_middle_section"
             app:layout_constraintStart_toStartOf="@+id/start_button"
@@ -154,11 +166,15 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="2dp"
             android:layout_marginTop="8dp"
+            app:dataModel="@{model}"
+            app:amount="@{100.0}"
             android:background="@color/ok_keypad"
             android:onClick="@{()->viewModel.onButtonClicked(100)}"
             android:text="@string/price_100"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/txtSize_30"
+            app:isAllRedeem="@{false}"
+
             app:layout_constraintBottom_toTopOf="@+id/second_row"
             app:layout_constraintEnd_toStartOf="@+id/guideline_middle_section"
             app:layout_constraintStart_toStartOf="@+id/start_button"
@@ -174,7 +190,11 @@
             android:layout_marginTop="8dp"
             android:background="@color/ok_keypad"
             android:onClick="@{()->viewModel.onButtonClicked(200)}"
+            app:dataModel="@{model}"
+            app:amount="@{200.0}"
             android:text="@string/price_200"
+            app:isAllRedeem="@{false}"
+
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/txtSize_30"
             app:layout_constraintBottom_toTopOf="@+id/second_row"
@@ -193,6 +213,10 @@
             android:background="@color/ok_keypad"
             android:onClick="@{()->viewModel.onButtonClicked(500)}"
             android:text="@string/price_500"
+            app:dataModel="@{model}"
+            app:amount="@{500.0}"
+            app:isAllRedeem="@{false}"
+
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/txtSize_30"
             app:layout_constraintBottom_toTopOf="@+id/third_row"
@@ -228,13 +252,46 @@
             android:layout_marginTop="8dp"
             android:background="@color/not_ok_keypad"
             android:onClick="@{()->viewModel.onButtonClicked(0)}"
-            android:text="@string/redeem_all"
             android:textColor="@color/colorWhite"
+            app:dataModel="@{model}"
+            app:amount="@{model.cardInfo.loyaltyValue}"
+            app:isAllRedeem="@{true}"
             android:textSize="@dimen/txtSize_30"
             app:layout_constraintBottom_toTopOf="@+id/guideline_button_bottom"
             app:layout_constraintEnd_toStartOf="@+id/end_button"
             app:layout_constraintStart_toStartOf="@+id/start_button"
             app:layout_constraintTop_toTopOf="@+id/third_row" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:text="REDEEM ALL"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/txtSize_30"
+            app:layout_constraintBottom_toTopOf="@+id/tv_value"
+            app:layout_constraintEnd_toEndOf="@+id/button16"
+            app:layout_constraintStart_toStartOf="@+id/button16"
+            app:layout_constraintTop_toTopOf="@+id/button16"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/tv_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            app:values="@{model}"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/txtSize_40"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toBottomOf="@id/textView15"
+            app:layout_constraintBottom_toBottomOf="@+id/button16"
+            app:layout_constraintEnd_toStartOf="@+id/end_button"
+            app:layout_constraintStart_toStartOf="@+id/button16" />
 
 
     </android.support.constraint.ConstraintLayout>

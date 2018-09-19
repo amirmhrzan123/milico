@@ -34,6 +34,8 @@ class MainViewModel constructor(
     val price = ObservableField<String>()
     val editable = ObservableBoolean(false)
     var quantity = ObservableField<String>()
+    var dataModel = DashBoardModel.Data()
+    var position:Int = 0
 
 
     fun getGiftsCards() {
@@ -76,24 +78,22 @@ class MainViewModel constructor(
         dashBoardModel.set(redeemModel)
     }
 
-    /*  fun setDataModels(dataModels: DashBoardModel.Data){
+    fun setDataModels(dataModels: DashBoardModel.Data){
+        dataModels.cardInfo?.totalRedeemPoints = 0.0
+        dataModels.cardInfo?.totalRemainingPoints = dataModels.cardInfo!!.loyaltyPoint
+        dataModels.cardInfo.ratio = dataModels.cardInfo.loyaltyPoint/dataModels.cardInfo.loyaltyValue
         dataModel = dataModels
         dashBoardModel.set(dataModel)
     }
 
+
+
     fun getDataModels():DashBoardModel.Data{
         return dataModel
-    }*/
-
-
-    fun setXYvalue(xvalue: Int, yvalue: Int) {
-        x = xvalue
-        y = yvalue
     }
 
-    fun getXvalue(): Int = x
 
-    fun getYvalue(): Int = y
+
 
         //edit price in dialog and enable the edit text if other is clicked
         fun setPriceForEdit(value: String) {
@@ -108,16 +108,6 @@ class MainViewModel constructor(
             }
         }
 
-        //on add click
-        fun onAddClicked() {
-
-        }
-
-        //on minus click
-        fun onMinusClicked() {
-
-
-        }
 
 
         fun setGiftsCardCount(count: Int) {

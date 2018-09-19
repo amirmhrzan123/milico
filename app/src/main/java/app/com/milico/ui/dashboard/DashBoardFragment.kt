@@ -7,17 +7,22 @@ import app.com.milico.R
 import app.com.milico.base.BaseFragment
 import app.com.milico.databinding.FragmentDashboardBinding
 import app.com.milico.ui.main.IFragmentListener
+import app.com.milico.ui.main.MainViewModel
 import com.google.gson.Gson
 import org.koin.android.ext.android.inject
+import org.koin.android.viewmodel.ext.android.sharedViewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class DashBoardFragment : BaseFragment<FragmentDashboardBinding>() {
 
-    private val dashboardViewModel: DashBoardViewModel by inject()
+    private val dashboardViewModel: DashBoardViewModel by viewModel()
+
+    private val mainViewModel : MainViewModel by sharedViewModel()
 
     val gson: Gson by inject()
     private var iFragmentListener: IFragmentListener? = null
 
-    private val userData: DashBoardModel.Data by lazy {
+    private val cardData: DashBoardModel.Data by lazy {
         arguments?.getParcelable(DashBoardFragment.DASHBOARDMODEL) as DashBoardModel.Data
     }
 
@@ -44,19 +49,17 @@ class DashBoardFragment : BaseFragment<FragmentDashboardBinding>() {
     override fun getLayout(): Int = R.layout.fragment_dashboard
 
     override fun initBinder() {
+        mainViewModel.setDataModels(cardData)
 
 //        Log.d("dashboard model",gson.toJson(userData))
         dataBinding.viewModel = dashboardViewModel.apply {
-            setFields(userData.cardInfo.name,
-                    userData.cardInfo.membershipStatus,
-                    userData.cardInfo.email,
-                    userData.cardInfo.membershipExpiry,
-                    userData.cardInfo.loyaltyValue,
-                    userData.cardInfo.loyaltyPoint)
+
             redeemClickEvent.observe(this@DashBoardFragment, Observer {
-                iFragmentListener?.openRedeemPage(userData)
+                iFragmentListener?.openRedeemPage(cardData)
             })
         }
+
+        dataBinding.model = cardData
 
     }
 }

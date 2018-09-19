@@ -10,6 +10,10 @@
             name="viewModel"
             type="app.com.milico.ui.main.MainViewModel"/>
 
+        <variable
+            name="editViewModel"
+            type="app.com.milico.ui.editQuantityDialog.EditQuantityViewModel"/>
+
 
 
     </data>
@@ -167,6 +171,7 @@
             android:layout_marginEnd="4dp"
             android:layout_marginStart="4dp"
             android:layout_marginTop="8dp"
+            android:onClick="@{()->editViewModel.onSubtractClicked()}"
             android:background="@color/pop_up_red_background"
             app:layout_constraintBottom_toTopOf="@+id/second_row"
             app:layout_constraintEnd_toStartOf="@+id/minus_end"
@@ -182,6 +187,7 @@
             android:layout_marginEnd="4dp"
             android:layout_marginStart="4dp"
             android:layout_marginTop="8dp"
+            android:onClick="@{()->editViewModel.onAddClicked()}"
             android:background="@color/pop_up_red_background"
             app:layout_constraintBottom_toTopOf="@+id/second_row"
             app:layout_constraintEnd_toStartOf="@+id/end_button"
@@ -196,7 +202,9 @@
             android:layout_marginStart="8dp"
             android:background="@color/colorWhite"
             android:gravity="center"
+            android:textColor="@color/black"
             android:textSize="24sp"
+            android:text="@{editViewModel.quantityField}"
             app:layout_constraintBottom_toBottomOf="@+id/iv_minus"
             app:layout_constraintEnd_toStartOf="@+id/quanity_number_end"
             app:layout_constraintStart_toStartOf="@+id/minus_end"
@@ -214,7 +222,6 @@
             android:text="@string/confirm"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/txtSize_45"
-            android:onClick="@{()->viewModel.onConfirmClicked()}"
             app:layout_constraintBottom_toTopOf="@+id/guideline_button_bottom"
             app:layout_constraintEnd_toStartOf="@+id/end_button"
             app:layout_constraintStart_toStartOf="@+id/start_button"
@@ -228,6 +235,7 @@
             android:layout_marginEnd="4dp"
             android:layout_marginStart="4dp"
             android:layout_marginTop="8dp"
+            android:onClick="@{()->editViewModel.onAddClicked()}"
             app:layout_constraintBottom_toTopOf="@+id/second_row"
             app:layout_constraintEnd_toStartOf="@+id/end_button"
             app:layout_constraintHorizontal_bias="0.4"
@@ -243,6 +251,7 @@
             android:layout_marginEnd="4dp"
             android:layout_marginStart="4dp"
             android:layout_marginTop="8dp"
+            android:onClick="@{()->editViewModel.onSubtractClicked()}"
             app:layout_constraintBottom_toTopOf="@+id/second_row"
             app:layout_constraintEnd_toStartOf="@+id/minus_end"
             app:layout_constraintHorizontal_bias="0.527"
