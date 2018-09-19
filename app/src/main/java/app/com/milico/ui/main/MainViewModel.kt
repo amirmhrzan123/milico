@@ -15,20 +15,19 @@ class MainViewModel constructor(
         resources: Resources,
         private val schedulers: SchedulerProvider,
         private val jsonReader: JsonReader,
-        private val dataManager: AppDataManager):BaseViewModel(resources) {
-
+        private val dataManager: AppDataManager) : BaseViewModel(resources) {
 
     val infoClicked = SingleLiveEvent<String>()
     val isFirstTime = ObservableBoolean(false)
     val clubLogo = ObservableField<String>("")
     val checkOutEvent = SingleLiveEvent<Void>()
     val buttonClickEvent = SingleLiveEvent<Int>()
+    val goToHome = SingleLiveEvent<Boolean>()
     val confirmClickEvent = SingleLiveEvent<String>()
 
-
     //for redeemModel
-    var x:Int = 0
-    var y:Int = 0
+    var x: Int = 0
+    var y: Int = 0
 
     val dashBoardModel = ObservableField<DashBoardModel.Data>()
     val giftsCardCount = ObservableField<Int>()
@@ -37,39 +36,47 @@ class MainViewModel constructor(
     var quantity = ObservableField<String>()
 
 
-
-
-
-    fun getGiftsCards(){
+    fun getGiftsCards() {
         val jsonModel = jsonReader.getModel("")
-        Log.d("totalloyaly",jsonModel.totalLoyalty.toString())
+        Log.d("totalloyaly", jsonModel.totalLoyalty.toString())
     }
 
 
     //after editing all the giftcards quantity and price
-    fun onCheckOutClicked(){ checkOutEvent.call() }
+    fun onCheckOutClicked() {
+        checkOutEvent.call()
+    }
 
-    fun onButtonClicked(price:Int){ buttonClickEvent.value = price }
+    fun onButtonClicked(price: Int) {
+        buttonClickEvent.value = price
+    }
 
-    fun onConfirmClicked(){ confirmClickEvent.call() }
+    fun onConfirmClicked() {
+        confirmClickEvent.call()
+    }
 
 
-    fun onInfoClicked(){ infoClicked.value = dataManager.getAppInfo() }
+    fun onInfoClicked() {
+        infoClicked.value = dataManager.getAppInfo()
+    }
 
-    fun setFirstTime(){
+    fun onHomeClicked() {
+        goToHome.value = true
+    }
+
+    fun setFirstTime() {
         isFirstTime.set(true)
         clubLogo.set(dataManager.getClubLogo())
     }
 
 
-
     //for redeem ViewModel
-    fun setGiftsCards(redeemModel: DashBoardModel.Data){
+    fun setGiftsCards(redeemModel: DashBoardModel.Data) {
         //dataModel = redeemModel
         dashBoardModel.set(redeemModel)
     }
 
-  /*  fun setDataModels(dataModels: DashBoardModel.Data){
+    /*  fun setDataModels(dataModels: DashBoardModel.Data){
         dataModel = dataModels
         dashBoardModel.set(dataModel)
     }
@@ -79,47 +86,45 @@ class MainViewModel constructor(
     }*/
 
 
-
-    fun setXYvalue(xvalue:Int,yvalue:Int){
+    fun setXYvalue(xvalue: Int, yvalue: Int) {
         x = xvalue
         y = yvalue
     }
-    fun getXvalue():Int = x
 
-    fun getYvalue():Int = y
+    fun getXvalue(): Int = x
 
-    //edit price in dialog and enable the edit text if other is clicked
-    fun setPriceForEdit(value:String){
+    fun getYvalue(): Int = y
 
-        //if other is selected
-        if(value.equals("1000")){
-            editable.set(true)
-            price.set("\$ Other")
-        }else{
-            editable.set(false)
-            price.set("\$ $value")
+        //edit price in dialog and enable the edit text if other is clicked
+        fun setPriceForEdit(value: String) {
+
+            //if other is selected
+            if (value.equals("1000")) {
+                editable.set(true)
+                price.set("\$ Other")
+            } else {
+                editable.set(false)
+                price.set("\$ $value")
+            }
         }
-    }
 
-    //on add click
-    fun onAddClicked(){
+        //on add click
+        fun onAddClicked() {
 
-    }
+        }
 
-    //on minus click
-    fun onMinusClicked(){
-
-
-    }
+        //on minus click
+        fun onMinusClicked() {
 
 
-    fun setGiftsCardCount(count:Int){
-        giftsCardCount.set(count)
-    }
+        }
 
-    fun setGiftsRequestModel(requestModel: DashBoardModel.GiftsCardRequestModel){
 
-    }
+        fun setGiftsCardCount(count: Int) {
+            giftsCardCount.set(count)
+        }
+
+        fun setGiftsRequestModel(requestModel: DashBoardModel.GiftsCardRequestModel) {}
 
 
 }

@@ -71,6 +71,8 @@
     <string name="print_now">Print Now</string>
     <string name="email_details">Email details</string>
     <string name="update_email">Update Email</string>
+    <string name="inactive_msg">You seems inactive. Your session will expire soon</string>
+    <string name="your_email">Your Email: </string>
     >>>>>>> origin/dev
 
 

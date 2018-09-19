@@ -18,25 +18,25 @@ import kotlinx.android.synthetic.main.fragment_redeem.view.*
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 
-class RedeemFragment:BaseFragment<FragmentRedeemBinding>() {
+class RedeemFragment : BaseFragment<FragmentRedeemBinding>() {
 
 
     private val redeemViewModel: MainViewModel by sharedViewModel()
 
     private var redeemValueDialog: RedeemValueDialog? = null
 
-    private val getDashBoardModel: DashBoardModel.ResponseModel by lazy{
-        arguments!!.getParcelable(DashBoardFragment.DASHBOARDMODEL) as DashBoardModel.ResponseModel
+    private val userData: DashBoardModel.Data by lazy {
+        arguments!!.getParcelable(DashBoardFragment.DASHBOARDMODEL) as DashBoardModel.Data
     }
 
     lateinit var iFragmentListener: IFragmentListener
 
     companion object {
         const val TAG: String = "RedeemFragment"
-        fun newInstance(dashBoardModel: DashBoardModel.ResponseModel):RedeemFragment{
-            val redeemFragment= RedeemFragment()
+        fun newInstance(dashBoardModel: DashBoardModel.Data): RedeemFragment {
+            val redeemFragment = RedeemFragment()
             val bundle = Bundle()
-            bundle.putParcelable(DashBoardFragment.DASHBOARDMODEL,dashBoardModel)
+            bundle.putParcelable(DashBoardFragment.DASHBOARDMODEL, dashBoardModel)
             redeemFragment.arguments = bundle
             return redeemFragment
         }
@@ -54,7 +54,7 @@ class RedeemFragment:BaseFragment<FragmentRedeemBinding>() {
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
-        if(context is IFragmentListener){
+        if (context is IFragmentListener) {
             iFragmentListener = context
         }
     }
@@ -62,7 +62,7 @@ class RedeemFragment:BaseFragment<FragmentRedeemBinding>() {
     override fun initBinder() {
 
         dataBinding.viewModel = redeemViewModel.apply {
-            setGiftsCards(getDashBoardModel.data)
+            setGiftsCards(userData)
 
             checkOutEvent.observe(this@RedeemFragment, Observer {
                 iFragmentListener.openReview()
@@ -80,10 +80,10 @@ class RedeemFragment:BaseFragment<FragmentRedeemBinding>() {
                 adapter = adapters
             }
 
-            adapters.setOnItemClickListener(object: RedeemAdapter.OnItemClickListener{
+            adapters.setOnItemClickListener(object : RedeemAdapter.OnItemClickListener {
                 override fun onClick(view: View, data: RedeemModel.AdapterModel) {
-                    var x : Int = 0
-                    var y : Int = 0
+                    var x: Int = 0
+                    var y: Int = 0
                     val firstVisibleItem: Int = layoutManager.findFirstCompletelyVisibleItemPosition()
                     val lastVisibleItem: Int = layoutManager.findLastCompletelyVisibleItemPosition()
 
@@ -92,16 +92,16 @@ class RedeemFragment:BaseFragment<FragmentRedeemBinding>() {
                     activity?.windowManager?.defaultDisplay?.getMetrics(displayMetrics)
                     val width = displayMetrics.widthPixels
 
-                    y=rvGiftsCards.y.toInt()
+                    y = rvGiftsCards.y.toInt()
 
-                    if((data.position<firstVisibleItem)){ //if first visible item is not completely seen, show dialog from the x=0
-                        x=0
-                    } else if((data.position>lastVisibleItem)){ //if final visible item is not completely seen, keep the end of dialog to x=width of screen
-                        x=width-convertDpToPixel(resources.getDimension(R.dimen.dialog_width).toInt()).toInt()
-                    }else{//else original value of x
-                        x=view.x.toInt()
+                    if ((data.position < firstVisibleItem)) { //if first visible item is not completely seen, show dialog from the x=0
+                        x = 0
+                    } else if ((data.position > lastVisibleItem)) { //if final visible item is not completely seen, keep the end of dialog to x=width of screen
+                        x = width - convertDpToPixel(resources.getDimension(R.dimen.dialog_width).toInt()).toInt()
+                    } else {//else original value of x
+                        x = view.x.toInt()
                     }
-                    redeemViewModel.setXYvalue(x,y)
+                    redeemViewModel.setXYvalue(x, y)
 
                     //for smooth scrolling of partially visible item
                     smoothScrollToPosition(data.position)

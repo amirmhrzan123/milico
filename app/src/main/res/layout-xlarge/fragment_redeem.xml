@@ -107,7 +107,7 @@
             android:layout_height="0dp"
             android:layout_marginBottom="30dp"
             android:layout_marginTop="30dp"
-            android:background="@drawable/button_state"
+            android:background="@drawable/bg_green_button"
             android:drawableEnd="@drawable/ic_shopping_cart"
             android:drawablePadding="10dp"
             android:gravity="start|center_vertical"

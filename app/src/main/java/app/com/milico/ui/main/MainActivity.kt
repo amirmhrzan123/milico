@@ -14,6 +14,7 @@ import app.com.milico.ui.dashboard.DashBoardFragment
 import app.com.milico.ui.dashboard.DashBoardModel
 import app.com.milico.ui.homeScreen.HomeScreenFragment
 import app.com.milico.ui.pin.EnterPinFragment
+import app.com.milico.ui.popUpView.ForgetPopUpFragment
 import app.com.milico.ui.popUpView.InfoPopUpFragment
 import app.com.milico.ui.redeemList.RedeemFragment
 import app.com.milico.ui.review.ReviewFragment
@@ -21,7 +22,6 @@ import app.com.milico.ui.updateEmail.UpdateEmailFragment
 import app.com.milico.util.extensions.addFragmentToActivity
 import app.com.milico.util.extensions.replaceFragmentInActivity
 import org.jetbrains.anko.startActivity
-import org.jetbrains.anko.toast
 import org.koin.android.ext.android.inject
 
 
@@ -34,12 +34,16 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IFragmentListener {
         addFragmentToActivity(ReviewFragment.getInstance(), R.id.fl_container, RedeemFragment.TAG)
     }
 
-    private val DISCONNECT_TIMEOUT: Long = 200000 // 20 second
+    private val WARNING_TIMEOUT: Long = 20000 // 20 second
+    private val DISCONNECT_TIMEOUT: Long = 30000 // 20 second
+
+    private val forgetPopUpFragment by lazy {
+        ForgetPopUpFragment.newInstance(resources.getString(R.string.inactive_msg))
+    }
 
     private val mainViewModel: MainViewModel by inject()
 
     private var infoPopUpFragment: InfoPopUpFragment? = null
-
 
     companion object {
         fun start(context: Context) {
@@ -55,12 +59,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IFragmentListener {
         replaceFragmentInActivity(EnterPinFragment.newInstance(), R.id.fl_container, EnterPinFragment.TAG)
     }
 
-    override fun openDashBoard(dashboardModel: DashBoardModel.ResponseModel) {
+    override fun openDashBoard(dashboardModel: DashBoardModel.Data) {
         replaceFragmentInActivity(DashBoardFragment.newInstance(dashboardModel), R.id.fl_container, DashBoardFragment.TAG)
     }
 
-    override fun openRedeemPage(dashboardModel: DashBoardModel.ResponseModel) {
-        addFragmentToActivity(RedeemFragment.newInstance(dashboardModel),R.id.fl_container,RedeemFragment.TAG)
+    override fun openRedeemPage(dashboardModel: DashBoardModel.Data) {
+        addFragmentToActivity(RedeemFragment.newInstance(dashboardModel), R.id.fl_container, RedeemFragment.TAG)
     }
 
     //show toolbar if the device has been registered to club only
@@ -76,6 +80,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IFragmentListener {
                 it?.let {
                     Log.d("string", it)
                     openPopUpInfo(it)
+                }
+            })
+
+            goToHome.observe(this@MainActivity, Observer {
+                mainViewModel.dashBoardModel.get()?.let {
+                    openDashBoard(it)
                 }
             })
         }
@@ -133,18 +143,28 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IFragmentListener {
     }
 
     private val disconnectHandler = Handler(Handler.Callback {
-        // todo
+        true
+    })
+
+    private val warningHandler = Handler(Handler.Callback {
         true
     })
 
     private val disconnectCallback = Runnable {
-        toast("User inactive")
         openHomeScreen()
+        forgetPopUpFragment?.dismiss()
+    }
+
+    private val warningCallback = Runnable {
+        //        openPopUpInfo(resources.getString(R.string.inactive_msg))
+        forgetPopUpFragment.show(fragmentManager, "")
     }
 
     private fun resetDisconnectTimer() {
         disconnectHandler.removeCallbacks(disconnectCallback)
+        warningHandler.removeCallbacks(warningCallback)
         disconnectHandler.postDelayed(disconnectCallback, DISCONNECT_TIMEOUT)
+        warningHandler.postDelayed(warningCallback, WARNING_TIMEOUT)
     }
 
     override fun onUserInteraction() {
@@ -163,6 +183,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IFragmentListener {
 
     private fun stopDisconnectTimer() {
         disconnectHandler.removeCallbacks(disconnectCallback)
+        warningHandler.removeCallbacks(warningCallback)
     }
 
 }
