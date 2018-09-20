@@ -1,6 +1,7 @@
 package app.com.milico.ui.editQuantityDialog
 
 import android.app.Dialog
+import android.arch.lifecycle.Observer
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -27,9 +28,7 @@ class EditQuantityDialog:BaseDialogFragment<LayoutEditQuantityBinding>() {
 
     val HEIGHT_FACTOR = 0.5
 
-    private val getPrice: String by lazy{
-        arguments!!.getString(PRICE,"")
-    }
+
 
     private val getXValue: Int by lazy {
         arguments!!.getInt(RedeemValueDialog.XVALUE)
@@ -37,6 +36,10 @@ class EditQuantityDialog:BaseDialogFragment<LayoutEditQuantityBinding>() {
 
     private val getYValue:Int by lazy{
         arguments!!.getInt(RedeemValueDialog.YVALUE)
+    }
+
+    private val getPrice : String by lazy{
+        arguments!!.getString(PRICE)
     }
 
     companion object {
@@ -76,10 +79,15 @@ class EditQuantityDialog:BaseDialogFragment<LayoutEditQuantityBinding>() {
 
     override fun initBinder() {
         dataBinding.viewModel = mainViewModel.apply {
-            setPriceForEdit(getPrice)
+
         }
 
         dataBinding.editViewModel = editViewModels.apply {
+            priceField.set(getPrice)
+            confirmClickEvent.observe(this@EditQuantityDialog, Observer {
+                mainViewModel.onConfirmClicked(it!!)
+                dismiss()
+            })
 
         }
 

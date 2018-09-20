@@ -21,7 +21,7 @@
             android:layout_height="60dp"
             android:weightSum="10"
             app:quantity="@{model.quantity}"
-            app:redeemValue="@{model.redeemPoint}"
+            app:redeemValue="@{model.redeemPrice}"
             android:orientation="horizontal"
             android:background="@color/background">
             <TextView

@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.View
 import app.com.milico.R
 import app.com.milico.base.BaseFragment
@@ -15,6 +16,7 @@ import app.com.milico.ui.main.IFragmentListener
 import app.com.milico.ui.main.MainViewModel
 import app.com.milico.ui.redeemValuePopUp.RedeemValueDialog
 import app.com.milico.util.extensions.convertDpToPixel
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_redeem.view.*
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
@@ -22,9 +24,11 @@ import org.koin.android.viewmodel.ext.android.sharedViewModel
 class RedeemFragment : BaseFragment<FragmentRedeemBinding>() {
 
 
-    private val redeemViewModel: MainViewModel by sharedViewModel()
+    private val mainViewModel: MainViewModel by sharedViewModel()
 
     private var redeemValueDialog: RedeemValueDialog? = null
+
+    private val gson = Gson()
 
     private val userData: DashBoardModel.Data by lazy {
         arguments!!.getParcelable(DashBoardFragment.DASHBOARDMODEL) as DashBoardModel.Data
@@ -61,11 +65,13 @@ class RedeemFragment : BaseFragment<FragmentRedeemBinding>() {
 
     override fun initBinder() {
 
-        dataBinding.viewModel = redeemViewModel.apply {
+        dataBinding.viewModel = mainViewModel.apply {
 
             checkOutEvent.observe(this@RedeemFragment, Observer {
                 iFragmentListener.openReview()
             })
+
+
         }
 
         dataBinding.rvGiftsCards.apply {
@@ -79,6 +85,8 @@ class RedeemFragment : BaseFragment<FragmentRedeemBinding>() {
                 adapter = adapters
             }
 
+
+
             adapters.setOnItemClickListener(object : RedeemAdapter.OnItemClickListener {
                 override fun onClick(view: View, data: RedeemModel.AdapterModel) {
                     var x: Int = 0
@@ -90,7 +98,7 @@ class RedeemFragment : BaseFragment<FragmentRedeemBinding>() {
                     val displayMetrics = DisplayMetrics()
                     activity?.windowManager?.defaultDisplay?.getMetrics(displayMetrics)
                     val width = displayMetrics.widthPixels
-
+                    mainViewModel.position = data.position
                     y = rvGiftsCards.y.toInt()
 
                     if ((data.position < firstVisibleItem)) { //if first visible item is not completely seen, show dialog from the x=0
@@ -101,11 +109,29 @@ class RedeemFragment : BaseFragment<FragmentRedeemBinding>() {
                         x = view.x.toInt()
                     }
 
+                    dataBinding.viewModel = mainViewModel.apply {
+
+                        confirmClickEvent.observe(this@RedeemFragment, Observer {
+                            dataModel.apply {
+                                Log.d("dataposition",data.position.toString())
+                                Log.d("quantity",it!!.quantity.toString())
+                                giftCardInfo!![position].quantity= it!!.quantity
+                                giftCardInfo[position].redeemPrice = it.price
+                                Log.d("datamodel",gson.toJson(dataModel))
+                                adapters.notifyDataSetChanged()
+                            }
+
+                        })
+
+                    }
+
                     //for smooth scrolling of partially visible item
                     smoothScrollToPosition(data.position)
 
                     redeemValueDialog = RedeemValueDialog.newInstance(x,y)
                     redeemValueDialog!!.show(fragmentManager, RedeemValueDialog.TAG)
+
+
 
 
                 }

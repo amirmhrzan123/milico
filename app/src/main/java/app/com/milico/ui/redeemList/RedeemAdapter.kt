@@ -56,9 +56,9 @@ class RedeemAdapter constructor(
         }
     }
 
-    fun editLoyaltyGiftsCards(position: Int, quantity: Int, value: Float){
+    fun editLoyaltyGiftsCards(position: Int, quantity: Int, value: Double){
         giftcardsList[position].quantity = quantity
-        giftcardsList[position].redeemPoint = value
+        giftcardsList[position].redeemPrice = value
         notifyDataSetChanged()
 
     }

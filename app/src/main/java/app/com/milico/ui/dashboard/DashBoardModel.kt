@@ -32,7 +32,7 @@ class DashBoardModel {
             @SerializedName("ProductDescription") val productDescription: String,
             @SerializedName("ProductThumbnailUrl") val productThumbnailUrl: String,
             var quantity: Int = 0,
-            var redeemPoint: Float = 0f,
+            var redeemPrice: Double,
             val confirm:Boolean = false
     ) : Parcelable
 

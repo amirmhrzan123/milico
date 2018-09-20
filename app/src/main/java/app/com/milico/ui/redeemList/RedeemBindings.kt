@@ -33,12 +33,12 @@ object RedeemBindings{
 
     @BindingAdapter("quantity","redeemValue")
     @JvmStatic
-    fun showHideLinearLayout(linearLayout: LinearLayout,quantity:Int,redeemValue:Float){
+    fun showHideLinearLayout(linearLayout: LinearLayout,quantity:Int,redeemValue:Double){
         with(linearLayout){
-            if(quantity == 0 && redeemValue==0f){
-                visibility = View.INVISIBLE
+            visibility = if(quantity == 0 && redeemValue==0.0){
+                View.INVISIBLE
             }else{
-                visibility = View.VISIBLE
+                View.VISIBLE
             }
         }
     }
